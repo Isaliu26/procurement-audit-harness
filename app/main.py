@@ -91,6 +91,7 @@ def status():
             stages.append({**s, "state": state})
         out["sources"][src] = {"available": (d / "risk-register.md").is_file(), "stages": stages}
     out["live_runs_enabled"] = bool(guard.API_KEY and guard.ACCESS_CODE)
+    out["isolation"] = "env-scrub" if rn.isolation["scrub"] else "hook-only"
     out["busy"] = rn.runner.busy()
     out["job"] = rn.runner.current.public() if rn.runner.current else None
     out["spent_usd"] = round(rn.runner.ledger.spent(), 3)

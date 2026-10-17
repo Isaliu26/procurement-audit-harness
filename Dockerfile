@@ -2,8 +2,10 @@
 FROM python:3.12-slim
 
 # poppler-utils: pdftotext/pdfinfo used by the skills. jq: used by the agents to inspect JSON.
+# bubblewrap: the Claude CLI needs it for CLAUDE_CODE_SUBPROCESS_ENV_SCRUB (it may still fail inside
+# Render's container; runner.py then retries once with the scrub off).
 RUN apt-get update \
- && apt-get install -y --no-install-recommends poppler-utils jq \
+ && apt-get install -y --no-install-recommends poppler-utils jq bubblewrap \
  && rm -rf /var/lib/apt/lists/*
 
 # The skills and agents call ".venv/bin/python", so the dependencies live in /app/.venv.

@@ -52,10 +52,11 @@ function showJob(job) {
   es = new EventSource("/api/jobs/current/stream");
   es.onmessage = (m) => {
     const e = JSON.parse(m.data);
-    const tag = { text: "agent", tool: "tool ", status: "info ", error: "ERROR" }[e.kind] || e.kind;
+    const tag = { text: "agent", tool: "tool ", status: "info ", error: "ERROR", stderr: "cli  ", notice: "NOTE " }[e.kind] || e.kind;
+    if (e.kind === "notice" && !box.querySelector(".note")) box.insertBefore(el("div", { class: "note" }, e.text), log);
     log.append(document.createTextNode(`[${String(e.t).padStart(5)}s] ${tag} ${e.text}\n`));
     log.scrollTop = log.scrollHeight;
-    status.textContent = "Running… " + e.text.slice(0, 90);
+    if (e.kind !== "stderr") status.textContent = "Running… " + e.text.slice(0, 90);
   };
   es.addEventListener("end", async (m) => {
     es.close(); es = null;
@@ -80,9 +81,10 @@ function renderNav() {
   $("#src-committed").className = state.source === "committed" ? "on" : "";
   $("#src-live").className = state.source === "live" ? "on" : "";
   $("#src-live").disabled = !state.status.sources.live.available;
-  $("#banner").textContent = state.source === "committed"
+  $("#banner").textContent = (state.source === "committed"
     ? "Viewing the committed run shipped with the project. Browsing makes no model call."
-    : "Viewing the last live run since the server started (lost on restart).";
+    : "Viewing the last live run since the server started (lost on restart).") +
+    (state.status.isolation === "hook-only" ? " Note: on this server the agent's subprocess isolation (bubblewrap) is unavailable, so live runs rely on the guard hook alone to keep the API key out of reach." : "");
 }
 
 /* ---------- stage panels ---------- */

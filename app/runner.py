@@ -6,13 +6,16 @@ seeded from the project (CLAUDE.md, .claude, scripts, outputs) with data/ and
 """
 import asyncio
 import json
+import logging
 import os
+import re
 import shutil
 import time
 from pathlib import Path
 
 from . import guard
 
+log = logging.getLogger("harness")
 ROOT = guard.ROOT
 LIVE = guard.LIVE
 WORK = LIVE / "work"
@@ -41,6 +44,16 @@ PROMPTS = {
 _DOWNSTREAM_OF_3 = ["risk-register.md", "risk-ratings.json", "auditor-comments.md", ".register-state.json",
                     "audit-plan.json", "planning-memo.md", "risk-control-matrix.md", "audit-program.md",
                     "challenges.md", "review.md", "pack-figures.json"]
+
+
+# bubblewrap/namespace failures from the CLI's subprocess isolation (CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1)
+SANDBOX_ERR = re.compile(r"bubblewrap|bwrap|namespace|unshare|CLONE_NEW|operation not permitted", re.I)
+# Once the scrub has failed in this process, later jobs start with it off (guard hook only).
+isolation = {"scrub": True}
+
+
+def sandbox_error(text: str) -> bool:
+    return bool(SANDBOX_ERR.search(text or ""))
 
 
 # ---------- working copy ----------
@@ -82,6 +95,8 @@ class Job:
         self.events: list[dict] = []
         self.cost = 0.0
         self.error: str | None = None
+        self.stderr_lines: list[str] = []
+        self.responded = False
         self.started = time.time()
         self.changed = asyncio.Condition()
 
@@ -94,7 +109,8 @@ class Job:
 
     def public(self) -> dict:
         return {"id": self.id, "stage": self.stage, "label": self.label, "status": self.status,
-                "cost_usd": round(self.cost, 4), "error": self.error, "events": len(self.events)}
+                "cost_usd": round(self.cost, 4), "error": self.error, "events": len(self.events),
+                "isolation": "env-scrub" if isolation["scrub"] else "hook-only"}
 
 
 class Runner:
@@ -139,12 +155,42 @@ class Runner:
         await job.emit("error", msg)
 
     async def _agent(self, job: Job, work: Path, cfg: dict):
+        """Run the agent; if the CLI cannot start its bubblewrap isolation, retry once without it."""
+        try:
+            await self._attempt(job, work, cfg, scrub=isolation["scrub"])
+        except Exception as e:  # noqa: BLE001
+            await asyncio.sleep(0.5)  # let the stderr reader deliver its last lines
+            if isolation["scrub"] and sandbox_error("\n".join(job.stderr_lines) + "\n" + str(e)) and not job.responded:
+                isolation["scrub"] = False
+                log.warning("bubblewrap/namespace failure; retrying once with CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=0")
+                await job.emit("notice", "The CLI could not start its subprocess isolation (bubblewrap) on this server. "
+                                         "Retrying once with isolation off: the API key is then protected only by the "
+                                         "guard hook that blocks commands touching the environment.")
+                job.stderr_lines.clear()
+                await self._attempt(job, work, cfg, scrub=False)
+            else:
+                raise
+
+    async def _attempt(self, job: Job, work: Path, cfg: dict, scrub: bool):
         from claude_agent_sdk import (AssistantMessage, ResultMessage, TextBlock, ToolResultBlock,
                                       ToolUseBlock, UserMessage, query)
-        opts = build_options(work, cfg)
+        loop = asyncio.get_running_loop()
+
+        def on_stderr(line: str):
+            line = guard.redact(line.rstrip())[:400]
+            if not line:
+                return
+            log.info("cli stderr: %s", line)
+            if len(job.stderr_lines) < 200:
+                job.stderr_lines.append(line)
+                loop.call_soon_threadsafe(lambda: asyncio.ensure_future(job.emit("stderr", line)))
+
+        opts = build_options(work, cfg, scrub=scrub, stderr=on_stderr)
+        job.responded = False
         try:
             async for m in query(prompt=PROMPTS[job.stage], options=opts):
                 if isinstance(m, AssistantMessage):
+                    job.responded = True
                     for b in m.content:
                         if isinstance(b, TextBlock) and b.text.strip():
                             await job.emit("text", b.text.strip())
@@ -157,18 +203,21 @@ class Runner:
                         if isinstance(b, ToolResultBlock) and b.is_error:
                             await job.emit("tool", "tool error: " + str(b.content)[:300])
                 elif isinstance(m, ResultMessage):
+                    job.responded = True
                     job.cost = float(m.total_cost_usd or 0)
                     self.ledger.add(job.cost)
                     await job.emit("status", f"Cost of this run: ${job.cost:.3f} · turns: {m.num_turns}")
                     if m.is_error:
                         raise RuntimeError(f"{m.subtype}: {m.result or ''}")
         except Exception:
-            if not job.cost:  # run died before reporting a cost: assume the cap was used
+            # Charge the cap only if the model had started work but no cost was reported.
+            # A run that died before any model response (e.g. the CLI failed to start) costs nothing.
+            if job.responded and not job.cost:
                 self.ledger.add(cfg["usd"])
             raise
 
 
-def build_options(work: Path, cfg: dict):
+def build_options(work: Path, cfg: dict, scrub: bool = True, stderr=None):
     from claude_agent_sdk import ClaudeAgentOptions, HookMatcher
     cfgdir = LIVE / "cc-config"
     cfgdir.mkdir(parents=True, exist_ok=True)
@@ -181,7 +230,8 @@ def build_options(work: Path, cfg: dict):
         hooks={"PreToolUse": [HookMatcher(matcher="Bash|Read|Write|Edit|Glob|Grep",
                                           hooks=[guard.make_pretool_hook(work)])]},
         env={"ANTHROPIC_API_KEY": guard.API_KEY, "CLAUDE_CONFIG_DIR": str(cfgdir),
-             "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB": "1"},
+             "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB": "1" if scrub else "0"},
+        stderr=stderr,
     )
 
 
@@ -208,6 +258,8 @@ def friendly_error(e: Exception) -> str:
         return "The model service is rate-limited or busy. Wait a minute and try again."
     if "authentication" in s or "invalid x-api-key" in s or "401" in s:
         return "The server's API key was rejected. The owner needs to check the key."
+    if sandbox_error(s):
+        return "The agent could not start its sandbox on this server, even after retrying without it. See the log above."
     if "killed" in s or "-9" in s or "memory" in s:
         return "The agent process was killed, probably out of memory on this small server."
     return "The run failed: " + guard.redact(str(e))[:300]

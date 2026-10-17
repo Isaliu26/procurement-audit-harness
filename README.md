@@ -446,11 +446,22 @@ in this repository.
   to the agent process; it is never sent to the browser or logged, and any `sk-ant-...`
   string is redacted from streamed output. The SDK's agent process runs with its own
   config folder, so it cannot touch another Claude login on the machine.
-- **Agent sandboxing is mitigation, not a guarantee.** The agents have a shell. A hook
-  denies commands that touch the environment, network or paths outside the run folder, and
-  the Claude Code subprocess scrub setting is on to keep credentials out of shell
-  commands. I did not independently prove the scrub hides the key; the access code is what
-  really limits who can run an agent.
+- **Agent sandboxing is mitigation, not a guarantee.** The agents have a shell. Two layers
+  keep the API key away from it: (1) the Claude CLI's subprocess isolation
+  (`CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1`), which strips credentials from shell commands and
+  needs `bubblewrap` (installed in the image); (2) a `PreToolUse` guard hook that denies
+  commands touching the environment, the network, `.env` or paths outside the run folder.
+  I did not independently prove that layer (1) hides the key.
+- **Fallback if bubblewrap cannot run on the host.** Render's container may not allow the
+  namespaces bubblewrap needs, and the CLI then exits at start-up. If a run fails *before any
+  model response* with a bubblewrap/namespace error, the server retries once with
+  `CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=0`, remembers that for later runs, and says so on the
+  page (a note in the job log and the banner). In that mode **only the guard hook stands
+  between an agent's shell and the API key**. That is weaker, and the access code is what
+  really limits who can start an agent. A run that fails before any model response is
+  recorded as costing $0 in the ledger.
+- **Error visibility.** The CLI's stderr (redacted) is streamed into the job log and the
+  server log, so start-up failures are visible instead of a bare "exit code 1".
 - **Wrong access codes** are rate-limited (5 per 10 minutes per client).
 
 ## Agent teams: what happened
@@ -482,9 +493,10 @@ ephemeral disk.
   Each run has a wall-clock limit of 15 minutes.
 - **If live runs fail on the free tier**, the committed view is still complete. Moving the
   service to a paid instance (at least 1 GB) is the fix for memory and speed.
-- **The Docker image was not built or run on my machine** (Docker is not installed there).
-  The first build happens on Render. The image holds the Agent SDK's bundled agent
-  binary (about 240 MB), so it is large for a free service.
+- **The Docker image was never built on my machine** (Docker is not installed there); it was
+  first built on Render. That first deploy exposed the bubblewrap requirement above, which
+  does not occur on macOS. The image holds the Agent SDK's bundled agent binary (about
+  240 MB), so it is large for a free service.
 
 Other limits: a live stage 3 rebuild produces a *different* register from the committed one
 (the committed run rated 8 risks over a longer process; a fresh rebuild produced 6); the
