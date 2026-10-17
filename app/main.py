@@ -6,6 +6,7 @@ shipped with the project; `live` is live/outputs/, filled only by live runs
 """
 import asyncio
 import json
+from contextlib import asynccontextmanager
 from collections import Counter
 from pathlib import Path
 
@@ -42,7 +43,13 @@ STAGES = [
     {"n": 6, "key": "signoff", "title": "Sign-off", "agent": "human (form)", "needs": ["review"]},
 ]
 
-app = FastAPI(title="Procurement audit harness", docs_url=None, redoc_url=None)
+@asynccontextmanager
+async def lifespan(_app):
+    rn.apply_probe()  # decides at start-up whether the CLI's isolation can work on this host
+    yield
+
+
+app = FastAPI(title="Procurement audit harness", docs_url=None, redoc_url=None, lifespan=lifespan)
 
 
 def _dir(source: str) -> Path:
@@ -92,6 +99,7 @@ def status():
         out["sources"][src] = {"available": (d / "risk-register.md").is_file(), "stages": stages}
     out["live_runs_enabled"] = bool(guard.API_KEY and guard.ACCESS_CODE)
     out["isolation"] = "env-scrub" if rn.isolation["scrub"] else "hook-only"
+    out["isolation_probe"] = rn.isolation["probe"]
     out["busy"] = rn.runner.busy()
     out["job"] = rn.runner.current.public() if rn.runner.current else None
     out["spent_usd"] = round(rn.runner.ledger.spent(), 3)

@@ -5,11 +5,14 @@ seeded from the project (CLAUDE.md, .claude, scripts, outputs) with data/ and
 .venv linked in, so the SDK loads the same skills and agents as Claude Code does.
 """
 import asyncio
+import contextlib
 import json
 import logging
 import os
 import re
 import shutil
+import subprocess
+import sys
 import time
 from pathlib import Path
 
@@ -38,6 +41,8 @@ PROMPTS = {
         "build_register.py until there are no drops or warnings. The previous register may already be a revision: "
         "replace its revision block with one for the new round that lists only THIS round's changes, and do not "
         "list a REJECT for a risk that is already removed (its Rating reads 'removed'); that was applied earlier. "
+        "An OVERRIDE needs no entry in revision.changes (the builder applies it), so a round whose only new "
+        "decisions are OVERRIDEs uses an empty changes list; the round is the register's current version plus one. "
         "Then report under 200 words."),
 }
 
@@ -46,14 +51,44 @@ _DOWNSTREAM_OF_3 = ["risk-register.md", "risk-ratings.json", "auditor-comments.m
                     "challenges.md", "review.md", "pack-figures.json"]
 
 
-# bubblewrap/namespace failures from the CLI's subprocess isolation (CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1)
-SANDBOX_ERR = re.compile(r"bubblewrap|bwrap|namespace|unshare|CLONE_NEW|operation not permitted", re.I)
-# Once the scrub has failed in this process, later jobs start with it off (guard hook only).
-isolation = {"scrub": True}
+# Failures of the CLI's subprocess isolation (CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1): bubblewrap, socat, namespaces.
+SANDBOX_ERR = re.compile(r"bubblewrap|bwrap|namespace|unshare|CLONE_NEW|socat|sandbox", re.I)
+# Scrub on = the CLI isolates and scrubs agent shell commands. Off = only the guard hook protects the key.
+isolation = {"scrub": True, "probe": "not run"}
+# Estimated charge for an attempt we abort on a sandbox tool error (no cost is reported for it).
+ABORT_CHARGE_USD = 0.05
+
+
+class SandboxToolError(RuntimeError):
+    """A tool call failed because the CLI's sandbox could not initialise."""
 
 
 def sandbox_error(text: str) -> bool:
     return bool(SANDBOX_ERR.search(text or ""))
+
+
+def probe_sandbox() -> dict:
+    """Does the CLI's isolation work here? Linux needs bwrap (able to make namespaces) and socat."""
+    if not sys.platform.startswith("linux"):
+        return {"ok": True, "detail": f"{sys.platform}: the CLI uses its own isolation; probe skipped"}
+    missing = [t for t in ("bwrap", "socat") if not shutil.which(t)]
+    if missing:
+        return {"ok": False, "detail": "not installed: " + ", ".join(missing)}
+    try:
+        r = subprocess.run(["bwrap", "--ro-bind", "/", "/", "true"], capture_output=True, text=True, timeout=5)
+    except Exception as e:  # noqa: BLE001
+        return {"ok": False, "detail": f"bwrap probe error: {type(e).__name__}: {e}"[:200]}
+    if r.returncode != 0:
+        return {"ok": False, "detail": f"bwrap exited {r.returncode}: {guard.redact(r.stderr.strip())}"[:200]}
+    return {"ok": True, "detail": "bwrap and socat available; bwrap created its sandbox"}
+
+
+def apply_probe() -> dict:
+    res = probe_sandbox()
+    isolation["scrub"] = res["ok"]
+    isolation["probe"] = ("ok: " if res["ok"] else "FAILED, isolation off: ") + res["detail"]
+    log.warning("sandbox probe: %s", isolation["probe"])
+    return res
 
 
 # ---------- working copy ----------
@@ -84,6 +119,22 @@ def get_state() -> dict:
 def set_state(**kw):
     LIVE.mkdir(parents=True, exist_ok=True)
     STATE.write_text(json.dumps({**get_state(), **kw}))
+
+
+_SNAP = ["risk-ratings.json", "risk-register.md", "auditor-comments.md", ".register-state.json"]
+
+
+def snapshot(work: Path) -> dict:
+    return {n: ((work / "outputs" / n).read_bytes() if (work / "outputs" / n).is_file() else None) for n in _SNAP}
+
+
+def restore(work: Path, snap: dict):
+    for n, data in snap.items():
+        f = work / "outputs" / n
+        if data is None:
+            f.unlink(missing_ok=True)
+        else:
+            f.write_bytes(data)
 
 
 # ---------- job ----------
@@ -155,17 +206,21 @@ class Runner:
         await job.emit("error", msg)
 
     async def _agent(self, job: Job, work: Path, cfg: dict):
-        """Run the agent; if the CLI cannot start its bubblewrap isolation, retry once without it."""
+        """Run the agent; if the CLI's sandbox is unusable, retry once with the scrub off."""
+        snap = snapshot(work)
         try:
             await self._attempt(job, work, cfg, scrub=isolation["scrub"])
         except Exception as e:  # noqa: BLE001
             await asyncio.sleep(0.5)  # let the stderr reader deliver its last lines
-            if isolation["scrub"] and sandbox_error("\n".join(job.stderr_lines) + "\n" + str(e)) and not job.responded:
+            start_failure = not job.responded and sandbox_error("\n".join(job.stderr_lines) + "\n" + str(e))
+            if isolation["scrub"] and (isinstance(e, SandboxToolError) or start_failure):
                 isolation["scrub"] = False
-                log.warning("bubblewrap/namespace failure; retrying once with CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=0")
-                await job.emit("notice", "The CLI could not start its subprocess isolation (bubblewrap) on this server. "
+                isolation["probe"] = "FAILED at run time, isolation off: " + guard.redact(str(e))[:160]
+                log.warning("sandbox failure at run time; retrying once with CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=0: %s", guard.redact(str(e))[:200])
+                await job.emit("notice", "The CLI's sandbox (bubblewrap/socat) does not work on this server. "
                                          "Retrying once with isolation off: the API key is then protected only by the "
                                          "guard hook that blocks commands touching the environment.")
+                restore(work, snap)
                 job.stderr_lines.clear()
                 await self._attempt(job, work, cfg, scrub=False)
             else:
@@ -188,27 +243,34 @@ class Runner:
         opts = build_options(work, cfg, scrub=scrub, stderr=on_stderr)
         job.responded = False
         try:
-            async for m in query(prompt=PROMPTS[job.stage], options=opts):
-                if isinstance(m, AssistantMessage):
-                    job.responded = True
-                    for b in m.content:
-                        if isinstance(b, TextBlock) and b.text.strip():
-                            await job.emit("text", b.text.strip())
-                        elif isinstance(b, ToolUseBlock):
-                            inp = b.input or {}
-                            detail = inp.get("command") or inp.get("file_path") or inp.get("pattern") or ""
-                            await job.emit("tool", f"{b.name}: {str(detail)[:200]}")
-                elif isinstance(m, UserMessage) and isinstance(m.content, list):
-                    for b in m.content:
-                        if isinstance(b, ToolResultBlock) and b.is_error:
-                            await job.emit("tool", "tool error: " + str(b.content)[:300])
-                elif isinstance(m, ResultMessage):
-                    job.responded = True
-                    job.cost = float(m.total_cost_usd or 0)
-                    self.ledger.add(job.cost)
-                    await job.emit("status", f"Cost of this run: ${job.cost:.3f} · turns: {m.num_turns}")
-                    if m.is_error:
-                        raise RuntimeError(f"{m.subtype}: {m.result or ''}")
+            async with contextlib.aclosing(query(prompt=PROMPTS[job.stage], options=opts)) as stream:
+                async for m in stream:
+                    if isinstance(m, AssistantMessage):
+                        job.responded = True
+                        for b in m.content:
+                            if isinstance(b, TextBlock) and b.text.strip():
+                                await job.emit("text", b.text.strip())
+                            elif isinstance(b, ToolUseBlock):
+                                inp = b.input or {}
+                                detail = inp.get("command") or inp.get("file_path") or inp.get("pattern") or ""
+                                await job.emit("tool", f"{b.name}: {str(detail)[:200]}")
+                    elif isinstance(m, UserMessage) and isinstance(m.content, list):
+                        for b in m.content:
+                            if isinstance(b, ToolResultBlock) and b.is_error:
+                                text = str(b.content)
+                                await job.emit("tool", "tool error: " + text[:300])
+                                if scrub and sandbox_error(text):
+                                    raise SandboxToolError(text[:300])
+                    elif isinstance(m, ResultMessage):
+                        job.responded = True
+                        job.cost = float(m.total_cost_usd or 0)
+                        self.ledger.add(job.cost)
+                        await job.emit("status", f"Cost of this run: ${job.cost:.3f} · turns: {m.num_turns}")
+                        if m.is_error:
+                            raise RuntimeError(f"{m.subtype}: {m.result or ''}")
+        except SandboxToolError:
+            self.ledger.add(ABORT_CHARGE_USD)  # estimate: the aborted attempt reports no cost
+            raise
         except Exception:
             # Charge the cap only if the model had started work but no cost was reported.
             # A run that died before any model response (e.g. the CLI failed to start) costs nothing.
