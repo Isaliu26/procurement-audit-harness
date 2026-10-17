@@ -1,0 +1,3209 @@
+{
+ "generated_at": "2026-10-11T01:40:05+00:00",
+ "inputs": {
+  "rules": {
+   "file": "outputs/rules.json",
+   "sha256": "a19fb7385362f0518af5044af0e2a088da35fe1a9cf3396ddb6323ed3f92308c"
+  },
+  "spend_workbooks": [
+   {
+    "file": "data/spend/Over500_2026_P02_-_published.xlsx",
+    "sha256": "f611346f258825b84924310c2d42edce4a4aec3d3832054b340f4ac2125301a6",
+    "header_row": 1,
+    "rows_read": 2892,
+    "blank_rows_skipped": 378
+   },
+   {
+    "file": "data/spend/Over500_2026_P03_-_published.xlsx",
+    "sha256": "b7359a8e5cb9ea55bf3d47112f185167038b5ee64af8db9be02a7f5ea869ec76",
+    "header_row": 2,
+    "rows_read": 3547,
+    "blank_rows_skipped": 0
+   },
+   {
+    "file": "data/spend/Over500_2026_P04_-_published.xlsx",
+    "sha256": "e465900d00a8e20ac767d6218827a48c01ab6ad911e5051a34c18979b7da0612",
+    "header_row": 2,
+    "rows_read": 4168,
+    "blank_rows_skipped": 0
+   }
+  ],
+  "contracts": {
+   "file": "data/contracts.csv",
+   "sha256": "9d0a53c092a5274f44490b428f9ff400ac8cb889df962165720f8a1d0ed42648"
+  }
+ },
+ "window": {
+  "first_payment": "2026-05-01 09:47:59.643000",
+  "last_payment": "2026-07-31 17:53:34.623000",
+  "months": 3,
+  "annualising_factor": 4.0,
+  "label": "annualised estimate = supplier total in window x 12 / months"
+ },
+ "limitations": [
+  "Spend dates are payment-run timestamps, not invoice or transaction dates; the 30-day and 7-day windows are measured on payment-run dates.",
+  "Rows with supplier 'Redacted' cannot be tested by supplier; they are excluded and reported by Expenditure category and tag.",
+  "Only 3 months of data, so the x4 annualisation is an estimate (annualised estimate).",
+  "The Contracts Finder notice export holds only contracts above about 25,000 GBP; absence of a notice for a smaller supplier is expected and is never a finding.",
+  "Tags are a heuristic on published fields (Narrative, Expenditure category, Service, supplier text), not a classification of the underlying contract.",
+  "Supplier matching between spend and notices is by normalised name only; the spend data carries no Companies House number. Candidates are never counted as matches.",
+  "The spend data has no transaction id; identical rows are kept and treated as possible duplicates, never confirmed ones.",
+  "Redacted-supplier, pension/statutory, internal and other public-body rows are outside the supplier tests; public-body review list and exclusion pairs are provided for the auditor to confirm.",
+  "Boundary treatment follows the PDF wording as stored in rules.json: the 500,000 GBP boundary is exclusive on both sides (CPR-62 high, CPR-64 low), so a payment or total of exactly 500,000 does not reach that tier and is not flagged by the 500,000 tests.",
+  "The 1,000 GBP lower bound is stored as exclusive (CPR-59), so a total must exceed 1,000 to reach that tier; amounts of exactly 1,000 are not treated as reaching it.",
+  "Auditor decisions pending, nothing excluded: public_body_review.csv (101 names) and exclusion_pairs.csv (5 pairs) remain in the analysed population for the auditor to review."
+ ],
+ "parameters": {
+  "thresholds_used": {
+   "procurement_tiers": [
+    {
+     "value": 1000,
+     "rule_ids": [
+      "CPR-59"
+     ],
+     "reach_inclusive": false,
+     "inclusive_basis": "threshold_low_inclusive",
+     "sources": [
+      {
+       "rule_id": "CPR-59",
+       "side": "low",
+       "inclusive": false
+      }
+     ]
+    },
+    {
+     "value": 25000,
+     "rule_ids": [
+      "CPR-59",
+      "CPR-60",
+      "CPR-62"
+     ],
+     "reach_inclusive": true,
+     "inclusive_basis": "threshold_low_inclusive",
+     "sources": [
+      {
+       "rule_id": "CPR-59",
+       "side": "high",
+       "inclusive": false
+      },
+      {
+       "rule_id": "CPR-60",
+       "side": "low",
+       "inclusive": true
+      },
+      {
+       "rule_id": "CPR-62",
+       "side": "low",
+       "inclusive": true
+      }
+     ]
+    },
+    {
+     "value": 500000,
+     "rule_ids": [
+      "CPR-62",
+      "CPR-64"
+     ],
+     "reach_inclusive": false,
+     "inclusive_basis": "threshold_low_inclusive",
+     "sources": [
+      {
+       "rule_id": "CPR-62",
+       "side": "high",
+       "inclusive": false
+      },
+      {
+       "rule_id": "CPR-64",
+       "side": "low",
+       "inclusive": false
+      }
+     ]
+    }
+   ],
+   "quote_threshold": {
+    "value": 25000,
+    "inclusive": true,
+    "rule_ids": [
+     "CPR-60",
+     "CPR-62"
+    ]
+   },
+   "notice_threshold": {
+    "value": 25000,
+    "inclusive": true,
+    "rule_ids": [
+     "CPR-61",
+     "CPR-63"
+    ]
+   },
+   "anti_avoidance_rule_ids": [
+    "CPR-13"
+   ],
+   "note": "reach_inclusive: whether a total exactly equal to the value reaches the tier, taken from the stored inclusive flag of the rule where it is a lower bound. 'Just under' band is always [0.9T, T)."
+  },
+  "tiers_skipped": [
+   {
+    "param": "THRESHOLD_GOODS_SERVICES",
+    "rule_ids": [
+     "CPR-60"
+    ],
+    "reason": "value is null in rules.json; the PDF does not print it and only a human may set it"
+   },
+   {
+    "param": "THRESHOLD_RELEVANT",
+    "rule_ids": [
+     "CPR-64",
+     "CPR-65"
+    ],
+    "reason": "value is null in rules.json; the PDF does not print it and only a human may set it"
+   }
+  ],
+  "analysis_settings": {
+   "band_fraction": {
+    "value": 0.9,
+    "source": "CLAUDE.md test 1: [0.9 x threshold, threshold)",
+    "cited_in": "CLAUDE.md / scripts/config.py"
+   },
+   "context_band_fraction": {
+    "value": 0.8,
+    "source": "spend-analyst definition: adjacent lower band [0.8T,0.9T)",
+    "cited_in": "CLAUDE.md / scripts/config.py"
+   },
+   "split_window_days": {
+    "value": 30,
+    "source": "CLAUDE.md test 2",
+    "cited_in": "CLAUDE.md / scripts/config.py"
+   },
+   "duplicate_window_days": {
+    "value": 7,
+    "source": "CLAUDE.md test 4",
+    "cited_in": "CLAUDE.md / scripts/config.py"
+   },
+   "spend_vs_award_ratio": {
+    "value": 1.25,
+    "source": "CLAUDE.md test 6",
+    "cited_in": "CLAUDE.md / scripts/config.py"
+   },
+   "top_n": {
+    "value": 20,
+    "source": "CLAUDE.md: top-20 in analytics.json",
+    "cited_in": "CLAUDE.md / scripts/config.py"
+   },
+   "candidate_ratio": {
+    "value": 0.85,
+    "source": "spend-analyst definition: difflib ratio for candidates",
+    "cited_in": "CLAUDE.md / scripts/config.py"
+   },
+   "max_plausible_contract_years": {
+    "value": 15,
+    "source": "analyst setting for date_warnings / implausible duration",
+    "cited_in": "CLAUDE.md / scripts/config.py"
+   },
+   "export_cap_rows": {
+    "value": 1000,
+    "source": "CLAUDE.md: Contracts Finder 1,000-row export cap",
+    "cited_in": "CLAUDE.md / scripts/config.py"
+   }
+  }
+ },
+ "cleaning": {
+  "rows_read": 10607,
+  "gbp_read": 80427254.26,
+  "blank_rows_skipped": 378,
+  "analysed": {
+   "rows": 8530,
+   "gbp": 66136561.78
+  },
+  "excluded": {
+   "redacted_supplier": {
+    "rows": 2015,
+    "gbp": 2746746.71
+   },
+   "pension_statutory": {
+    "rows": 16,
+    "gbp": 9243984.8
+   },
+   "internal": {
+    "rows": 0,
+    "gbp": 0.0
+   },
+   "other_public_body": {
+    "rows": 46,
+    "gbp": 2299960.97
+   }
+  },
+  "excluded_total": {
+   "rows": 2077,
+   "gbp": 14290692.48
+  },
+  "reconciliation": {
+   "rows_read_equals_analysed_plus_excluded": true,
+   "gbp_reconciles_to_penny": true
+  },
+  "redacted_by_category": {
+   "Premises": {
+    "rows": 11,
+    "gbp": 20830.15
+   },
+   "Supplies & Services": {
+    "rows": 18,
+    "gbp": 21241.84
+   },
+   "Third Party Payments": {
+    "rows": 3,
+    "gbp": 5442.3
+   },
+   "Transfer Payment": {
+    "rows": 1916,
+    "gbp": 2397366.34
+   }
+  },
+  "redacted_by_tag": {
+   "grant": {
+    "count": 4,
+    "gbp": 6865.5
+   },
+   "care_or_education_placement": {
+    "count": 1870,
+    "gbp": 2325670.14
+   },
+   "agency_staff": {
+    "count": 0,
+    "gbp": 0.0
+   },
+   "premises": {
+    "count": 11,
+    "gbp": 20830.15
+   },
+   "general_procurement": {
+    "count": 130,
+    "gbp": 393380.92
+   }
+  },
+  "identical_rows_all_fields": {
+   "rows_in_identical_groups": 2710,
+   "extra_copies": 2033,
+   "note": "kept; never de-duplicated; possible duplicates only"
+  },
+  "public_body_review": {
+   "suppliers": 101,
+   "file": "outputs/analytics-full/public_body_review.csv"
+  },
+  "exclusion_pairs": {
+   "pairs": 5,
+   "file": "outputs/analytics-full/exclusion_pairs.csv"
+  },
+  "supplier_normalisation": "uppercase; & -> AND; apostrophes deleted; other punctuation -> space; drop LTD/LIMITED/PLC/LLP; collapse whitespace",
+  "distinct_suppliers_analysed": 1083
+ },
+ "tagging": {
+  "method": "heuristic on published fields; first match wins in order grant > care_or_education_placement > agency_staff > premises > general_procurement",
+  "map_file": "scripts/tag_map.json",
+  "map": {
+   "grant": {
+    "narrative_regex": "grant",
+    "rationale": "Narrative says grant. Rules 1.6.2 treat a grant as a contract, so grants stay in scope."
+   },
+   "care_or_education_placement": {
+    "narrative_exact": [
+     "Adult Placement Allowances",
+     "Allowances for provision care",
+     "Direct Payment",
+     "Payments to Carers"
+    ],
+    "narrative_in_service": {
+     "narratives": [
+      "Private Contractors",
+      "Payment to contractor",
+      "Other agencies",
+      "Private Contractors Additional Cost"
+     ],
+     "service_regex": "social care|children|education|send"
+    },
+    "rationale": "Placement/care allowances/direct payments by narrative, and contractor payments inside social-care or education services. Appendix C row F excludes some individual care placements from competition, so a flag here may be lawfully outside competition."
+   },
+   "agency_staff": {
+    "narrative_regex": "agency & temporary|temporary staff|agency staff",
+    "supplier_regex": "\\brecruitment\\b|\\bstaffing\\b|\\btemps?\\b|\\blocum\\b|\\bresourcing\\b",
+    "rationale": "Narrative or supplier text indicating agency or temporary staffing."
+   },
+   "premises": {
+    "category_exact": [
+     "Premises"
+    ],
+    "narrative_regex": "^rents?$|repairs? ?(and|&)? ?maint|corporate r&m|cleaning|grounds maintenance|minor works",
+    "rationale": "Expenditure category Premises, plus rents, repairs and maintenance, cleaning, grounds maintenance and minor works narratives."
+   },
+   "general_procurement": {
+    "rationale": "Default for everything else; ambiguous narratives listed in tagging.unmapped_review."
+   }
+  },
+  "by_tag": {
+   "grant": {
+    "rows": 339,
+    "gbp": 6033599.82
+   },
+   "care_or_education_placement": {
+    "rows": 5607,
+    "gbp": 30046548.19
+   },
+   "agency_staff": {
+    "rows": 36,
+    "gbp": 1297211.34
+   },
+   "premises": {
+    "rows": 592,
+    "gbp": 1591255.96
+   },
+   "general_procurement": {
+    "rows": 1956,
+    "gbp": 27167946.47
+   }
+  },
+  "unmapped_review": [
+   {
+    "narrative": "Private Contractors",
+    "rows": 152,
+    "gbp": 11829636.68
+   },
+   {
+    "narrative": "Payment to contractor",
+    "rows": 173,
+    "gbp": 7385059.46
+   },
+   {
+    "narrative": "Voluntary Associations",
+    "rows": 335,
+    "gbp": 2123842.07
+   },
+   {
+    "narrative": "Transport Hire",
+    "rows": 588,
+    "gbp": 1568195.15
+   },
+   {
+    "narrative": "IT",
+    "rows": 93,
+    "gbp": 1461701.3
+   },
+   {
+    "narrative": "Professional Fees",
+    "rows": 133,
+    "gbp": 518928.04
+   },
+   {
+    "narrative": "Public Transport",
+    "rows": 35,
+    "gbp": 399326.83
+   },
+   {
+    "narrative": "Subscriptions",
+    "rows": 26,
+    "gbp": 292501.08
+   },
+   {
+    "narrative": "Catering",
+    "rows": 27,
+    "gbp": 176325.57
+   },
+   {
+    "narrative": "Consultants",
+    "rows": 52,
+    "gbp": 173880.04
+   },
+   {
+    "narrative": "Training",
+    "rows": 30,
+    "gbp": 168980.9
+   },
+   {
+    "narrative": "Contributions",
+    "rows": 4,
+    "gbp": 123204.45
+   },
+   {
+    "narrative": "General Expenses",
+    "rows": 8,
+    "gbp": 103612.3
+   },
+   {
+    "narrative": "External audit costs",
+    "rows": 2,
+    "gbp": 84905.0
+   },
+   {
+    "narrative": "Purchase - Equipment",
+    "rows": 27,
+    "gbp": 82389.79
+   },
+   {
+    "narrative": "Postage",
+    "rows": 24,
+    "gbp": 69251.19
+   },
+   {
+    "narrative": "Project",
+    "rows": 10,
+    "gbp": 68507.71
+   },
+   {
+    "narrative": "IT Equipment",
+    "rows": 8,
+    "gbp": 58121.8
+   },
+   {
+    "narrative": "Legal Fees",
+    "rows": 17,
+    "gbp": 51163.93
+   },
+   {
+    "narrative": "Purchases Books & Publications",
+    "rows": 7,
+    "gbp": 48980.45
+   }
+  ],
+  "unmapped_review_note": "top 20 narratives by GBP left in general_procurement, for auditor review"
+ },
+ "contracts": {
+  "present": true,
+  "file": "data/contracts.csv",
+  "sha256": "9d0a53c092a5274f44490b428f9ff400ac8cb889df962165720f8a1d0ed42648",
+  "raw_rows": 150,
+  "kept_rows": 141,
+  "dropped_rows": 9,
+  "dropped_buyers": {
+   "Ministry of Defence": 5,
+   "Westworks Procurement Ltd": 1,
+   "SOUTHAMPTON CITY COUNCIL": 1,
+   "CITY OF BRADFORD METROPOLITAN DISTRICT COUNCIL": 1,
+   "Health Education England": 1
+  },
+  "notice_supplier_rows": 210,
+  "notices_multi_supplier": 9,
+  "active_notices": 62,
+  "ended_before_window": 79,
+  "publication_year_counts": {
+   "2021": 7,
+   "2022": 10,
+   "2023": 39,
+   "2024": 52,
+   "2025": 28,
+   "2026": 5
+  },
+  "export_cap": {
+   "raw_rows": 150,
+   "cap": 1000
+  },
+  "warnings": [],
+  "date_warnings": [
+   {
+    "notice_id": "P00001217",
+    "issue": "duration over 15 years"
+   },
+   {
+    "notice_id": "P00001217",
+    "issue": "end date more than max plausible years after window"
+   }
+  ],
+  "date_warnings_total": 2,
+  "matching": {
+   "present": true,
+   "suppliers_in_scope": 672,
+   "scope_definition": "annualised estimate meets the notice threshold",
+   "exact_matched": 40,
+   "no_exact_match": 632,
+   "no_exact_with_candidate": 17,
+   "exact_match_share_of_suppliers": 0.0595,
+   "exact_match_share_of_gbp": 0.0432,
+   "method": "exact = identical normalised name; candidates (difflib>=0.85, token containment with >=2 tokens in the smaller name, trading-as part) are never counted as matches"
+  }
+ },
+ "tests": {
+  "threshold_clustering@1000": {
+   "test": "threshold_clustering",
+   "metric_id": "threshold_clustering@1000",
+   "status": "ran",
+   "parameters": {
+    "tier_gbp": 1000,
+    "rule_ids": [
+     "CPR-59"
+    ],
+    "band": "[900, 1000)",
+    "band_fraction": 0.9,
+    "tier_inclusive_basis": "threshold_low_inclusive"
+   },
+   "counts": {
+    "flagged_items": 294,
+    "context_lower_band_count": 274
+   },
+   "totals_gbp": {
+    "flagged": 278191.68,
+    "context_lower_band": 231198.55
+   },
+   "by_tag": {
+    "grant": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "care_or_education_placement": {
+     "count": 213,
+     "gbp": 201410.17
+    },
+    "agency_staff": {
+     "count": 4,
+     "gbp": 3828.24
+    },
+    "premises": {
+     "count": 28,
+     "gbp": 26282.13
+    },
+    "general_procurement": {
+     "count": 49,
+     "gbp": 46671.14
+    }
+   },
+   "top20": [
+    {
+     "row_id": "Over500_2026_P02_-_published:1618",
+     "date": "2026-05-27 09:34:45",
+     "amount": 999.96,
+     "supplier": "I.V Care Limited t/a Good Oaks Home Care (Reading)",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:2866",
+     "date": "2026-06-10 09:51:27",
+     "amount": 999.6,
+     "supplier": "We Are The Care Company Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:2803",
+     "date": "2026-07-08 10:43:22",
+     "amount": 999.6,
+     "supplier": "We Are The Care Company Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:1587",
+     "date": "2026-06-24 10:35:07",
+     "amount": 999.6,
+     "supplier": "Johav Care support Healthcare Limited",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:2813",
+     "date": "2026-07-29 11:34:52",
+     "amount": 999.6,
+     "supplier": "We Are The Care Company Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P02_-_published:922",
+     "date": "2026-05-13 10:12:08",
+     "amount": 999.57,
+     "supplier": "Comfort Harmony Care Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P02_-_published:893",
+     "date": "2026-05-13 10:12:08",
+     "amount": 999.57,
+     "supplier": "Abi-support Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:300",
+     "date": "2026-07-08 16:47:40",
+     "amount": 999.32,
+     "supplier": "WEAVAWAY TRAVEL LTD",
+     "tag": "general_procurement",
+     "service": "Education & SEND",
+     "category": "Transport",
+     "narrative": "Transport Hire"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:972",
+     "date": "2026-06-03 09:57:27",
+     "amount": 996.75,
+     "supplier": "Address Enterprise Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P02_-_published:895",
+     "date": "2026-05-20 08:47:44",
+     "amount": 996.48,
+     "supplier": "All-Care (GB) Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:209",
+     "date": "2026-06-04 13:08:57",
+     "amount": 996.43,
+     "supplier": "Sikandar Hayat t/a Prompt Cars",
+     "tag": "general_procurement",
+     "service": "Education & SEND",
+     "category": "Transport",
+     "narrative": "Transport Hire"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:2654",
+     "date": "2026-07-17 11:32:00",
+     "amount": 996.18,
+     "supplier": "Goldcrest Care Services",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P02_-_published:341",
+     "date": "2026-05-01 12:47:59",
+     "amount": 995.95,
+     "supplier": "Go Green Taxis Ltd",
+     "tag": "general_procurement",
+     "service": "Education & SEND",
+     "category": "Transport",
+     "narrative": "Transport Hire"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:17",
+     "date": "2026-06-30 09:43:48",
+     "amount": 995.0,
+     "supplier": "PHF Training",
+     "tag": "general_procurement",
+     "service": "Community Services",
+     "category": "Employees",
+     "narrative": "Training"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:831",
+     "date": "2026-06-15 10:25:54",
+     "amount": 993.48,
+     "supplier": "PRESTIGE NETWORK",
+     "tag": "general_procurement",
+     "service": "Children's Social Care",
+     "category": "Supplies & Services",
+     "narrative": "Professional Fees"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:61",
+     "date": "2026-06-30 12:53:20",
+     "amount": 991.01,
+     "supplier": "MECE FIRE & SECURITY LTD",
+     "tag": "premises",
+     "service": "Environment",
+     "category": "Premises",
+     "narrative": "Corporate R&M"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:158",
+     "date": "2026-07-08 17:27:37",
+     "amount": 990.83,
+     "supplier": "POTTINGER'S HIRE SERVICE",
+     "tag": "general_procurement",
+     "service": "Education & SEND",
+     "category": "Transport",
+     "narrative": "Transport Hire"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:463",
+     "date": "2026-06-16 09:45:44",
+     "amount": 990.5,
+     "supplier": "P S Aylmer Veterinary Consultancy",
+     "tag": "general_procurement",
+     "service": "Community Services",
+     "category": "Supplies & Services",
+     "narrative": "Professional Fees"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:242",
+     "date": "2026-07-15 16:55:28",
+     "amount": 990.06,
+     "supplier": "Rygor Commercials Ltd",
+     "tag": "general_procurement",
+     "service": "Environment",
+     "category": "Transport",
+     "narrative": "Direct Transport Costs"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:390",
+     "date": "2026-07-22 09:59:56",
+     "amount": 990.0,
+     "supplier": "KB Real Estate Management Ltd",
+     "tag": "premises",
+     "service": "Development & Housing",
+     "category": "Premises",
+     "narrative": "Rents"
+    }
+   ],
+   "top_suppliers": [
+    {
+     "supplier": "STEP BY STEP PARTNERSHIP LTD",
+     "payments": 24,
+     "gbp": 22771.84
+    },
+    {
+     "supplier": "We Are The Care Company Ltd",
+     "payments": 18,
+     "gbp": 17255.93
+    },
+    {
+     "supplier": "All-Care (GB) Ltd",
+     "payments": 15,
+     "gbp": 14234.14
+    },
+    {
+     "supplier": "PureSoul Care Ltd",
+     "payments": 14,
+     "gbp": 12859.15
+    },
+    {
+     "supplier": "Comfort Harmony Care Ltd",
+     "payments": 13,
+     "gbp": 12388.63
+    },
+    {
+     "supplier": "Best Pinnacle Care Ltd",
+     "payments": 9,
+     "gbp": 8600.31
+    },
+    {
+     "supplier": "Abi-support Ltd",
+     "payments": 9,
+     "gbp": 8565.6
+    },
+    {
+     "supplier": "360 Security & Support Services Ltd",
+     "payments": 7,
+     "gbp": 6814.06
+    },
+    {
+     "supplier": "Your Serenity Ltd",
+     "payments": 7,
+     "gbp": 6664.32
+    },
+    {
+     "supplier": "Topline Care Solutions Ltd",
+     "payments": 7,
+     "gbp": 6646.66
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/threshold_clustering.csv",
+   "interpretation": "Payments just below 1,000 GBP (within 10 percent) may indicate amounts shaped to stay under a procurement route boundary; the adjacent lower band is shown for context so the auditor can judge whether the concentration is unusual. Innocent explanations include fixed or tariff prices, standard rates for recurring care or service charges, and round-number pricing. Worth confirming against quotes or tender records. Care placements may be lawfully outside competition (Appendix C row F, CPR-72)."
+  },
+  "split_purchases@1000": {
+   "test": "split_purchases",
+   "metric_id": "split_purchases@1000",
+   "status": "ran",
+   "parameters": {
+    "tier_gbp": 1000,
+    "rule_ids": [
+     "CPR-59",
+     "CPR-13"
+    ],
+    "window_days": 30,
+    "condition": "same normalised supplier, >=2 payments each below the tier within the window, combined total reaches the tier",
+    "tier_inclusive_basis": "threshold_low_inclusive"
+   },
+   "counts": {
+    "flagged_items": 272,
+    "payments_in_groups": 1845,
+    "groups_all_amounts_equal": 31
+   },
+   "totals_gbp": {
+    "combined": 1319393.13
+   },
+   "by_tag": {
+    "grant": {
+     "count": 3,
+     "gbp": 5400.0
+    },
+    "care_or_education_placement": {
+     "count": 131,
+     "gbp": 905550.93
+    },
+    "agency_staff": {
+     "count": 3,
+     "gbp": 5504.21
+    },
+    "premises": {
+     "count": 42,
+     "gbp": 164291.48
+    },
+    "general_procurement": {
+     "count": 93,
+     "gbp": 238646.51
+    }
+   },
+   "top20": [
+    {
+     "supplier": "All-Care (GB) Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 48,
+     "combined_gbp": 32640.57,
+     "span_days": 21.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:1222;Over500_2026_P02_-_published:1289;Over500_2026_P02_-_published:1290;Over500_2026_P02_-_published:1293;Over500_2026_P02_-_published:1297;Over500_2026_P02_-_published:1298;Over500_2026_P02_-_published:1409;Over500_2026_P02_-_published:1410;Over500_2026_P02_-_published:1411;Over500_2026_P02_-_published:1412;Over500_2026_P02_-_published:1420;Over500_2026_P02_-_published:1440;Over500_2026_P02_-_published:1611;Over500_2026_P02_-_published:1612;Over500_2026_P02_-_published:1613;Over500_2026_P02_-_published:1614;Over500_2026_P02_-_published:1626;Over500_2026_P02_-_published:1817;Over500_2026_P02_-_published:1818;Over500_2026_P02_-_published:1936;Over500_2026_P02_-_published:895;Over500_2026_P02_-_published:903;Over500_2026_P02_-_published:904;Over500_2026_P02_-_published:935;Over500_2026_P02_-_published:938;Over500_2026_P02_-_published:939;Over500_2026_P02_-_published:941;Over500_2026_P02_-_published:1399;Over500_2026_P02_-_published:1400;Over500_2026_P02_-_published:1413;Over500_2026_P02_-_published:943;Over500_2026_P02_-_published:944;Over500_2026_P02_-_published:945;Over500_2026_P02_-_published:947;Over500_2026_P02_-_published:920;Over500_2026_P02_-_published:949;Over500_2026_P02_-_published:951;Over500_2026_P02_-_published:952;Over500_2026_P03_-_published:1265;Over500_2026_P03_-_published:1311;Over500_2026_P03_-_published:2829;Over500_2026_P03_-_published:889;Over500_2026_P03_-_published:913;Over500_2026_P03_-_published:1133;Over500_2026_P03_-_published:1134;Over500_2026_P03_-_published:2870;Over500_2026_P03_-_published:2998;Over500_2026_P03_-_published:861"
+    },
+    {
+     "supplier": "We Are The Care Company Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 43,
+     "combined_gbp": 32638.86,
+     "span_days": 28.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1055;Over500_2026_P03_-_published:1059;Over500_2026_P03_-_published:1064;Over500_2026_P03_-_published:1067;Over500_2026_P03_-_published:1073;Over500_2026_P03_-_published:1074;Over500_2026_P03_-_published:1075;Over500_2026_P03_-_published:1078;Over500_2026_P03_-_published:1104;Over500_2026_P03_-_published:1105;Over500_2026_P03_-_published:1106;Over500_2026_P03_-_published:1110;Over500_2026_P03_-_published:1112;Over500_2026_P03_-_published:1118;Over500_2026_P03_-_published:1567;Over500_2026_P03_-_published:2866;Over500_2026_P03_-_published:1386;Over500_2026_P03_-_published:1202;Over500_2026_P03_-_published:1318;Over500_2026_P03_-_published:2793;Over500_2026_P03_-_published:2795;Over500_2026_P03_-_published:2828;Over500_2026_P03_-_published:1264;Over500_2026_P03_-_published:2807;Over500_2026_P04_-_published:1237;Over500_2026_P04_-_published:1239;Over500_2026_P04_-_published:1323;Over500_2026_P04_-_published:1324;Over500_2026_P04_-_published:1326;Over500_2026_P04_-_published:1330;Over500_2026_P04_-_published:1332;Over500_2026_P04_-_published:1336;Over500_2026_P04_-_published:1373;Over500_2026_P04_-_published:1377;Over500_2026_P04_-_published:1451;Over500_2026_P04_-_published:1816;Over500_2026_P04_-_published:2057;Over500_2026_P04_-_published:2059;Over500_2026_P04_-_published:2060;Over500_2026_P04_-_published:2062;Over500_2026_P04_-_published:2063;Over500_2026_P04_-_published:2803;Over500_2026_P04_-_published:933"
+    },
+    {
+     "supplier": "All-Care (GB) Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 46,
+     "combined_gbp": 31699.05,
+     "span_days": 21.0,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1221;Over500_2026_P03_-_published:1238;Over500_2026_P03_-_published:1250;Over500_2026_P03_-_published:1270;Over500_2026_P03_-_published:1308;Over500_2026_P03_-_published:1310;Over500_2026_P03_-_published:1315;Over500_2026_P03_-_published:1396;Over500_2026_P03_-_published:2882;Over500_2026_P03_-_published:846;Over500_2026_P03_-_published:2806;Over500_2026_P03_-_published:2821;Over500_2026_P04_-_published:1023;Over500_2026_P04_-_published:1054;Over500_2026_P04_-_published:1063;Over500_2026_P04_-_published:1064;Over500_2026_P04_-_published:1065;Over500_2026_P04_-_published:1163;Over500_2026_P04_-_published:1164;Over500_2026_P04_-_published:1699;Over500_2026_P04_-_published:1733;Over500_2026_P04_-_published:1753;Over500_2026_P04_-_published:1754;Over500_2026_P04_-_published:1803;Over500_2026_P04_-_published:1804;Over500_2026_P04_-_published:1901;Over500_2026_P04_-_published:2592;Over500_2026_P04_-_published:2637;Over500_2026_P04_-_published:2646;Over500_2026_P04_-_published:2658;Over500_2026_P04_-_published:1755;Over500_2026_P04_-_published:1756;Over500_2026_P04_-_published:1780;Over500_2026_P04_-_published:3148;Over500_2026_P04_-_published:1431;Over500_2026_P04_-_published:1466;Over500_2026_P04_-_published:1485;Over500_2026_P04_-_published:1493;Over500_2026_P04_-_published:1740;Over500_2026_P04_-_published:1873;Over500_2026_P04_-_published:1899;Over500_2026_P04_-_published:2093;Over500_2026_P04_-_published:2109;Over500_2026_P04_-_published:2201;Over500_2026_P04_-_published:2763;Over500_2026_P04_-_published:938"
+    },
+    {
+     "supplier": "PureSoul Care Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 43,
+     "combined_gbp": 30501.5,
+     "span_days": 28.0,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1144;Over500_2026_P03_-_published:1145;Over500_2026_P03_-_published:1146;Over500_2026_P03_-_published:1147;Over500_2026_P03_-_published:1148;Over500_2026_P03_-_published:1176;Over500_2026_P03_-_published:1179;Over500_2026_P03_-_published:1305;Over500_2026_P03_-_published:1317;Over500_2026_P03_-_published:1812;Over500_2026_P03_-_published:2696;Over500_2026_P03_-_published:2774;Over500_2026_P03_-_published:2775;Over500_2026_P03_-_published:2776;Over500_2026_P03_-_published:2808;Over500_2026_P03_-_published:2874;Over500_2026_P03_-_published:3026;Over500_2026_P03_-_published:862;Over500_2026_P03_-_published:1198;Over500_2026_P03_-_published:1207;Over500_2026_P04_-_published:1173;Over500_2026_P04_-_published:1197;Over500_2026_P04_-_published:1245;Over500_2026_P04_-_published:1236;Over500_2026_P04_-_published:1320;Over500_2026_P04_-_published:1366;Over500_2026_P04_-_published:1368;Over500_2026_P04_-_published:2828;Over500_2026_P04_-_published:1399;Over500_2026_P04_-_published:1460;Over500_2026_P04_-_published:1461;Over500_2026_P04_-_published:1471;Over500_2026_P04_-_published:1473;Over500_2026_P04_-_published:1475;Over500_2026_P04_-_published:1477;Over500_2026_P04_-_published:1479;Over500_2026_P04_-_published:1571;Over500_2026_P04_-_published:1787;Over500_2026_P04_-_published:1809;Over500_2026_P04_-_published:2031;Over500_2026_P04_-_published:2090;Over500_2026_P04_-_published:2091;Over500_2026_P04_-_published:2917"
+    },
+    {
+     "supplier": "STEP BY STEP PARTNERSHIP LTD",
+     "tag": "care_or_education_placement",
+     "n_payments": 30,
+     "combined_gbp": 23477.81,
+     "span_days": 24.93,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:2141;Over500_2026_P02_-_published:2125;Over500_2026_P02_-_published:2077;Over500_2026_P02_-_published:2142;Over500_2026_P02_-_published:2143;Over500_2026_P02_-_published:2078;Over500_2026_P02_-_published:2126;Over500_2026_P02_-_published:2144;Over500_2026_P02_-_published:2145;Over500_2026_P02_-_published:2127;Over500_2026_P02_-_published:2128;Over500_2026_P02_-_published:2129;Over500_2026_P02_-_published:2147;Over500_2026_P02_-_published:2130;Over500_2026_P02_-_published:2148;Over500_2026_P03_-_published:2112;Over500_2026_P03_-_published:2108;Over500_2026_P03_-_published:3067;Over500_2026_P03_-_published:3071;Over500_2026_P03_-_published:2052;Over500_2026_P03_-_published:1923;Over500_2026_P03_-_published:2053;Over500_2026_P03_-_published:2109;Over500_2026_P03_-_published:2121;Over500_2026_P03_-_published:2123;Over500_2026_P03_-_published:3035;Over500_2026_P03_-_published:3072;Over500_2026_P03_-_published:3073;Over500_2026_P03_-_published:2124;Over500_2026_P03_-_published:3069"
+    },
+    {
+     "supplier": "Abi-support Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 30,
+     "combined_gbp": 22470.24,
+     "span_days": 28.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1125;Over500_2026_P03_-_published:1126;Over500_2026_P03_-_published:2694;Over500_2026_P03_-_published:2756;Over500_2026_P03_-_published:1141;Over500_2026_P03_-_published:1149;Over500_2026_P03_-_published:2779;Over500_2026_P03_-_published:2780;Over500_2026_P03_-_published:864;Over500_2026_P03_-_published:1236;Over500_2026_P03_-_published:1242;Over500_2026_P03_-_published:1307;Over500_2026_P03_-_published:1280;Over500_2026_P03_-_published:1397;Over500_2026_P04_-_published:1176;Over500_2026_P04_-_published:1177;Over500_2026_P04_-_published:1856;Over500_2026_P04_-_published:1345;Over500_2026_P04_-_published:1347;Over500_2026_P04_-_published:1385;Over500_2026_P04_-_published:1448;Over500_2026_P04_-_published:1449;Over500_2026_P04_-_published:1450;Over500_2026_P04_-_published:1569;Over500_2026_P04_-_published:1883;Over500_2026_P04_-_published:2079;Over500_2026_P04_-_published:2080;Over500_2026_P04_-_published:2082;Over500_2026_P04_-_published:2653;Over500_2026_P04_-_published:924"
+    },
+    {
+     "supplier": "Affinity Trust Support Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 32,
+     "combined_gbp": 22222.32,
+     "span_days": 21.0,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1444;Over500_2026_P03_-_published:1531;Over500_2026_P03_-_published:1532;Over500_2026_P03_-_published:1533;Over500_2026_P03_-_published:1541;Over500_2026_P03_-_published:1630;Over500_2026_P03_-_published:1704;Over500_2026_P03_-_published:1764;Over500_2026_P03_-_published:1977;Over500_2026_P03_-_published:1983;Over500_2026_P03_-_published:2914;Over500_2026_P03_-_published:2939;Over500_2026_P03_-_published:2940;Over500_2026_P03_-_published:2944;Over500_2026_P03_-_published:2978;Over500_2026_P03_-_published:1665;Over500_2026_P03_-_published:1875;Over500_2026_P04_-_published:2294;Over500_2026_P04_-_published:2344;Over500_2026_P04_-_published:2961;Over500_2026_P04_-_published:2980;Over500_2026_P04_-_published:3066;Over500_2026_P04_-_published:3730;Over500_2026_P04_-_published:3731;Over500_2026_P04_-_published:2301;Over500_2026_P04_-_published:2322;Over500_2026_P04_-_published:2694;Over500_2026_P04_-_published:3008;Over500_2026_P04_-_published:2401;Over500_2026_P04_-_published:2422;Over500_2026_P04_-_published:2441;Over500_2026_P04_-_published:2709"
+    },
+    {
+     "supplier": "We Are The Care Company Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 25,
+     "combined_gbp": 20151.27,
+     "span_days": 14.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:1463;Over500_2026_P04_-_published:1572;Over500_2026_P04_-_published:1532;Over500_2026_P04_-_published:2650;Over500_2026_P04_-_published:1606;Over500_2026_P04_-_published:1610;Over500_2026_P04_-_published:1611;Over500_2026_P04_-_published:1612;Over500_2026_P04_-_published:1665;Over500_2026_P04_-_published:1668;Over500_2026_P04_-_published:1669;Over500_2026_P04_-_published:1670;Over500_2026_P04_-_published:1672;Over500_2026_P04_-_published:1675;Over500_2026_P04_-_published:1689;Over500_2026_P04_-_published:1741;Over500_2026_P04_-_published:1742;Over500_2026_P04_-_published:1884;Over500_2026_P04_-_published:2113;Over500_2026_P04_-_published:2365;Over500_2026_P04_-_published:2366;Over500_2026_P04_-_published:2368;Over500_2026_P04_-_published:2655;Over500_2026_P04_-_published:2813;Over500_2026_P04_-_published:968"
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "n_payments": 28,
+     "combined_gbp": 19279.81,
+     "span_days": 6.99,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:1028;Over500_2026_P04_-_published:1029;Over500_2026_P04_-_published:1030;Over500_2026_P04_-_published:1031;Over500_2026_P04_-_published:1051;Over500_2026_P04_-_published:1067;Over500_2026_P04_-_published:1068;Over500_2026_P04_-_published:1069;Over500_2026_P04_-_published:1075;Over500_2026_P04_-_published:1076;Over500_2026_P04_-_published:1077;Over500_2026_P04_-_published:1078;Over500_2026_P04_-_published:1079;Over500_2026_P04_-_published:1080;Over500_2026_P04_-_published:1100;Over500_2026_P04_-_published:1132;Over500_2026_P04_-_published:1133;Over500_2026_P04_-_published:1151;Over500_2026_P04_-_published:1817;Over500_2026_P04_-_published:1841;Over500_2026_P04_-_published:1889;Over500_2026_P04_-_published:1925;Over500_2026_P04_-_published:1944;Over500_2026_P04_-_published:2770;Over500_2026_P04_-_published:2869;Over500_2026_P04_-_published:1818;Over500_2026_P04_-_published:1923;Over500_2026_P04_-_published:927"
+    },
+    {
+     "supplier": "Care Outlook Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 26,
+     "combined_gbp": 19134.5,
+     "span_days": 21.0,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1297;Over500_2026_P03_-_published:1314;Over500_2026_P03_-_published:1321;Over500_2026_P03_-_published:1458;Over500_2026_P03_-_published:2698;Over500_2026_P03_-_published:2813;Over500_2026_P03_-_published:2815;Over500_2026_P03_-_published:2817;Over500_2026_P03_-_published:2887;Over500_2026_P03_-_published:2888;Over500_2026_P03_-_published:933;Over500_2026_P03_-_published:934;Over500_2026_P04_-_published:1700;Over500_2026_P04_-_published:1702;Over500_2026_P04_-_published:1703;Over500_2026_P04_-_published:1721;Over500_2026_P04_-_published:1750;Over500_2026_P04_-_published:2072;Over500_2026_P04_-_published:2124;Over500_2026_P04_-_published:2125;Over500_2026_P04_-_published:2126;Over500_2026_P04_-_published:2296;Over500_2026_P04_-_published:2659;Over500_2026_P04_-_published:973;Over500_2026_P04_-_published:998;Over500_2026_P04_-_published:2037"
+    },
+    {
+     "supplier": "Eniro Care Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 24,
+     "combined_gbp": 18017.79,
+     "span_days": 7.0,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1000;Over500_2026_P03_-_published:1043;Over500_2026_P03_-_published:1044;Over500_2026_P03_-_published:1090;Over500_2026_P03_-_published:1093;Over500_2026_P03_-_published:1267;Over500_2026_P03_-_published:1428;Over500_2026_P03_-_published:2822;Over500_2026_P03_-_published:997;Over500_2026_P03_-_published:998;Over500_2026_P03_-_published:1087;Over500_2026_P03_-_published:1127;Over500_2026_P03_-_published:1142;Over500_2026_P03_-_published:1166;Over500_2026_P03_-_published:1169;Over500_2026_P03_-_published:1171;Over500_2026_P03_-_published:1268;Over500_2026_P03_-_published:1367;Over500_2026_P03_-_published:1501;Over500_2026_P03_-_published:2695;Over500_2026_P03_-_published:2753;Over500_2026_P03_-_published:2759;Over500_2026_P03_-_published:2761;Over500_2026_P03_-_published:2826"
+    },
+    {
+     "supplier": "We Are The Care Company Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 24,
+     "combined_gbp": 17352.12,
+     "span_days": 27.98,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:1115;Over500_2026_P02_-_published:1118;Over500_2026_P02_-_published:1121;Over500_2026_P02_-_published:1123;Over500_2026_P02_-_published:1124;Over500_2026_P02_-_published:1132;Over500_2026_P02_-_published:1134;Over500_2026_P02_-_published:1139;Over500_2026_P02_-_published:1145;Over500_2026_P02_-_published:1146;Over500_2026_P02_-_published:1149;Over500_2026_P02_-_published:1154;Over500_2026_P02_-_published:1158;Over500_2026_P02_-_published:1428;Over500_2026_P02_-_published:1585;Over500_2026_P02_-_published:1199;Over500_2026_P02_-_published:1202;Over500_2026_P02_-_published:888;Over500_2026_P02_-_published:1333;Over500_2026_P02_-_published:1337;Over500_2026_P02_-_published:910;Over500_2026_P03_-_published:1355;Over500_2026_P03_-_published:991;Over500_2026_P03_-_published:992"
+    },
+    {
+     "supplier": "PureSoul Care Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 24,
+     "combined_gbp": 17021.65,
+     "span_days": 20.96,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:1081;Over500_2026_P02_-_published:1082;Over500_2026_P02_-_published:1258;Over500_2026_P02_-_published:1261;Over500_2026_P02_-_published:1263;Over500_2026_P02_-_published:1264;Over500_2026_P02_-_published:1267;Over500_2026_P02_-_published:1268;Over500_2026_P02_-_published:1271;Over500_2026_P02_-_published:1274;Over500_2026_P02_-_published:1277;Over500_2026_P02_-_published:1278;Over500_2026_P02_-_published:1281;Over500_2026_P02_-_published:1434;Over500_2026_P02_-_published:1435;Over500_2026_P02_-_published:1609;Over500_2026_P02_-_published:1628;Over500_2026_P02_-_published:1934;Over500_2026_P02_-_published:1995;Over500_2026_P02_-_published:1996;Over500_2026_P02_-_published:901;Over500_2026_P02_-_published:902;Over500_2026_P02_-_published:927;Over500_2026_P02_-_published:1332"
+    },
+    {
+     "supplier": "The Yume Project Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 24,
+     "combined_gbp": 16181.08,
+     "span_days": 21.03,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1519;Over500_2026_P03_-_published:1672;Over500_2026_P03_-_published:1721;Over500_2026_P03_-_published:1722;Over500_2026_P03_-_published:1723;Over500_2026_P03_-_published:1787;Over500_2026_P03_-_published:1788;Over500_2026_P03_-_published:2919;Over500_2026_P03_-_published:2961;Over500_2026_P03_-_published:2962;Over500_2026_P03_-_published:2964;Over500_2026_P03_-_published:2965;Over500_2026_P03_-_published:1725;Over500_2026_P03_-_published:1726;Over500_2026_P03_-_published:1538;Over500_2026_P03_-_published:1659;Over500_2026_P03_-_published:1711;Over500_2026_P03_-_published:1730;Over500_2026_P03_-_published:1746;Over500_2026_P03_-_published:1747;Over500_2026_P03_-_published:1801;Over500_2026_P03_-_published:1802;Over500_2026_P03_-_published:2969;Over500_2026_P03_-_published:2970"
+    },
+    {
+     "supplier": "WEST BERKSHIRE MENCAP",
+     "tag": "general_procurement",
+     "n_payments": 21,
+     "combined_gbp": 14451.96,
+     "span_days": 28.32,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:809;Over500_2026_P02_-_published:810;Over500_2026_P02_-_published:811;Over500_2026_P02_-_published:812;Over500_2026_P02_-_published:814;Over500_2026_P02_-_published:815;Over500_2026_P02_-_published:816;Over500_2026_P02_-_published:817;Over500_2026_P02_-_published:818;Over500_2026_P02_-_published:820;Over500_2026_P02_-_published:821;Over500_2026_P02_-_published:822;Over500_2026_P02_-_published:856;Over500_2026_P03_-_published:781;Over500_2026_P03_-_published:2684;Over500_2026_P03_-_published:2685;Over500_2026_P03_-_published:793;Over500_2026_P03_-_published:832;Over500_2026_P03_-_published:794;Over500_2026_P03_-_published:868;Over500_2026_P03_-_published:810"
+    },
+    {
+     "supplier": "Goldcrest Care Services",
+     "tag": "care_or_education_placement",
+     "n_payments": 19,
+     "combined_gbp": 14427.26,
+     "span_days": 2.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:1506;Over500_2026_P04_-_published:1507;Over500_2026_P04_-_published:1574;Over500_2026_P04_-_published:1575;Over500_2026_P04_-_published:1578;Over500_2026_P04_-_published:1773;Over500_2026_P04_-_published:1788;Over500_2026_P04_-_published:1811;Over500_2026_P04_-_published:2038;Over500_2026_P04_-_published:2211;Over500_2026_P04_-_published:2213;Over500_2026_P04_-_published:2214;Over500_2026_P04_-_published:3641;Over500_2026_P04_-_published:951;Over500_2026_P04_-_published:1066;Over500_2026_P04_-_published:1509;Over500_2026_P04_-_published:1540;Over500_2026_P04_-_published:2275;Over500_2026_P04_-_published:2654"
+    },
+    {
+     "supplier": "The Yume Project Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 20,
+     "combined_gbp": 13881.57,
+     "span_days": 14.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:2428;Over500_2026_P04_-_published:2452;Over500_2026_P04_-_published:2593;Over500_2026_P04_-_published:2595;Over500_2026_P04_-_published:2596;Over500_2026_P04_-_published:2616;Over500_2026_P04_-_published:2618;Over500_2026_P04_-_published:2639;Over500_2026_P04_-_published:2640;Over500_2026_P04_-_published:2641;Over500_2026_P04_-_published:2642;Over500_2026_P04_-_published:3482;Over500_2026_P04_-_published:3483;Over500_2026_P04_-_published:3484;Over500_2026_P04_-_published:3552;Over500_2026_P04_-_published:3554;Over500_2026_P04_-_published:3556;Over500_2026_P04_-_published:2502;Over500_2026_P04_-_published:3562;Over500_2026_P04_-_published:2689"
+    },
+    {
+     "supplier": "Acorn Home Support Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 22,
+     "combined_gbp": 13749.98,
+     "span_days": 27.99,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:1376;Over500_2026_P02_-_published:1377;Over500_2026_P02_-_published:1740;Over500_2026_P02_-_published:1915;Over500_2026_P02_-_published:1916;Over500_2026_P02_-_published:1917;Over500_2026_P02_-_published:1918;Over500_2026_P02_-_published:923;Over500_2026_P02_-_published:924;Over500_2026_P02_-_published:925;Over500_2026_P02_-_published:1961;Over500_2026_P03_-_published:1261;Over500_2026_P03_-_published:1288;Over500_2026_P03_-_published:1528;Over500_2026_P03_-_published:1784;Over500_2026_P03_-_published:1785;Over500_2026_P03_-_published:1786;Over500_2026_P03_-_published:2925;Over500_2026_P03_-_published:2996;Over500_2026_P03_-_published:886;Over500_2026_P03_-_published:887;Over500_2026_P03_-_published:911"
+    },
+    {
+     "supplier": "DIMENSIONS (NSO) LTD",
+     "tag": "care_or_education_placement",
+     "n_payments": 21,
+     "combined_gbp": 13499.21,
+     "span_days": 6.98,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:3019;Over500_2026_P04_-_published:2449;Over500_2026_P04_-_published:2450;Over500_2026_P04_-_published:2462;Over500_2026_P04_-_published:2463;Over500_2026_P04_-_published:2464;Over500_2026_P04_-_published:2465;Over500_2026_P04_-_published:2466;Over500_2026_P04_-_published:2470;Over500_2026_P04_-_published:2475;Over500_2026_P04_-_published:2477;Over500_2026_P04_-_published:2493;Over500_2026_P04_-_published:2494;Over500_2026_P04_-_published:2496;Over500_2026_P04_-_published:2500;Over500_2026_P04_-_published:2504;Over500_2026_P04_-_published:3040;Over500_2026_P04_-_published:3041;Over500_2026_P04_-_published:3042;Over500_2026_P04_-_published:3043;Over500_2026_P04_-_published:3046"
+    },
+    {
+     "supplier": "Teonfa Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 20,
+     "combined_gbp": 13186.67,
+     "span_days": 28.0,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:863;Over500_2026_P03_-_published:1205;Over500_2026_P03_-_published:1206;Over500_2026_P03_-_published:1216;Over500_2026_P03_-_published:1217;Over500_2026_P03_-_published:1233;Over500_2026_P03_-_published:2797;Over500_2026_P03_-_published:2798;Over500_2026_P03_-_published:845;Over500_2026_P04_-_published:1027;Over500_2026_P04_-_published:1165;Over500_2026_P04_-_published:1243;Over500_2026_P04_-_published:2129;Over500_2026_P04_-_published:1436;Over500_2026_P04_-_published:1438;Over500_2026_P04_-_published:1501;Over500_2026_P04_-_published:1523;Over500_2026_P04_-_published:2207;Over500_2026_P04_-_published:949;Over500_2026_P04_-_published:950"
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/split_purchases.csv",
+   "interpretation": "Several payments to one supplier close together whose combined value reaches 1,000 GBP may indicate a requirement split into smaller purchases (anti-avoidance rule CPR-13), consistent with a pattern worth confirming. Innocent explanations: regular recurring payments (common for care packages and rents, see all_amounts_equal), separate unrelated orders, or one contract invoiced in instalments. Spend dates are payment-run timestamps, not invoice dates, so windows are measured on payment-run dates. Windows are anchored greedily so each payment sits in one group per tier."
+  },
+  "threshold_clustering@25000": {
+   "test": "threshold_clustering",
+   "metric_id": "threshold_clustering@25000",
+   "status": "ran",
+   "parameters": {
+    "tier_gbp": 25000,
+    "rule_ids": [
+     "CPR-59",
+     "CPR-60",
+     "CPR-62"
+    ],
+    "band": "[22500, 25000)",
+    "band_fraction": 0.9,
+    "tier_inclusive_basis": "threshold_low_inclusive"
+   },
+   "counts": {
+    "flagged_items": 45,
+    "context_lower_band_count": 99
+   },
+   "totals_gbp": {
+    "flagged": 1075395.94,
+    "context_lower_band": 2068155.8
+   },
+   "by_tag": {
+    "grant": {
+     "count": 5,
+     "gbp": 118475.24
+    },
+    "care_or_education_placement": {
+     "count": 31,
+     "gbp": 742725.63
+    },
+    "agency_staff": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "premises": {
+     "count": 1,
+     "gbp": 23660.0
+    },
+    "general_procurement": {
+     "count": 8,
+     "gbp": 190535.07
+    }
+   },
+   "top20": [
+    {
+     "row_id": "Over500_2026_P04_-_published:2239",
+     "date": "2026-07-01 11:03:57",
+     "amount": 24926.0,
+     "supplier": "Affinity Trust Support Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:2056",
+     "date": "2026-06-17 10:43:51",
+     "amount": 24850.39,
+     "supplier": "CHARMAINE CAULFIELD",
+     "tag": "grant",
+     "service": "Education (DSG Funded) & Other Education Grants",
+     "category": "Supplies & Services",
+     "narrative": "Grants"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:2307",
+     "date": "2026-06-03 10:28:37",
+     "amount": 24788.75,
+     "supplier": "Sukhbir Singh and Harvinder Singh T/A Calcot Services for Children (CSFC)",
+     "tag": "care_or_education_placement",
+     "service": "Education (DSG Funded) & Other Education Grants",
+     "category": "Third Party Payments",
+     "narrative": "Other agencies"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:1660",
+     "date": "2026-06-24 10:35:07",
+     "amount": 24719.02,
+     "supplier": "FOCUS SUPPORT LTD",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:2074",
+     "date": "2026-06-17 10:43:51",
+     "amount": 24705.36,
+     "supplier": "BEANSHEAF COMMUNITY PRE-SCHOO",
+     "tag": "grant",
+     "service": "Education (DSG Funded) & Other Education Grants",
+     "category": "Supplies & Services",
+     "narrative": "Grants"
+    },
+    {
+     "row_id": "Over500_2026_P02_-_published:2241",
+     "date": "2026-05-12 15:16:14",
+     "amount": 24618.75,
+     "supplier": "Sukhbir Singh and Harvinder Singh T/A Calcot Services for Children (CSFC)",
+     "tag": "care_or_education_placement",
+     "service": "Education (DSG Funded) & Other Education Grants",
+     "category": "Third Party Payments",
+     "narrative": "Other agencies"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:2106",
+     "date": "2026-06-30 10:03:42",
+     "amount": 24587.49,
+     "supplier": "Unity Residential Care Services",
+     "tag": "care_or_education_placement",
+     "service": "Children's Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P02_-_published:2265",
+     "date": "2026-05-22 17:02:15",
+     "amount": 24578.67,
+     "supplier": "ACORN CARE & EDUCATION LTD",
+     "tag": "care_or_education_placement",
+     "service": "Education (DSG Funded) & Other Education Grants",
+     "category": "Third Party Payments",
+     "narrative": "Other agencies"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:1281",
+     "date": "2026-07-29 13:44:13",
+     "amount": 24476.02,
+     "supplier": "The Better Group Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Adult Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Payment to contractor"
+    },
+    {
+     "row_id": "Over500_2026_P02_-_published:2268",
+     "date": "2026-05-26 11:52:06",
+     "amount": 24453.39,
+     "supplier": "Huckleberry House",
+     "tag": "care_or_education_placement",
+     "service": "Education (DSG Funded) & Other Education Grants",
+     "category": "Third Party Payments",
+     "narrative": "Other agencies"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:3059",
+     "date": "2026-07-09 08:37:40",
+     "amount": 24383.88,
+     "supplier": "Utopia Supported Housing Ltd",
+     "tag": "care_or_education_placement",
+     "service": "Children's Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:649",
+     "date": "2026-06-18 08:41:59",
+     "amount": 24244.0,
+     "supplier": "Triple Value Impact",
+     "tag": "general_procurement",
+     "service": "Chief Executive",
+     "category": "Supplies & Services",
+     "narrative": "General Expenses"
+    },
+    {
+     "row_id": "Over500_2026_P02_-_published:560",
+     "date": "2026-05-12 13:16:19",
+     "amount": 24227.07,
+     "supplier": "DevComms South East Ltd",
+     "tag": "general_procurement",
+     "service": "Development & Housing",
+     "category": "Supplies & Services",
+     "narrative": "Professional Fees"
+    },
+    {
+     "row_id": "Over500_2026_P02_-_published:2271",
+     "date": "2026-05-26 14:45:42",
+     "amount": 24110.58,
+     "supplier": "ACORN CARE & EDUCATION LTD",
+     "tag": "care_or_education_placement",
+     "service": "Education (DSG Funded) & Other Education Grants",
+     "category": "Third Party Payments",
+     "narrative": "Other agencies"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:13",
+     "date": "2026-06-01 16:04:46",
+     "amount": 24088.98,
+     "supplier": "The Better Group Ltd",
+     "tag": "general_procurement",
+     "service": "Children's Social Care",
+     "category": "Employees",
+     "narrative": "Training"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:396",
+     "date": "2026-06-10 11:29:10",
+     "amount": 24000.0,
+     "supplier": "BookingLab Limited",
+     "tag": "general_procurement",
+     "service": "Transformation, Customer & ICT",
+     "category": "Supplies & Services",
+     "narrative": "IT"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:3092",
+     "date": "2026-07-23 16:07:49",
+     "amount": 23989.77,
+     "supplier": "Care Services To You",
+     "tag": "care_or_education_placement",
+     "service": "Children's Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:2004",
+     "date": "2026-06-03 10:15:15",
+     "amount": 23989.77,
+     "supplier": "Care Services To You",
+     "tag": "care_or_education_placement",
+     "service": "Children's Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P03_-_published:3044",
+     "date": "2026-06-22 12:16:05",
+     "amount": 23989.77,
+     "supplier": "Care Services To You",
+     "tag": "care_or_education_placement",
+     "service": "Children's Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    },
+    {
+     "row_id": "Over500_2026_P04_-_published:3154",
+     "date": "2026-07-06 16:34:11",
+     "amount": 23989.77,
+     "supplier": "Care Services To You",
+     "tag": "care_or_education_placement",
+     "service": "Children's Social Care",
+     "category": "Third Party Payments",
+     "narrative": "Private Contractors"
+    }
+   ],
+   "top_suppliers": [
+    {
+     "supplier": "Care Services To You",
+     "payments": 14,
+     "gbp": 335856.78
+    },
+    {
+     "supplier": "Phoenix Child Care Limited -The Grange School",
+     "payments": 4,
+     "gbp": 92706.67
+    },
+    {
+     "supplier": "ACORN CARE & EDUCATION LTD",
+     "payments": 3,
+     "gbp": 71305.97
+    },
+    {
+     "supplier": "Elior UK PLC",
+     "payments": 3,
+     "gbp": 70383.8
+    },
+    {
+     "supplier": "Sukhbir Singh and Harvinder Singh T/A Calcot Services for Children (CSFC)",
+     "payments": 2,
+     "gbp": 49407.5
+    },
+    {
+     "supplier": "The Better Group Ltd",
+     "payments": 2,
+     "gbp": 48565.0
+    },
+    {
+     "supplier": "FOCUS SUPPORT LTD",
+     "payments": 2,
+     "gbp": 47772.89
+    },
+    {
+     "supplier": "Affinity Trust Support Ltd",
+     "payments": 1,
+     "gbp": 24926.0
+    },
+    {
+     "supplier": "CHARMAINE CAULFIELD",
+     "payments": 1,
+     "gbp": 24850.39
+    },
+    {
+     "supplier": "BEANSHEAF COMMUNITY PRE-SCHOO",
+     "payments": 1,
+     "gbp": 24705.36
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/threshold_clustering.csv",
+   "interpretation": "Payments just below 25,000 GBP (within 10 percent) may indicate amounts shaped to stay under a procurement route boundary; the adjacent lower band is shown for context so the auditor can judge whether the concentration is unusual. Innocent explanations include fixed or tariff prices, standard rates for recurring care or service charges, and round-number pricing. Worth confirming against quotes or tender records. Care placements may be lawfully outside competition (Appendix C row F, CPR-72)."
+  },
+  "split_purchases@25000": {
+   "test": "split_purchases",
+   "metric_id": "split_purchases@25000",
+   "status": "ran",
+   "parameters": {
+    "tier_gbp": 25000,
+    "rule_ids": [
+     "CPR-59",
+     "CPR-60",
+     "CPR-62",
+     "CPR-13"
+    ],
+    "window_days": 30,
+    "condition": "same normalised supplier, >=2 payments each below the tier within the window, combined total reaches the tier",
+    "tier_inclusive_basis": "threshold_low_inclusive"
+   },
+   "counts": {
+    "flagged_items": 299,
+    "payments_in_groups": 5435,
+    "groups_all_amounts_equal": 10
+   },
+   "totals_gbp": {
+    "combined": 23514371.83
+   },
+   "by_tag": {
+    "grant": {
+     "count": 6,
+     "gbp": 180291.54
+    },
+    "care_or_education_placement": {
+     "count": 208,
+     "gbp": 18421220.22
+    },
+    "agency_staff": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "premises": {
+     "count": 18,
+     "gbp": 660630.99
+    },
+    "general_procurement": {
+     "count": 67,
+     "gbp": 4252229.08
+    }
+   },
+   "top20": [
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "n_payments": 248,
+     "combined_gbp": 1259714.57,
+     "span_days": 28.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1003;Over500_2026_P03_-_published:1005;Over500_2026_P03_-_published:1006;Over500_2026_P03_-_published:1011;Over500_2026_P03_-_published:1012;Over500_2026_P03_-_published:1027;Over500_2026_P03_-_published:1028;Over500_2026_P03_-_published:1312;Over500_2026_P03_-_published:1323;Over500_2026_P03_-_published:1324;Over500_2026_P03_-_published:1325;Over500_2026_P03_-_published:1326;Over500_2026_P03_-_published:1327;Over500_2026_P03_-_published:1328;Over500_2026_P03_-_published:1329;Over500_2026_P03_-_published:1330;Over500_2026_P03_-_published:1336;Over500_2026_P03_-_published:1342;Over500_2026_P03_-_published:1343;Over500_2026_P03_-_published:1344;Over500_2026_P03_-_published:1345;Over500_2026_P03_-_published:1346;Over500_2026_P03_-_published:1371;Over500_2026_P03_-_published:1372;Over500_2026_P03_-_published:1377;Over500_2026_P03_-_published:1378;Over500_2026_P03_-_published:1379;Over500_2026_P03_-_published:1380;Over500_2026_P03_-_published:1412;Over500_2026_P03_-_published:1413;Over500_2026_P03_-_published:1414;Over500_2026_P03_-_published:1460;Over500_2026_P03_-_published:1470;Over500_2026_P03_-_published:1477;Over500_2026_P03_-_published:1485;Over500_2026_P03_-_published:1486;Over500_2026_P03_-_published:1487;Over500_2026_P03_-_published:1759;Over500_2026_P03_-_published:1822;Over500_2026_P03_-_published:2690;Over500_2026_P03_-_published:2691;Over500_2026_P03_-_published:2700;Over500_2026_P03_-_published:2701;Over500_2026_P03_-_published:2702;Over500_2026_P03_-_published:2703;Over500_2026_P03_-_published:2709;Over500_2026_P03_-_published:2710;Over500_2026_P03_-_published:2716;Over500_2026_P03_-_published:2825;Over500_2026_P03_-_published:2831;Over500_2026_P03_-_published:2832;Over500_2026_P03_-_published:2833;Over500_2026_P03_-_published:2834;Over500_2026_P03_-_published:2844;Over500_2026_P03_-_published:2849;Over500_2026_P03_-_published:2850;Over500_2026_P03_-_published:2851;Over500_2026_P03_-_published:2890;Over500_2026_P03_-_published:3020;Over500_2026_P03_-_published:3023;Over500_2026_P03_-_published:837;Over500_2026_P03_-_published:852;Over500_2026_P03_-_published:871;Over500_2026_P03_-_published:872;Over500_2026_P03_-_published:893;Over500_2026_P03_-_published:894;Over500_2026_P03_-_published:895;Over500_2026_P03_-_published:896;Over500_2026_P03_-_published:897;Over500_2026_P03_-_published:898;Over500_2026_P03_-_published:903;Over500_2026_P03_-_published:904;Over500_2026_P03_-_published:919;Over500_2026_P03_-_published:920;Over500_2026_P03_-_published:921;Over500_2026_P03_-_published:922;Over500_2026_P03_-_published:923;Over500_2026_P03_-_published:940;Over500_2026_P03_-_published:941;Over500_2026_P03_-_published:942;Over500_2026_P03_-_published:943;Over500_2026_P03_-_published:944;Over500_2026_P03_-_published:945;Over500_2026_P03_-_published:946;Over500_2026_P03_-_published:947;Over500_2026_P03_-_published:953;Over500_2026_P03_-_published:954;Over500_2026_P03_-_published:960;Over500_2026_P03_-_published:961;Over500_2026_P03_-_published:962;Over500_2026_P03_-_published:975;Over500_2026_P03_-_published:976;Over500_2026_P03_-_published:977;Over500_2026_P03_-_published:980;Over500_2026_P03_-_published:981;Over500_2026_P03_-_published:987;Over500_2026_P04_-_published:1028;Over500_2026_P04_-_published:1029;Over500_2026_P04_-_published:1030;Over500_2026_P04_-_published:1031;Over500_2026_P04_-_published:1051;Over500_2026_P04_-_published:1067;Over500_2026_P04_-_published:1068;Over500_2026_P04_-_published:1069;Over500_2026_P04_-_published:1075;Over500_2026_P04_-_published:1076;Over500_2026_P04_-_published:1077;Over500_2026_P04_-_published:1078;Over500_2026_P04_-_published:1079;Over500_2026_P04_-_published:1080;Over500_2026_P04_-_published:1100;Over500_2026_P04_-_published:1132;Over500_2026_P04_-_published:1133;Over500_2026_P04_-_published:1151;Over500_2026_P04_-_published:1817;Over500_2026_P04_-_published:1841;Over500_2026_P04_-_published:1889;Over500_2026_P04_-_published:1925;Over500_2026_P04_-_published:1944;Over500_2026_P04_-_published:2770;Over500_2026_P04_-_published:2869;Over500_2026_P04_-_published:1032;Over500_2026_P04_-_published:1033;Over500_2026_P04_-_published:1034;Over500_2026_P04_-_published:1035;Over500_2026_P04_-_published:1036;Over500_2026_P04_-_published:1037;Over500_2026_P04_-_published:1038;Over500_2026_P04_-_published:1039;Over500_2026_P04_-_published:1040;Over500_2026_P04_-_published:1041;Over500_2026_P04_-_published:1042;Over500_2026_P04_-_published:1043;Over500_2026_P04_-_published:1070;Over500_2026_P04_-_published:1071;Over500_2026_P04_-_published:1072;Over500_2026_P04_-_published:1073;Over500_2026_P04_-_published:1081;Over500_2026_P04_-_published:1082;Over500_2026_P04_-_published:1083;Over500_2026_P04_-_published:1084;Over500_2026_P04_-_published:1085;Over500_2026_P04_-_published:1086;Over500_2026_P04_-_published:1087;Over500_2026_P04_-_published:1088;Over500_2026_P04_-_published:1089;Over500_2026_P04_-_published:1090;Over500_2026_P04_-_published:1091;Over500_2026_P04_-_published:1103;Over500_2026_P04_-_published:1104;Over500_2026_P04_-_published:1105;Over500_2026_P04_-_published:1106;Over500_2026_P04_-_published:1107;Over500_2026_P04_-_published:1115;Over500_2026_P04_-_published:1116;Over500_2026_P04_-_published:1117;Over500_2026_P04_-_published:1118;Over500_2026_P04_-_published:1119;Over500_2026_P04_-_published:1120;Over500_2026_P04_-_published:1135;Over500_2026_P04_-_published:1136;Over500_2026_P04_-_published:1137;Over500_2026_P04_-_published:1153;Over500_2026_P04_-_published:1154;Over500_2026_P04_-_published:1155;Over500_2026_P04_-_published:1156;Over500_2026_P04_-_published:1157;Over500_2026_P04_-_published:1158;Over500_2026_P04_-_published:1563;Over500_2026_P04_-_published:1565;Over500_2026_P04_-_published:1791;Over500_2026_P04_-_published:1792;Over500_2026_P04_-_published:1813;Over500_2026_P04_-_published:1814;Over500_2026_P04_-_published:1818;Over500_2026_P04_-_published:1819;Over500_2026_P04_-_published:1820;Over500_2026_P04_-_published:1821;Over500_2026_P04_-_published:1822;Over500_2026_P04_-_published:1823;Over500_2026_P04_-_published:1824;Over500_2026_P04_-_published:1825;Over500_2026_P04_-_published:1826;Over500_2026_P04_-_published:1827;Over500_2026_P04_-_published:1828;Over500_2026_P04_-_published:1829;Over500_2026_P04_-_published:1830;Over500_2026_P04_-_published:1831;Over500_2026_P04_-_published:1845;Over500_2026_P04_-_published:1846;Over500_2026_P04_-_published:1847;Over500_2026_P04_-_published:1848;Over500_2026_P04_-_published:1849;Over500_2026_P04_-_published:1850;Over500_2026_P04_-_published:1871;Over500_2026_P04_-_published:1881;Over500_2026_P04_-_published:1890;Over500_2026_P04_-_published:1891;Over500_2026_P04_-_published:1892;Over500_2026_P04_-_published:1893;Over500_2026_P04_-_published:1894;Over500_2026_P04_-_published:1895;Over500_2026_P04_-_published:1896;Over500_2026_P04_-_published:1904;Over500_2026_P04_-_published:1905;Over500_2026_P04_-_published:1906;Over500_2026_P04_-_published:1907;Over500_2026_P04_-_published:1908;Over500_2026_P04_-_published:1922;Over500_2026_P04_-_published:1923;Over500_2026_P04_-_published:1924;Over500_2026_P04_-_published:1926;Over500_2026_P04_-_published:1927;Over500_2026_P04_-_published:1928;Over500_2026_P04_-_published:1929;Over500_2026_P04_-_published:1930;Over500_2026_P04_-_published:1931;Over500_2026_P04_-_published:1948;Over500_2026_P04_-_published:1949;Over500_2026_P04_-_published:1950;Over500_2026_P04_-_published:1951;Over500_2026_P04_-_published:1952;Over500_2026_P04_-_published:1963;Over500_2026_P04_-_published:2003;Over500_2026_P04_-_published:2004;Over500_2026_P04_-_published:2005;Over500_2026_P04_-_published:2006;Over500_2026_P04_-_published:2131;Over500_2026_P04_-_published:2178;Over500_2026_P04_-_published:2656;Over500_2026_P04_-_published:2664;Over500_2026_P04_-_published:2665;Over500_2026_P04_-_published:2666;Over500_2026_P04_-_published:2676;Over500_2026_P04_-_published:2677;Over500_2026_P04_-_published:2678;Over500_2026_P04_-_published:2717;Over500_2026_P04_-_published:2884;Over500_2026_P04_-_published:2908;Over500_2026_P04_-_published:2931;Over500_2026_P04_-_published:2932;Over500_2026_P04_-_published:3006;Over500_2026_P04_-_published:3699;Over500_2026_P04_-_published:3704;Over500_2026_P04_-_published:724;Over500_2026_P04_-_published:887;Over500_2026_P04_-_published:916;Over500_2026_P04_-_published:927"
+    },
+    {
+     "supplier": "Oaklands SEN School Berkshire Limited",
+     "tag": "care_or_education_placement",
+     "n_payments": 54,
+     "combined_gbp": 1026661.89,
+     "span_days": 0.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:2164;Over500_2026_P03_-_published:2165;Over500_2026_P03_-_published:2166;Over500_2026_P03_-_published:2167;Over500_2026_P03_-_published:2189;Over500_2026_P03_-_published:2190;Over500_2026_P03_-_published:2310;Over500_2026_P03_-_published:2311;Over500_2026_P03_-_published:3106;Over500_2026_P03_-_published:3107;Over500_2026_P03_-_published:2169;Over500_2026_P03_-_published:2170;Over500_2026_P03_-_published:2191;Over500_2026_P03_-_published:2192;Over500_2026_P03_-_published:2193;Over500_2026_P03_-_published:2312;Over500_2026_P03_-_published:2313;Over500_2026_P03_-_published:2314;Over500_2026_P03_-_published:3108;Over500_2026_P03_-_published:3109;Over500_2026_P03_-_published:2171;Over500_2026_P03_-_published:2172;Over500_2026_P03_-_published:2173;Over500_2026_P03_-_published:2194;Over500_2026_P03_-_published:2195;Over500_2026_P03_-_published:2196;Over500_2026_P03_-_published:2315;Over500_2026_P03_-_published:2316;Over500_2026_P03_-_published:2317;Over500_2026_P03_-_published:3110;Over500_2026_P03_-_published:3111;Over500_2026_P03_-_published:2174;Over500_2026_P03_-_published:2197;Over500_2026_P03_-_published:2318;Over500_2026_P03_-_published:2175;Over500_2026_P03_-_published:2176;Over500_2026_P03_-_published:2198;Over500_2026_P03_-_published:2199;Over500_2026_P03_-_published:2200;Over500_2026_P03_-_published:2201;Over500_2026_P03_-_published:2202;Over500_2026_P03_-_published:2319;Over500_2026_P03_-_published:2320;Over500_2026_P03_-_published:3112;Over500_2026_P03_-_published:3113;Over500_2026_P03_-_published:2177;Over500_2026_P03_-_published:2203;Over500_2026_P03_-_published:2204;Over500_2026_P03_-_published:2321;Over500_2026_P03_-_published:2322;Over500_2026_P03_-_published:2323;Over500_2026_P03_-_published:3114;Over500_2026_P03_-_published:3115;Over500_2026_P03_-_published:3116"
+    },
+    {
+     "supplier": "Affinity Trust Support Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 180,
+     "combined_gbp": 758590.31,
+     "span_days": 27.98,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1444;Over500_2026_P03_-_published:1531;Over500_2026_P03_-_published:1532;Over500_2026_P03_-_published:1533;Over500_2026_P03_-_published:1539;Over500_2026_P03_-_published:1540;Over500_2026_P03_-_published:1541;Over500_2026_P03_-_published:1542;Over500_2026_P03_-_published:1543;Over500_2026_P03_-_published:1544;Over500_2026_P03_-_published:1545;Over500_2026_P03_-_published:1546;Over500_2026_P03_-_published:1547;Over500_2026_P03_-_published:1548;Over500_2026_P03_-_published:1549;Over500_2026_P03_-_published:1550;Over500_2026_P03_-_published:1551;Over500_2026_P03_-_published:1588;Over500_2026_P03_-_published:1589;Over500_2026_P03_-_published:1590;Over500_2026_P03_-_published:1591;Over500_2026_P03_-_published:1592;Over500_2026_P03_-_published:1595;Over500_2026_P03_-_published:1627;Over500_2026_P03_-_published:1629;Over500_2026_P03_-_published:1630;Over500_2026_P03_-_published:1633;Over500_2026_P03_-_published:1634;Over500_2026_P03_-_published:1635;Over500_2026_P03_-_published:1640;Over500_2026_P03_-_published:1641;Over500_2026_P03_-_published:1642;Over500_2026_P03_-_published:1643;Over500_2026_P03_-_published:1644;Over500_2026_P03_-_published:1674;Over500_2026_P03_-_published:1678;Over500_2026_P03_-_published:1699;Over500_2026_P03_-_published:1700;Over500_2026_P03_-_published:1701;Over500_2026_P03_-_published:1702;Over500_2026_P03_-_published:1703;Over500_2026_P03_-_published:1704;Over500_2026_P03_-_published:1754;Over500_2026_P03_-_published:1764;Over500_2026_P03_-_published:1768;Over500_2026_P03_-_published:1770;Over500_2026_P03_-_published:1771;Over500_2026_P03_-_published:1831;Over500_2026_P03_-_published:1832;Over500_2026_P03_-_published:1855;Over500_2026_P03_-_published:1856;Over500_2026_P03_-_published:1977;Over500_2026_P03_-_published:1983;Over500_2026_P03_-_published:2914;Over500_2026_P03_-_published:2939;Over500_2026_P03_-_published:2940;Over500_2026_P03_-_published:2941;Over500_2026_P03_-_published:2942;Over500_2026_P03_-_published:2943;Over500_2026_P03_-_published:2944;Over500_2026_P03_-_published:2978;Over500_2026_P03_-_published:2986;Over500_2026_P03_-_published:1663;Over500_2026_P03_-_published:1664;Over500_2026_P03_-_published:1665;Over500_2026_P03_-_published:1666;Over500_2026_P03_-_published:1667;Over500_2026_P03_-_published:1689;Over500_2026_P03_-_published:1690;Over500_2026_P03_-_published:1691;Over500_2026_P03_-_published:1692;Over500_2026_P03_-_published:1693;Over500_2026_P03_-_published:1694;Over500_2026_P03_-_published:1695;Over500_2026_P03_-_published:1696;Over500_2026_P03_-_published:1715;Over500_2026_P03_-_published:1716;Over500_2026_P03_-_published:1844;Over500_2026_P03_-_published:1875;Over500_2026_P03_-_published:2955;Over500_2026_P03_-_published:2956;Over500_2026_P03_-_published:2957;Over500_2026_P03_-_published:2958;Over500_2026_P03_-_published:2959;Over500_2026_P03_-_published:935;Over500_2026_P04_-_published:2222;Over500_2026_P04_-_published:2224;Over500_2026_P04_-_published:2226;Over500_2026_P04_-_published:2227;Over500_2026_P04_-_published:2239;Over500_2026_P04_-_published:2240;Over500_2026_P04_-_published:2241;Over500_2026_P04_-_published:2251;Over500_2026_P04_-_published:2252;Over500_2026_P04_-_published:2253;Over500_2026_P04_-_published:2257;Over500_2026_P04_-_published:2258;Over500_2026_P04_-_published:2259;Over500_2026_P04_-_published:2267;Over500_2026_P04_-_published:2268;Over500_2026_P04_-_published:2269;Over500_2026_P04_-_published:2270;Over500_2026_P04_-_published:2271;Over500_2026_P04_-_published:2272;Over500_2026_P04_-_published:2294;Over500_2026_P04_-_published:2295;Over500_2026_P04_-_published:2313;Over500_2026_P04_-_published:2314;Over500_2026_P04_-_published:2315;Over500_2026_P04_-_published:2316;Over500_2026_P04_-_published:2337;Over500_2026_P04_-_published:2338;Over500_2026_P04_-_published:2339;Over500_2026_P04_-_published:2340;Over500_2026_P04_-_published:2341;Over500_2026_P04_-_published:2342;Over500_2026_P04_-_published:2343;Over500_2026_P04_-_published:2344;Over500_2026_P04_-_published:2603;Over500_2026_P04_-_published:2707;Over500_2026_P04_-_published:2742;Over500_2026_P04_-_published:2765;Over500_2026_P04_-_published:2960;Over500_2026_P04_-_published:2961;Over500_2026_P04_-_published:2970;Over500_2026_P04_-_published:2971;Over500_2026_P04_-_published:2972;Over500_2026_P04_-_published:2973;Over500_2026_P04_-_published:2974;Over500_2026_P04_-_published:2975;Over500_2026_P04_-_published:2976;Over500_2026_P04_-_published:2977;Over500_2026_P04_-_published:2978;Over500_2026_P04_-_published:2979;Over500_2026_P04_-_published:2980;Over500_2026_P04_-_published:2981;Over500_2026_P04_-_published:2982;Over500_2026_P04_-_published:3066;Over500_2026_P04_-_published:3564;Over500_2026_P04_-_published:3629;Over500_2026_P04_-_published:3730;Over500_2026_P04_-_published:3731;Over500_2026_P04_-_published:972;Over500_2026_P04_-_published:2297;Over500_2026_P04_-_published:2298;Over500_2026_P04_-_published:2299;Over500_2026_P04_-_published:2300;Over500_2026_P04_-_published:2301;Over500_2026_P04_-_published:2302;Over500_2026_P04_-_published:2317;Over500_2026_P04_-_published:2318;Over500_2026_P04_-_published:2319;Over500_2026_P04_-_published:2321;Over500_2026_P04_-_published:2322;Over500_2026_P04_-_published:2334;Over500_2026_P04_-_published:2345;Over500_2026_P04_-_published:2346;Over500_2026_P04_-_published:2347;Over500_2026_P04_-_published:2348;Over500_2026_P04_-_published:2350;Over500_2026_P04_-_published:2351;Over500_2026_P04_-_published:2391;Over500_2026_P04_-_published:2693;Over500_2026_P04_-_published:2694;Over500_2026_P04_-_published:2985;Over500_2026_P04_-_published:2986;Over500_2026_P04_-_published:2989;Over500_2026_P04_-_published:3008;Over500_2026_P04_-_published:3565;Over500_2026_P04_-_published:974;Over500_2026_P04_-_published:993;Over500_2026_P04_-_published:2401;Over500_2026_P04_-_published:2402;Over500_2026_P04_-_published:2422;Over500_2026_P04_-_published:2423;Over500_2026_P04_-_published:2441;Over500_2026_P04_-_published:2709;Over500_2026_P04_-_published:3028;Over500_2026_P04_-_published:3029;Over500_2026_P04_-_published:3045"
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "n_payments": 120,
+     "combined_gbp": 605975.41,
+     "span_days": 27.98,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:1509;Over500_2026_P02_-_published:1034;Over500_2026_P02_-_published:1035;Over500_2026_P02_-_published:1036;Over500_2026_P02_-_published:1037;Over500_2026_P02_-_published:1038;Over500_2026_P02_-_published:1039;Over500_2026_P02_-_published:1040;Over500_2026_P02_-_published:1041;Over500_2026_P02_-_published:1042;Over500_2026_P02_-_published:1043;Over500_2026_P02_-_published:1044;Over500_2026_P02_-_published:1045;Over500_2026_P02_-_published:1431;Over500_2026_P02_-_published:1443;Over500_2026_P02_-_published:1444;Over500_2026_P02_-_published:1455;Over500_2026_P02_-_published:1456;Over500_2026_P02_-_published:1457;Over500_2026_P02_-_published:1458;Over500_2026_P02_-_published:1459;Over500_2026_P02_-_published:1460;Over500_2026_P02_-_published:1461;Over500_2026_P02_-_published:1462;Over500_2026_P02_-_published:1463;Over500_2026_P02_-_published:1464;Over500_2026_P02_-_published:1465;Over500_2026_P02_-_published:1466;Over500_2026_P02_-_published:1467;Over500_2026_P02_-_published:1468;Over500_2026_P02_-_published:1469;Over500_2026_P02_-_published:1470;Over500_2026_P02_-_published:1471;Over500_2026_P02_-_published:1472;Over500_2026_P02_-_published:1473;Over500_2026_P02_-_published:1474;Over500_2026_P02_-_published:1475;Over500_2026_P02_-_published:1524;Over500_2026_P02_-_published:1525;Over500_2026_P02_-_published:1526;Over500_2026_P02_-_published:1527;Over500_2026_P02_-_published:1528;Over500_2026_P02_-_published:1529;Over500_2026_P02_-_published:1530;Over500_2026_P02_-_published:1531;Over500_2026_P02_-_published:1532;Over500_2026_P02_-_published:1533;Over500_2026_P02_-_published:1534;Over500_2026_P02_-_published:1535;Over500_2026_P02_-_published:1536;Over500_2026_P02_-_published:1537;Over500_2026_P02_-_published:1627;Over500_2026_P02_-_published:1630;Over500_2026_P02_-_published:1832;Over500_2026_P02_-_published:1850;Over500_2026_P02_-_published:1962;Over500_2026_P02_-_published:1963;Over500_2026_P02_-_published:1976;Over500_2026_P02_-_published:868;Over500_2026_P02_-_published:869;Over500_2026_P02_-_published:870;Over500_2026_P02_-_published:871;Over500_2026_P02_-_published:872;Over500_2026_P02_-_published:875;Over500_2026_P02_-_published:958;Over500_2026_P02_-_published:959;Over500_2026_P02_-_published:960;Over500_2026_P02_-_published:961;Over500_2026_P02_-_published:962;Over500_2026_P02_-_published:963;Over500_2026_P02_-_published:964;Over500_2026_P02_-_published:965;Over500_2026_P02_-_published:966;Over500_2026_P02_-_published:967;Over500_2026_P02_-_published:968;Over500_2026_P02_-_published:969;Over500_2026_P02_-_published:970;Over500_2026_P02_-_published:971;Over500_2026_P02_-_published:972;Over500_2026_P02_-_published:973;Over500_2026_P02_-_published:974;Over500_2026_P02_-_published:975;Over500_2026_P02_-_published:976;Over500_2026_P02_-_published:977;Over500_2026_P02_-_published:978;Over500_2026_P02_-_published:979;Over500_2026_P02_-_published:980;Over500_2026_P02_-_published:981;Over500_2026_P02_-_published:982;Over500_2026_P02_-_published:983;Over500_2026_P02_-_published:984;Over500_2026_P02_-_published:985;Over500_2026_P02_-_published:986;Over500_2026_P02_-_published:987;Over500_2026_P02_-_published:988;Over500_2026_P02_-_published:1023;Over500_2026_P02_-_published:1024;Over500_2026_P02_-_published:1025;Over500_2026_P02_-_published:1026;Over500_2026_P02_-_published:1069;Over500_2026_P02_-_published:1070;Over500_2026_P02_-_published:1071;Over500_2026_P02_-_published:1072;Over500_2026_P02_-_published:1967;Over500_2026_P03_-_published:1018;Over500_2026_P03_-_published:1322;Over500_2026_P03_-_published:1857;Over500_2026_P03_-_published:2830;Over500_2026_P03_-_published:2845;Over500_2026_P03_-_published:890;Over500_2026_P03_-_published:891;Over500_2026_P03_-_published:892;Over500_2026_P03_-_published:915;Over500_2026_P03_-_published:916;Over500_2026_P03_-_published:917;Over500_2026_P03_-_published:918;Over500_2026_P03_-_published:937;Over500_2026_P03_-_published:938;Over500_2026_P03_-_published:939;Over500_2026_P03_-_published:951"
+    },
+    {
+     "supplier": "Phoenix Child Care Limited -The Grange School",
+     "tag": "care_or_education_placement",
+     "n_payments": 18,
+     "combined_gbp": 401210.46,
+     "span_days": 29.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:2242;Over500_2026_P02_-_published:2243;Over500_2026_P02_-_published:2245;Over500_2026_P02_-_published:2247;Over500_2026_P02_-_published:2249;Over500_2026_P02_-_published:2250;Over500_2026_P02_-_published:2252;Over500_2026_P02_-_published:2253;Over500_2026_P02_-_published:2255;Over500_2026_P02_-_published:2256;Over500_2026_P02_-_published:2257;Over500_2026_P02_-_published:2258;Over500_2026_P02_-_published:2259;Over500_2026_P02_-_published:2260;Over500_2026_P02_-_published:2262;Over500_2026_P02_-_published:2263;Over500_2026_P03_-_published:2179;Over500_2026_P03_-_published:2229"
+    },
+    {
+     "supplier": "VOYAGE CARE",
+     "tag": "care_or_education_placement",
+     "n_payments": 44,
+     "combined_gbp": 337815.88,
+     "span_days": 27.99,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:1638;Over500_2026_P02_-_published:1639;Over500_2026_P02_-_published:1640;Over500_2026_P02_-_published:1641;Over500_2026_P02_-_published:1642;Over500_2026_P02_-_published:1643;Over500_2026_P02_-_published:1644;Over500_2026_P02_-_published:1645;Over500_2026_P02_-_published:1646;Over500_2026_P02_-_published:1835;Over500_2026_P02_-_published:1836;Over500_2026_P02_-_published:1837;Over500_2026_P02_-_published:1838;Over500_2026_P02_-_published:1839;Over500_2026_P02_-_published:1840;Over500_2026_P02_-_published:1841;Over500_2026_P02_-_published:1842;Over500_2026_P02_-_published:1843;Over500_2026_P02_-_published:1695;Over500_2026_P02_-_published:1791;Over500_2026_P02_-_published:1855;Over500_2026_P02_-_published:1944;Over500_2026_P02_-_published:1805;Over500_2026_P02_-_published:1814;Over500_2026_P03_-_published:1607;Over500_2026_P03_-_published:2918;Over500_2026_P03_-_published:1405;Over500_2026_P03_-_published:1433;Over500_2026_P03_-_published:1465;Over500_2026_P03_-_published:1466;Over500_2026_P03_-_published:1467;Over500_2026_P03_-_published:1572;Over500_2026_P03_-_published:1573;Over500_2026_P03_-_published:1735;Over500_2026_P03_-_published:1736;Over500_2026_P03_-_published:1758;Over500_2026_P03_-_published:1825;Over500_2026_P03_-_published:1847;Over500_2026_P03_-_published:1848;Over500_2026_P03_-_published:1849;Over500_2026_P03_-_published:1850;Over500_2026_P03_-_published:2893;Over500_2026_P03_-_published:2894;Over500_2026_P03_-_published:2974"
+    },
+    {
+     "supplier": "GCH (Alder) Ltd t/a Hungerford Care Home",
+     "tag": "care_or_education_placement",
+     "n_payments": 60,
+     "combined_gbp": 314772.4,
+     "span_days": 28.0,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1013;Over500_2026_P03_-_published:1014;Over500_2026_P03_-_published:1015;Over500_2026_P03_-_published:1016;Over500_2026_P03_-_published:1017;Over500_2026_P03_-_published:1337;Over500_2026_P03_-_published:1383;Over500_2026_P03_-_published:1384;Over500_2026_P03_-_published:1406;Over500_2026_P03_-_published:1424;Over500_2026_P03_-_published:1425;Over500_2026_P03_-_published:1478;Over500_2026_P03_-_published:1479;Over500_2026_P03_-_published:1480;Over500_2026_P03_-_published:1495;Over500_2026_P03_-_published:1496;Over500_2026_P03_-_published:1497;Over500_2026_P03_-_published:2711;Over500_2026_P03_-_published:2712;Over500_2026_P03_-_published:2713;Over500_2026_P03_-_published:2714;Over500_2026_P03_-_published:2719;Over500_2026_P03_-_published:2858;Over500_2026_P03_-_published:905;Over500_2026_P03_-_published:906;Over500_2026_P03_-_published:948;Over500_2026_P03_-_published:949;Over500_2026_P03_-_published:950;Over500_2026_P03_-_published:963;Over500_2026_P03_-_published:964;Over500_2026_P03_-_published:988;Over500_2026_P04_-_published:1048;Over500_2026_P04_-_published:1049;Over500_2026_P04_-_published:1050;Over500_2026_P04_-_published:1097;Over500_2026_P04_-_published:1098;Over500_2026_P04_-_published:1099;Over500_2026_P04_-_published:1114;Over500_2026_P04_-_published:1126;Over500_2026_P04_-_published:1127;Over500_2026_P04_-_published:1128;Over500_2026_P04_-_published:1129;Over500_2026_P04_-_published:1130;Over500_2026_P04_-_published:1146;Over500_2026_P04_-_published:1241;Over500_2026_P04_-_published:1839;Over500_2026_P04_-_published:1840;Over500_2026_P04_-_published:1854;Over500_2026_P04_-_published:1917;Over500_2026_P04_-_published:1941;Over500_2026_P04_-_published:1942;Over500_2026_P04_-_published:1943;Over500_2026_P04_-_published:1973;Over500_2026_P04_-_published:1974;Over500_2026_P04_-_published:1996;Over500_2026_P04_-_published:2014;Over500_2026_P04_-_published:2023;Over500_2026_P04_-_published:2024;Over500_2026_P04_-_published:2670;Over500_2026_P04_-_published:2671"
+    },
+    {
+     "supplier": "WEST BERKSHIRE MENCAP",
+     "tag": "general_procurement",
+     "n_payments": 48,
+     "combined_gbp": 283986.09,
+     "span_days": 14.93,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:1411;Over500_2026_P04_-_published:1412;Over500_2026_P04_-_published:1413;Over500_2026_P04_-_published:1414;Over500_2026_P04_-_published:1415;Over500_2026_P04_-_published:1416;Over500_2026_P04_-_published:1417;Over500_2026_P04_-_published:1418;Over500_2026_P04_-_published:658;Over500_2026_P04_-_published:659;Over500_2026_P04_-_published:660;Over500_2026_P04_-_published:661;Over500_2026_P04_-_published:662;Over500_2026_P04_-_published:663;Over500_2026_P04_-_published:810;Over500_2026_P04_-_published:811;Over500_2026_P04_-_published:862;Over500_2026_P04_-_published:863;Over500_2026_P04_-_published:864;Over500_2026_P04_-_published:865;Over500_2026_P04_-_published:866;Over500_2026_P04_-_published:867;Over500_2026_P04_-_published:868;Over500_2026_P04_-_published:869;Over500_2026_P04_-_published:1561;Over500_2026_P04_-_published:1419;Over500_2026_P04_-_published:2432;Over500_2026_P04_-_published:854;Over500_2026_P04_-_published:1559;Over500_2026_P04_-_published:1420;Over500_2026_P04_-_published:1421;Over500_2026_P04_-_published:1422;Over500_2026_P04_-_published:1423;Over500_2026_P04_-_published:679;Over500_2026_P04_-_published:680;Over500_2026_P04_-_published:681;Over500_2026_P04_-_published:682;Over500_2026_P04_-_published:812;Over500_2026_P04_-_published:813;Over500_2026_P04_-_published:814;Over500_2026_P04_-_published:815;Over500_2026_P04_-_published:816;Over500_2026_P04_-_published:871;Over500_2026_P04_-_published:872;Over500_2026_P04_-_published:873;Over500_2026_P04_-_published:913;Over500_2026_P04_-_published:1560;Over500_2026_P04_-_published:723"
+    },
+    {
+     "supplier": "Sukhbir Singh and Harvinder Singh T/A Calcot Services for Children (CSFC)",
+     "tag": "care_or_education_placement",
+     "n_payments": 15,
+     "combined_gbp": 277338.33,
+     "span_days": 21.84,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:2238;Over500_2026_P02_-_published:2240;Over500_2026_P02_-_published:2241;Over500_2026_P03_-_published:2156;Over500_2026_P03_-_published:2184;Over500_2026_P03_-_published:2157;Over500_2026_P03_-_published:2158;Over500_2026_P03_-_published:3102;Over500_2026_P03_-_published:2159;Over500_2026_P03_-_published:2185;Over500_2026_P03_-_published:3103;Over500_2026_P03_-_published:3104;Over500_2026_P03_-_published:2160;Over500_2026_P03_-_published:2306;Over500_2026_P03_-_published:2307"
+    },
+    {
+     "supplier": "We Are The Care Company Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 156,
+     "combined_gbp": 275693.57,
+     "span_days": 28.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1054;Over500_2026_P03_-_published:1055;Over500_2026_P03_-_published:1056;Over500_2026_P03_-_published:1057;Over500_2026_P03_-_published:1058;Over500_2026_P03_-_published:1059;Over500_2026_P03_-_published:1060;Over500_2026_P03_-_published:1064;Over500_2026_P03_-_published:1065;Over500_2026_P03_-_published:1066;Over500_2026_P03_-_published:1067;Over500_2026_P03_-_published:1068;Over500_2026_P03_-_published:1069;Over500_2026_P03_-_published:1070;Over500_2026_P03_-_published:1071;Over500_2026_P03_-_published:1072;Over500_2026_P03_-_published:1073;Over500_2026_P03_-_published:1074;Over500_2026_P03_-_published:1075;Over500_2026_P03_-_published:1076;Over500_2026_P03_-_published:1077;Over500_2026_P03_-_published:1078;Over500_2026_P03_-_published:1098;Over500_2026_P03_-_published:1104;Over500_2026_P03_-_published:1105;Over500_2026_P03_-_published:1106;Over500_2026_P03_-_published:1107;Over500_2026_P03_-_published:1108;Over500_2026_P03_-_published:1109;Over500_2026_P03_-_published:1110;Over500_2026_P03_-_published:1111;Over500_2026_P03_-_published:1112;Over500_2026_P03_-_published:1113;Over500_2026_P03_-_published:1118;Over500_2026_P03_-_published:1358;Over500_2026_P03_-_published:1500;Over500_2026_P03_-_published:1567;Over500_2026_P03_-_published:2692;Over500_2026_P03_-_published:2693;Over500_2026_P03_-_published:2733;Over500_2026_P03_-_published:2741;Over500_2026_P03_-_published:2742;Over500_2026_P03_-_published:2743;Over500_2026_P03_-_published:2744;Over500_2026_P03_-_published:2745;Over500_2026_P03_-_published:2746;Over500_2026_P03_-_published:2747;Over500_2026_P03_-_published:2748;Over500_2026_P03_-_published:2749;Over500_2026_P03_-_published:2865;Over500_2026_P03_-_published:2866;Over500_2026_P03_-_published:2867;Over500_2026_P03_-_published:838;Over500_2026_P03_-_published:858;Over500_2026_P03_-_published:859;Over500_2026_P03_-_published:878;Over500_2026_P03_-_published:879;Over500_2026_P03_-_published:1386;Over500_2026_P03_-_published:1159;Over500_2026_P03_-_published:1199;Over500_2026_P03_-_published:1200;Over500_2026_P03_-_published:1201;Over500_2026_P03_-_published:1202;Over500_2026_P03_-_published:1209;Over500_2026_P03_-_published:1210;Over500_2026_P03_-_published:1211;Over500_2026_P03_-_published:1212;Over500_2026_P03_-_published:1213;Over500_2026_P03_-_published:1214;Over500_2026_P03_-_published:1215;Over500_2026_P03_-_published:1228;Over500_2026_P03_-_published:1229;Over500_2026_P03_-_published:1230;Over500_2026_P03_-_published:1231;Over500_2026_P03_-_published:1232;Over500_2026_P03_-_published:1318;Over500_2026_P03_-_published:1364;Over500_2026_P03_-_published:1393;Over500_2026_P03_-_published:1454;Over500_2026_P03_-_published:2793;Over500_2026_P03_-_published:2794;Over500_2026_P03_-_published:2795;Over500_2026_P03_-_published:2796;Over500_2026_P03_-_published:2828;Over500_2026_P03_-_published:842;Over500_2026_P03_-_published:844;Over500_2026_P03_-_published:867;Over500_2026_P03_-_published:885;Over500_2026_P03_-_published:928;Over500_2026_P03_-_published:929;Over500_2026_P03_-_published:1264;Over500_2026_P03_-_published:1398;Over500_2026_P03_-_published:2807;Over500_2026_P04_-_published:1237;Over500_2026_P04_-_published:1238;Over500_2026_P04_-_published:1239;Over500_2026_P04_-_published:1240;Over500_2026_P04_-_published:1321;Over500_2026_P04_-_published:1322;Over500_2026_P04_-_published:1323;Over500_2026_P04_-_published:1324;Over500_2026_P04_-_published:1325;Over500_2026_P04_-_published:1326;Over500_2026_P04_-_published:1327;Over500_2026_P04_-_published:1328;Over500_2026_P04_-_published:1329;Over500_2026_P04_-_published:1330;Over500_2026_P04_-_published:1331;Over500_2026_P04_-_published:1332;Over500_2026_P04_-_published:1333;Over500_2026_P04_-_published:1334;Over500_2026_P04_-_published:1335;Over500_2026_P04_-_published:1336;Over500_2026_P04_-_published:1337;Over500_2026_P04_-_published:1338;Over500_2026_P04_-_published:1339;Over500_2026_P04_-_published:1369;Over500_2026_P04_-_published:1370;Over500_2026_P04_-_published:1371;Over500_2026_P04_-_published:1372;Over500_2026_P04_-_published:1373;Over500_2026_P04_-_published:1374;Over500_2026_P04_-_published:1375;Over500_2026_P04_-_published:1376;Over500_2026_P04_-_published:1377;Over500_2026_P04_-_published:1378;Over500_2026_P04_-_published:1379;Over500_2026_P04_-_published:1443;Over500_2026_P04_-_published:1451;Over500_2026_P04_-_published:1567;Over500_2026_P04_-_published:1568;Over500_2026_P04_-_published:1771;Over500_2026_P04_-_published:1793;Over500_2026_P04_-_published:1816;Over500_2026_P04_-_published:2027;Over500_2026_P04_-_published:2028;Over500_2026_P04_-_published:2054;Over500_2026_P04_-_published:2055;Over500_2026_P04_-_published:2056;Over500_2026_P04_-_published:2057;Over500_2026_P04_-_published:2058;Over500_2026_P04_-_published:2059;Over500_2026_P04_-_published:2060;Over500_2026_P04_-_published:2061;Over500_2026_P04_-_published:2062;Over500_2026_P04_-_published:2063;Over500_2026_P04_-_published:2075;Over500_2026_P04_-_published:2076;Over500_2026_P04_-_published:2803;Over500_2026_P04_-_published:2804;Over500_2026_P04_-_published:896;Over500_2026_P04_-_published:921;Over500_2026_P04_-_published:922;Over500_2026_P04_-_published:923;Over500_2026_P04_-_published:933;Over500_2026_P04_-_published:946"
+    },
+    {
+     "supplier": "VolkerHighways Ltd",
+     "tag": "general_procurement",
+     "n_payments": 32,
+     "combined_gbp": 258306.28,
+     "span_days": 21.95,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:2174;Over500_2026_P02_-_published:2177;Over500_2026_P02_-_published:2178;Over500_2026_P02_-_published:713;Over500_2026_P02_-_published:2181;Over500_2026_P02_-_published:723;Over500_2026_P02_-_published:695;Over500_2026_P02_-_published:727;Over500_2026_P02_-_published:701;Over500_2026_P02_-_published:696;Over500_2026_P02_-_published:714;Over500_2026_P02_-_published:724;Over500_2026_P02_-_published:703;Over500_2026_P02_-_published:2179;Over500_2026_P02_-_published:2193;Over500_2026_P02_-_published:2185;Over500_2026_P02_-_published:731;Over500_2026_P02_-_published:2170;Over500_2026_P02_-_published:728;Over500_2026_P02_-_published:2172;Over500_2026_P02_-_published:734;Over500_2026_P02_-_published:730;Over500_2026_P02_-_published:2180;Over500_2026_P02_-_published:715;Over500_2026_P02_-_published:2182;Over500_2026_P02_-_published:726;Over500_2026_P02_-_published:716;Over500_2026_P02_-_published:697;Over500_2026_P02_-_published:721;Over500_2026_P02_-_published:693;Over500_2026_P02_-_published:699;Over500_2026_P02_-_published:694"
+    },
+    {
+     "supplier": "Affinity Trust Support Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 54,
+     "combined_gbp": 234600.7,
+     "span_days": 0.0,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:1052;Over500_2026_P04_-_published:2482;Over500_2026_P04_-_published:2514;Over500_2026_P04_-_published:2515;Over500_2026_P04_-_published:2532;Over500_2026_P04_-_published:2533;Over500_2026_P04_-_published:2534;Over500_2026_P04_-_published:2535;Over500_2026_P04_-_published:2536;Over500_2026_P04_-_published:2537;Over500_2026_P04_-_published:2538;Over500_2026_P04_-_published:2539;Over500_2026_P04_-_published:2540;Over500_2026_P04_-_published:2541;Over500_2026_P04_-_published:2542;Over500_2026_P04_-_published:2543;Over500_2026_P04_-_published:2554;Over500_2026_P04_-_published:2555;Over500_2026_P04_-_published:2556;Over500_2026_P04_-_published:2557;Over500_2026_P04_-_published:2558;Over500_2026_P04_-_published:2559;Over500_2026_P04_-_published:2560;Over500_2026_P04_-_published:2561;Over500_2026_P04_-_published:2562;Over500_2026_P04_-_published:2583;Over500_2026_P04_-_published:2584;Over500_2026_P04_-_published:2585;Over500_2026_P04_-_published:2586;Over500_2026_P04_-_published:2587;Over500_2026_P04_-_published:2588;Over500_2026_P04_-_published:2589;Over500_2026_P04_-_published:2590;Over500_2026_P04_-_published:2726;Over500_2026_P04_-_published:2745;Over500_2026_P04_-_published:2768;Over500_2026_P04_-_published:3149;Over500_2026_P04_-_published:3456;Over500_2026_P04_-_published:3457;Over500_2026_P04_-_published:3458;Over500_2026_P04_-_published:3459;Over500_2026_P04_-_published:3460;Over500_2026_P04_-_published:3461;Over500_2026_P04_-_published:3462;Over500_2026_P04_-_published:3463;Over500_2026_P04_-_published:3464;Over500_2026_P04_-_published:3465;Over500_2026_P04_-_published:3466;Over500_2026_P04_-_published:3467;Over500_2026_P04_-_published:3468;Over500_2026_P04_-_published:3469;Over500_2026_P04_-_published:3470;Over500_2026_P04_-_published:3634;Over500_2026_P04_-_published:3733"
+    },
+    {
+     "supplier": "PURLEY PARK TRUST LTD",
+     "tag": "general_procurement",
+     "n_payments": 51,
+     "combined_gbp": 231705.26,
+     "span_days": 23.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1537;Over500_2026_P03_-_published:1586;Over500_2026_P03_-_published:1631;Over500_2026_P03_-_published:1632;Over500_2026_P03_-_published:1658;Over500_2026_P03_-_published:1767;Over500_2026_P03_-_published:2934;Over500_2026_P03_-_published:2935;Over500_2026_P03_-_published:2936;Over500_2026_P03_-_published:2950;Over500_2026_P03_-_published:2953;Over500_2026_P03_-_published:799;Over500_2026_P04_-_published:1408;Over500_2026_P04_-_published:1409;Over500_2026_P04_-_published:1410;Over500_2026_P04_-_published:2232;Over500_2026_P04_-_published:2233;Over500_2026_P04_-_published:2245;Over500_2026_P04_-_published:2247;Over500_2026_P04_-_published:2248;Over500_2026_P04_-_published:2255;Over500_2026_P04_-_published:2264;Over500_2026_P04_-_published:2964;Over500_2026_P04_-_published:2965;Over500_2026_P04_-_published:654;Over500_2026_P04_-_published:655;Over500_2026_P04_-_published:808;Over500_2026_P04_-_published:809;Over500_2026_P04_-_published:859;Over500_2026_P04_-_published:860;Over500_2026_P04_-_published:861;Over500_2026_P04_-_published:1405;Over500_2026_P04_-_published:1406;Over500_2026_P04_-_published:1513;Over500_2026_P04_-_published:649;Over500_2026_P04_-_published:650;Over500_2026_P04_-_published:687;Over500_2026_P04_-_published:688;Over500_2026_P04_-_published:802;Over500_2026_P04_-_published:805;Over500_2026_P04_-_published:806;Over500_2026_P04_-_published:807;Over500_2026_P04_-_published:847;Over500_2026_P04_-_published:850;Over500_2026_P04_-_published:878;Over500_2026_P04_-_published:2400;Over500_2026_P04_-_published:2410;Over500_2026_P04_-_published:2599;Over500_2026_P04_-_published:2645;Over500_2026_P04_-_published:3560;Over500_2026_P04_-_published:3561"
+    },
+    {
+     "supplier": "VolkerHighways Ltd",
+     "tag": "general_procurement",
+     "n_payments": 37,
+     "combined_gbp": 223741.08,
+     "span_days": 17.95,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:736;Over500_2026_P04_-_published:602;Over500_2026_P04_-_published:1289;Over500_2026_P04_-_published:621;Over500_2026_P04_-_published:799;Over500_2026_P04_-_published:3184;Over500_2026_P04_-_published:3786;Over500_2026_P04_-_published:791;Over500_2026_P04_-_published:1310;Over500_2026_P04_-_published:1295;Over500_2026_P04_-_published:3303;Over500_2026_P04_-_published:3186;Over500_2026_P04_-_published:3187;Over500_2026_P04_-_published:3211;Over500_2026_P04_-_published:3304;Over500_2026_P04_-_published:819;Over500_2026_P04_-_published:822;Over500_2026_P04_-_published:739;Over500_2026_P04_-_published:821;Over500_2026_P04_-_published:1293;Over500_2026_P04_-_published:3787;Over500_2026_P04_-_published:3185;Over500_2026_P04_-_published:1296;Over500_2026_P04_-_published:3309;Over500_2026_P04_-_published:777;Over500_2026_P04_-_published:742;Over500_2026_P04_-_published:828;Over500_2026_P04_-_published:600;Over500_2026_P04_-_published:796;Over500_2026_P04_-_published:599;Over500_2026_P04_-_published:3305;Over500_2026_P04_-_published:3306;Over500_2026_P04_-_published:3212;Over500_2026_P04_-_published:3213;Over500_2026_P04_-_published:3188;Over500_2026_P04_-_published:3307;Over500_2026_P04_-_published:778"
+    },
+    {
+     "supplier": "GCH (Alder) Ltd t/a Hungerford Care Home",
+     "tag": "care_or_education_placement",
+     "n_payments": 41,
+     "combined_gbp": 223277.1,
+     "span_days": 18.94,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:1454;Over500_2026_P02_-_published:955;Over500_2026_P02_-_published:956;Over500_2026_P02_-_published:1427;Over500_2026_P02_-_published:2006;Over500_2026_P02_-_published:2009;Over500_2026_P02_-_published:1008;Over500_2026_P02_-_published:1009;Over500_2026_P02_-_published:1010;Over500_2026_P02_-_published:1011;Over500_2026_P02_-_published:1012;Over500_2026_P02_-_published:1013;Over500_2026_P02_-_published:1014;Over500_2026_P02_-_published:1015;Over500_2026_P02_-_published:1016;Over500_2026_P02_-_published:1017;Over500_2026_P02_-_published:1018;Over500_2026_P02_-_published:1019;Over500_2026_P02_-_published:1020;Over500_2026_P02_-_published:1021;Over500_2026_P02_-_published:1022;Over500_2026_P02_-_published:1065;Over500_2026_P02_-_published:1066;Over500_2026_P02_-_published:1067;Over500_2026_P02_-_published:1068;Over500_2026_P02_-_published:1500;Over500_2026_P02_-_published:1501;Over500_2026_P02_-_published:1502;Over500_2026_P02_-_published:1503;Over500_2026_P02_-_published:1504;Over500_2026_P02_-_published:1505;Over500_2026_P02_-_published:1506;Over500_2026_P02_-_published:1507;Over500_2026_P02_-_published:1508;Over500_2026_P02_-_published:1570;Over500_2026_P02_-_published:1571;Over500_2026_P02_-_published:1572;Over500_2026_P02_-_published:1573;Over500_2026_P02_-_published:1574;Over500_2026_P02_-_published:1575;Over500_2026_P02_-_published:1990"
+    },
+    {
+     "supplier": "DIMENSIONS (NSO) LTD",
+     "tag": "care_or_education_placement",
+     "n_payments": 55,
+     "combined_gbp": 219163.69,
+     "span_days": 13.97,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:2164;Over500_2026_P04_-_published:2698;Over500_2026_P04_-_published:3576;Over500_2026_P04_-_published:3577;Over500_2026_P04_-_published:103;Over500_2026_P04_-_published:2196;Over500_2026_P04_-_published:2197;Over500_2026_P04_-_published:2393;Over500_2026_P04_-_published:2394;Over500_2026_P04_-_published:2396;Over500_2026_P04_-_published:2408;Over500_2026_P04_-_published:2409;Over500_2026_P04_-_published:2411;Over500_2026_P04_-_published:2413;Over500_2026_P04_-_published:2427;Over500_2026_P04_-_published:2434;Over500_2026_P04_-_published:2437;Over500_2026_P04_-_published:2951;Over500_2026_P04_-_published:3019;Over500_2026_P04_-_published:3020;Over500_2026_P04_-_published:3021;Over500_2026_P04_-_published:3023;Over500_2026_P04_-_published:3032;Over500_2026_P04_-_published:2217;Over500_2026_P04_-_published:2449;Over500_2026_P04_-_published:2450;Over500_2026_P04_-_published:2462;Over500_2026_P04_-_published:2463;Over500_2026_P04_-_published:2464;Over500_2026_P04_-_published:2465;Over500_2026_P04_-_published:2466;Over500_2026_P04_-_published:2469;Over500_2026_P04_-_published:2470;Over500_2026_P04_-_published:2471;Over500_2026_P04_-_published:2475;Over500_2026_P04_-_published:2476;Over500_2026_P04_-_published:2477;Over500_2026_P04_-_published:2493;Over500_2026_P04_-_published:2494;Over500_2026_P04_-_published:2495;Over500_2026_P04_-_published:2496;Over500_2026_P04_-_published:2497;Over500_2026_P04_-_published:2498;Over500_2026_P04_-_published:2500;Over500_2026_P04_-_published:2501;Over500_2026_P04_-_published:2504;Over500_2026_P04_-_published:2505;Over500_2026_P04_-_published:2506;Over500_2026_P04_-_published:3040;Over500_2026_P04_-_published:3041;Over500_2026_P04_-_published:3042;Over500_2026_P04_-_published:3043;Over500_2026_P04_-_published:3046;Over500_2026_P04_-_published:3048;Over500_2026_P04_-_published:3049"
+    },
+    {
+     "supplier": "Transparent Care Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 36,
+     "combined_gbp": 218359.1,
+     "span_days": 27.98,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1516;Over500_2026_P03_-_published:1535;Over500_2026_P03_-_published:1649;Over500_2026_P03_-_published:1675;Over500_2026_P03_-_published:1676;Over500_2026_P03_-_published:1677;Over500_2026_P03_-_published:2945;Over500_2026_P03_-_published:912;Over500_2026_P03_-_published:2960;Over500_2026_P04_-_published:2148;Over500_2026_P04_-_published:2307;Over500_2026_P04_-_published:2308;Over500_2026_P04_-_published:2309;Over500_2026_P04_-_published:2323;Over500_2026_P04_-_published:2324;Over500_2026_P04_-_published:2330;Over500_2026_P04_-_published:2331;Over500_2026_P04_-_published:2352;Over500_2026_P04_-_published:2389;Over500_2026_P04_-_published:2390;Over500_2026_P04_-_published:2613;Over500_2026_P04_-_published:2614;Over500_2026_P04_-_published:3014;Over500_2026_P04_-_published:3015;Over500_2026_P04_-_published:3016;Over500_2026_P04_-_published:997;Over500_2026_P04_-_published:1752;Over500_2026_P04_-_published:2472;Over500_2026_P04_-_published:2478;Over500_2026_P04_-_published:2479;Over500_2026_P04_-_published:2480;Over500_2026_P04_-_published:2508;Over500_2026_P04_-_published:2958;Over500_2026_P04_-_published:3354;Over500_2026_P04_-_published:3355;Over500_2026_P04_-_published:3356"
+    },
+    {
+     "supplier": "VOYAGE CARE",
+     "tag": "care_or_education_placement",
+     "n_payments": 34,
+     "combined_gbp": 209057.76,
+     "span_days": 27.98,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1515;Over500_2026_P03_-_published:1679;Over500_2026_P03_-_published:1680;Over500_2026_P03_-_published:1707;Over500_2026_P03_-_published:1760;Over500_2026_P03_-_published:2946;Over500_2026_P04_-_published:2754;Over500_2026_P04_-_published:2159;Over500_2026_P04_-_published:2160;Over500_2026_P04_-_published:2161;Over500_2026_P04_-_published:2180;Over500_2026_P04_-_published:2181;Over500_2026_P04_-_published:2182;Over500_2026_P04_-_published:2696;Over500_2026_P04_-_published:2697;Over500_2026_P04_-_published:2714;Over500_2026_P04_-_published:2732;Over500_2026_P04_-_published:2733;Over500_2026_P04_-_published:2734;Over500_2026_P04_-_published:2935;Over500_2026_P04_-_published:2936;Over500_2026_P04_-_published:2937;Over500_2026_P04_-_published:3573;Over500_2026_P04_-_published:3574;Over500_2026_P04_-_published:3575;Over500_2026_P04_-_published:2174;Over500_2026_P04_-_published:2403;Over500_2026_P04_-_published:2404;Over500_2026_P04_-_published:2417;Over500_2026_P04_-_published:3027;Over500_2026_P04_-_published:3579;Over500_2026_P04_-_published:3681;Over500_2026_P04_-_published:2200;Over500_2026_P04_-_published:2736"
+    },
+    {
+     "supplier": "Brighter Living Care Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 28,
+     "combined_gbp": 206880.41,
+     "span_days": 21.05,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:2926;Over500_2026_P03_-_published:1655;Over500_2026_P03_-_published:1657;Over500_2026_P03_-_published:1683;Over500_2026_P03_-_published:1684;Over500_2026_P03_-_published:1685;Over500_2026_P03_-_published:1904;Over500_2026_P03_-_published:1905;Over500_2026_P03_-_published:1906;Over500_2026_P03_-_published:1907;Over500_2026_P03_-_published:1951;Over500_2026_P03_-_published:2948;Over500_2026_P04_-_published:2229;Over500_2026_P04_-_published:2234;Over500_2026_P04_-_published:2260;Over500_2026_P04_-_published:2261;Over500_2026_P04_-_published:2265;Over500_2026_P04_-_published:2266;Over500_2026_P04_-_published:2335;Over500_2026_P04_-_published:2336;Over500_2026_P04_-_published:2755;Over500_2026_P04_-_published:2778;Over500_2026_P04_-_published:2780;Over500_2026_P04_-_published:2781;Over500_2026_P04_-_published:2966;Over500_2026_P04_-_published:2967;Over500_2026_P04_-_published:2968;Over500_2026_P04_-_published:2969"
+    },
+    {
+     "supplier": "PURLEY PARK TRUST LTD",
+     "tag": "general_procurement",
+     "n_payments": 28,
+     "combined_gbp": 195203.07,
+     "span_days": 27.99,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:768;Over500_2026_P02_-_published:774;Over500_2026_P02_-_published:775;Over500_2026_P02_-_published:776;Over500_2026_P02_-_published:777;Over500_2026_P02_-_published:778;Over500_2026_P02_-_published:779;Over500_2026_P02_-_published:780;Over500_2026_P02_-_published:781;Over500_2026_P02_-_published:824;Over500_2026_P02_-_published:825;Over500_2026_P02_-_published:826;Over500_2026_P02_-_published:827;Over500_2026_P02_-_published:828;Over500_2026_P03_-_published:2667;Over500_2026_P03_-_published:2670;Over500_2026_P03_-_published:2671;Over500_2026_P03_-_published:2677;Over500_2026_P03_-_published:752;Over500_2026_P03_-_published:753;Over500_2026_P03_-_published:754;Over500_2026_P03_-_published:772;Over500_2026_P03_-_published:773;Over500_2026_P03_-_published:779;Over500_2026_P03_-_published:786;Over500_2026_P03_-_published:787;Over500_2026_P03_-_published:803;Over500_2026_P03_-_published:804"
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/split_purchases.csv",
+   "interpretation": "Several payments to one supplier close together whose combined value reaches 25,000 GBP may indicate a requirement split into smaller purchases (anti-avoidance rule CPR-13), consistent with a pattern worth confirming. Innocent explanations: regular recurring payments (common for care packages and rents, see all_amounts_equal), separate unrelated orders, or one contract invoiced in instalments. Spend dates are payment-run timestamps, not invoice dates, so windows are measured on payment-run dates. Windows are anchored greedily so each payment sits in one group per tier."
+  },
+  "threshold_clustering@500000": {
+   "test": "threshold_clustering",
+   "metric_id": "threshold_clustering@500000",
+   "status": "ran",
+   "parameters": {
+    "tier_gbp": 500000,
+    "rule_ids": [
+     "CPR-62",
+     "CPR-64"
+    ],
+    "band": "[450000, 500000)",
+    "band_fraction": 0.9,
+    "tier_inclusive_basis": "threshold_low_inclusive"
+   },
+   "counts": {
+    "flagged_items": 0,
+    "context_lower_band_count": 1
+   },
+   "totals_gbp": {
+    "flagged": 0.0,
+    "context_lower_band": 400824.68
+   },
+   "by_tag": {
+    "grant": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "care_or_education_placement": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "agency_staff": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "premises": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "general_procurement": {
+     "count": 0,
+     "gbp": 0.0
+    }
+   },
+   "top20": [],
+   "top_suppliers": [],
+   "full_list_file": "outputs/analytics-full/threshold_clustering.csv",
+   "interpretation": "Payments just below 500,000 GBP (within 10 percent) may indicate amounts shaped to stay under a procurement route boundary; the adjacent lower band is shown for context so the auditor can judge whether the concentration is unusual. Innocent explanations include fixed or tariff prices, standard rates for recurring care or service charges, and round-number pricing. Worth confirming against quotes or tender records. Care placements may be lawfully outside competition (Appendix C row F, CPR-72)."
+  },
+  "split_purchases@500000": {
+   "test": "split_purchases",
+   "metric_id": "split_purchases@500000",
+   "status": "ran",
+   "parameters": {
+    "tier_gbp": 500000,
+    "rule_ids": [
+     "CPR-62",
+     "CPR-64",
+     "CPR-13"
+    ],
+    "window_days": 30,
+    "condition": "same normalised supplier, >=2 payments each below the tier within the window, combined total reaches the tier",
+    "tier_inclusive_basis": "threshold_low_inclusive"
+   },
+   "counts": {
+    "flagged_items": 12,
+    "payments_in_groups": 751,
+    "groups_all_amounts_equal": 0
+   },
+   "totals_gbp": {
+    "combined": 11819913.46
+   },
+   "by_tag": {
+    "grant": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "care_or_education_placement": {
+     "count": 5,
+     "gbp": 4147368.84
+    },
+    "agency_staff": {
+     "count": 2,
+     "gbp": 1076284.47
+    },
+    "premises": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "general_procurement": {
+     "count": 5,
+     "gbp": 6596260.15
+    }
+   },
+   "top20": [
+    {
+     "supplier": "VolkerHighways Ltd",
+     "tag": "general_procurement",
+     "n_payments": 55,
+     "combined_gbp": 2524806.85,
+     "span_days": 26.7,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:691;Over500_2026_P02_-_published:2174;Over500_2026_P02_-_published:2175;Over500_2026_P02_-_published:2177;Over500_2026_P02_-_published:2178;Over500_2026_P02_-_published:2183;Over500_2026_P02_-_published:713;Over500_2026_P02_-_published:2181;Over500_2026_P02_-_published:723;Over500_2026_P02_-_published:695;Over500_2026_P02_-_published:709;Over500_2026_P02_-_published:717;Over500_2026_P02_-_published:727;Over500_2026_P02_-_published:700;Over500_2026_P02_-_published:720;Over500_2026_P02_-_published:701;Over500_2026_P02_-_published:696;Over500_2026_P02_-_published:714;Over500_2026_P02_-_published:724;Over500_2026_P02_-_published:710;Over500_2026_P02_-_published:692;Over500_2026_P02_-_published:702;Over500_2026_P02_-_published:703;Over500_2026_P02_-_published:2176;Over500_2026_P02_-_published:2179;Over500_2026_P02_-_published:2184;Over500_2026_P02_-_published:2193;Over500_2026_P02_-_published:2173;Over500_2026_P02_-_published:704;Over500_2026_P02_-_published:2185;Over500_2026_P02_-_published:731;Over500_2026_P02_-_published:2170;Over500_2026_P02_-_published:705;Over500_2026_P02_-_published:728;Over500_2026_P02_-_published:2172;Over500_2026_P02_-_published:734;Over500_2026_P02_-_published:729;Over500_2026_P02_-_published:730;Over500_2026_P02_-_published:2180;Over500_2026_P02_-_published:711;Over500_2026_P02_-_published:715;Over500_2026_P02_-_published:725;Over500_2026_P02_-_published:2182;Over500_2026_P02_-_published:726;Over500_2026_P02_-_published:712;Over500_2026_P02_-_published:716;Over500_2026_P02_-_published:697;Over500_2026_P02_-_published:721;Over500_2026_P02_-_published:698;Over500_2026_P02_-_published:722;Over500_2026_P02_-_published:693;Over500_2026_P02_-_published:699;Over500_2026_P02_-_published:706;Over500_2026_P02_-_published:694;Over500_2026_P02_-_published:707"
+    },
+    {
+     "supplier": "VolkerHighways Ltd",
+     "tag": "general_procurement",
+     "n_payments": 18,
+     "combined_gbp": 1690085.96,
+     "span_days": 28.98,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:699;Over500_2026_P03_-_published:728;Over500_2026_P03_-_published:2117;Over500_2026_P03_-_published:729;Over500_2026_P03_-_published:703;Over500_2026_P03_-_published:683;Over500_2026_P03_-_published:2133;Over500_2026_P03_-_published:702;Over500_2026_P03_-_published:2402;Over500_2026_P03_-_published:700;Over500_2026_P03_-_published:701;Over500_2026_P03_-_published:2403;Over500_2026_P03_-_published:2401;Over500_2026_P03_-_published:684;Over500_2026_P03_-_published:727;Over500_2026_P04_-_published:1291;Over500_2026_P04_-_published:3192;Over500_2026_P04_-_published:792"
+    },
+    {
+     "supplier": "VolkerHighways Ltd",
+     "tag": "general_procurement",
+     "n_payments": 51,
+     "combined_gbp": 1308291.51,
+     "span_days": 17.95,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:736;Over500_2026_P04_-_published:602;Over500_2026_P04_-_published:1289;Over500_2026_P04_-_published:621;Over500_2026_P04_-_published:799;Over500_2026_P04_-_published:3184;Over500_2026_P04_-_published:3786;Over500_2026_P04_-_published:791;Over500_2026_P04_-_published:3210;Over500_2026_P04_-_published:1310;Over500_2026_P04_-_published:798;Over500_2026_P04_-_published:1295;Over500_2026_P04_-_published:794;Over500_2026_P04_-_published:3303;Over500_2026_P04_-_published:3186;Over500_2026_P04_-_published:795;Over500_2026_P04_-_published:3308;Over500_2026_P04_-_published:3187;Over500_2026_P04_-_published:3211;Over500_2026_P04_-_published:3304;Over500_2026_P04_-_published:619;Over500_2026_P04_-_published:819;Over500_2026_P04_-_published:822;Over500_2026_P04_-_published:739;Over500_2026_P04_-_published:1292;Over500_2026_P04_-_published:620;Over500_2026_P04_-_published:821;Over500_2026_P04_-_published:1293;Over500_2026_P04_-_published:3787;Over500_2026_P04_-_published:3185;Over500_2026_P04_-_published:3302;Over500_2026_P04_-_published:1296;Over500_2026_P04_-_published:3309;Over500_2026_P04_-_published:777;Over500_2026_P04_-_published:742;Over500_2026_P04_-_published:618;Over500_2026_P04_-_published:828;Over500_2026_P04_-_published:3784;Over500_2026_P04_-_published:600;Over500_2026_P04_-_published:796;Over500_2026_P04_-_published:599;Over500_2026_P04_-_published:3785;Over500_2026_P04_-_published:3305;Over500_2026_P04_-_published:3306;Over500_2026_P04_-_published:3212;Over500_2026_P04_-_published:790;Over500_2026_P04_-_published:3213;Over500_2026_P04_-_published:737;Over500_2026_P04_-_published:3188;Over500_2026_P04_-_published:3307;Over500_2026_P04_-_published:778"
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "n_payments": 248,
+     "combined_gbp": 1259714.57,
+     "span_days": 28.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1003;Over500_2026_P03_-_published:1005;Over500_2026_P03_-_published:1006;Over500_2026_P03_-_published:1011;Over500_2026_P03_-_published:1012;Over500_2026_P03_-_published:1027;Over500_2026_P03_-_published:1028;Over500_2026_P03_-_published:1312;Over500_2026_P03_-_published:1323;Over500_2026_P03_-_published:1324;Over500_2026_P03_-_published:1325;Over500_2026_P03_-_published:1326;Over500_2026_P03_-_published:1327;Over500_2026_P03_-_published:1328;Over500_2026_P03_-_published:1329;Over500_2026_P03_-_published:1330;Over500_2026_P03_-_published:1336;Over500_2026_P03_-_published:1342;Over500_2026_P03_-_published:1343;Over500_2026_P03_-_published:1344;Over500_2026_P03_-_published:1345;Over500_2026_P03_-_published:1346;Over500_2026_P03_-_published:1371;Over500_2026_P03_-_published:1372;Over500_2026_P03_-_published:1377;Over500_2026_P03_-_published:1378;Over500_2026_P03_-_published:1379;Over500_2026_P03_-_published:1380;Over500_2026_P03_-_published:1412;Over500_2026_P03_-_published:1413;Over500_2026_P03_-_published:1414;Over500_2026_P03_-_published:1460;Over500_2026_P03_-_published:1470;Over500_2026_P03_-_published:1477;Over500_2026_P03_-_published:1485;Over500_2026_P03_-_published:1486;Over500_2026_P03_-_published:1487;Over500_2026_P03_-_published:1759;Over500_2026_P03_-_published:1822;Over500_2026_P03_-_published:2690;Over500_2026_P03_-_published:2691;Over500_2026_P03_-_published:2700;Over500_2026_P03_-_published:2701;Over500_2026_P03_-_published:2702;Over500_2026_P03_-_published:2703;Over500_2026_P03_-_published:2709;Over500_2026_P03_-_published:2710;Over500_2026_P03_-_published:2716;Over500_2026_P03_-_published:2825;Over500_2026_P03_-_published:2831;Over500_2026_P03_-_published:2832;Over500_2026_P03_-_published:2833;Over500_2026_P03_-_published:2834;Over500_2026_P03_-_published:2844;Over500_2026_P03_-_published:2849;Over500_2026_P03_-_published:2850;Over500_2026_P03_-_published:2851;Over500_2026_P03_-_published:2890;Over500_2026_P03_-_published:3020;Over500_2026_P03_-_published:3023;Over500_2026_P03_-_published:837;Over500_2026_P03_-_published:852;Over500_2026_P03_-_published:871;Over500_2026_P03_-_published:872;Over500_2026_P03_-_published:893;Over500_2026_P03_-_published:894;Over500_2026_P03_-_published:895;Over500_2026_P03_-_published:896;Over500_2026_P03_-_published:897;Over500_2026_P03_-_published:898;Over500_2026_P03_-_published:903;Over500_2026_P03_-_published:904;Over500_2026_P03_-_published:919;Over500_2026_P03_-_published:920;Over500_2026_P03_-_published:921;Over500_2026_P03_-_published:922;Over500_2026_P03_-_published:923;Over500_2026_P03_-_published:940;Over500_2026_P03_-_published:941;Over500_2026_P03_-_published:942;Over500_2026_P03_-_published:943;Over500_2026_P03_-_published:944;Over500_2026_P03_-_published:945;Over500_2026_P03_-_published:946;Over500_2026_P03_-_published:947;Over500_2026_P03_-_published:953;Over500_2026_P03_-_published:954;Over500_2026_P03_-_published:960;Over500_2026_P03_-_published:961;Over500_2026_P03_-_published:962;Over500_2026_P03_-_published:975;Over500_2026_P03_-_published:976;Over500_2026_P03_-_published:977;Over500_2026_P03_-_published:980;Over500_2026_P03_-_published:981;Over500_2026_P03_-_published:987;Over500_2026_P04_-_published:1028;Over500_2026_P04_-_published:1029;Over500_2026_P04_-_published:1030;Over500_2026_P04_-_published:1031;Over500_2026_P04_-_published:1051;Over500_2026_P04_-_published:1067;Over500_2026_P04_-_published:1068;Over500_2026_P04_-_published:1069;Over500_2026_P04_-_published:1075;Over500_2026_P04_-_published:1076;Over500_2026_P04_-_published:1077;Over500_2026_P04_-_published:1078;Over500_2026_P04_-_published:1079;Over500_2026_P04_-_published:1080;Over500_2026_P04_-_published:1100;Over500_2026_P04_-_published:1132;Over500_2026_P04_-_published:1133;Over500_2026_P04_-_published:1151;Over500_2026_P04_-_published:1817;Over500_2026_P04_-_published:1841;Over500_2026_P04_-_published:1889;Over500_2026_P04_-_published:1925;Over500_2026_P04_-_published:1944;Over500_2026_P04_-_published:2770;Over500_2026_P04_-_published:2869;Over500_2026_P04_-_published:1032;Over500_2026_P04_-_published:1033;Over500_2026_P04_-_published:1034;Over500_2026_P04_-_published:1035;Over500_2026_P04_-_published:1036;Over500_2026_P04_-_published:1037;Over500_2026_P04_-_published:1038;Over500_2026_P04_-_published:1039;Over500_2026_P04_-_published:1040;Over500_2026_P04_-_published:1041;Over500_2026_P04_-_published:1042;Over500_2026_P04_-_published:1043;Over500_2026_P04_-_published:1070;Over500_2026_P04_-_published:1071;Over500_2026_P04_-_published:1072;Over500_2026_P04_-_published:1073;Over500_2026_P04_-_published:1081;Over500_2026_P04_-_published:1082;Over500_2026_P04_-_published:1083;Over500_2026_P04_-_published:1084;Over500_2026_P04_-_published:1085;Over500_2026_P04_-_published:1086;Over500_2026_P04_-_published:1087;Over500_2026_P04_-_published:1088;Over500_2026_P04_-_published:1089;Over500_2026_P04_-_published:1090;Over500_2026_P04_-_published:1091;Over500_2026_P04_-_published:1103;Over500_2026_P04_-_published:1104;Over500_2026_P04_-_published:1105;Over500_2026_P04_-_published:1106;Over500_2026_P04_-_published:1107;Over500_2026_P04_-_published:1115;Over500_2026_P04_-_published:1116;Over500_2026_P04_-_published:1117;Over500_2026_P04_-_published:1118;Over500_2026_P04_-_published:1119;Over500_2026_P04_-_published:1120;Over500_2026_P04_-_published:1135;Over500_2026_P04_-_published:1136;Over500_2026_P04_-_published:1137;Over500_2026_P04_-_published:1153;Over500_2026_P04_-_published:1154;Over500_2026_P04_-_published:1155;Over500_2026_P04_-_published:1156;Over500_2026_P04_-_published:1157;Over500_2026_P04_-_published:1158;Over500_2026_P04_-_published:1563;Over500_2026_P04_-_published:1565;Over500_2026_P04_-_published:1791;Over500_2026_P04_-_published:1792;Over500_2026_P04_-_published:1813;Over500_2026_P04_-_published:1814;Over500_2026_P04_-_published:1818;Over500_2026_P04_-_published:1819;Over500_2026_P04_-_published:1820;Over500_2026_P04_-_published:1821;Over500_2026_P04_-_published:1822;Over500_2026_P04_-_published:1823;Over500_2026_P04_-_published:1824;Over500_2026_P04_-_published:1825;Over500_2026_P04_-_published:1826;Over500_2026_P04_-_published:1827;Over500_2026_P04_-_published:1828;Over500_2026_P04_-_published:1829;Over500_2026_P04_-_published:1830;Over500_2026_P04_-_published:1831;Over500_2026_P04_-_published:1845;Over500_2026_P04_-_published:1846;Over500_2026_P04_-_published:1847;Over500_2026_P04_-_published:1848;Over500_2026_P04_-_published:1849;Over500_2026_P04_-_published:1850;Over500_2026_P04_-_published:1871;Over500_2026_P04_-_published:1881;Over500_2026_P04_-_published:1890;Over500_2026_P04_-_published:1891;Over500_2026_P04_-_published:1892;Over500_2026_P04_-_published:1893;Over500_2026_P04_-_published:1894;Over500_2026_P04_-_published:1895;Over500_2026_P04_-_published:1896;Over500_2026_P04_-_published:1904;Over500_2026_P04_-_published:1905;Over500_2026_P04_-_published:1906;Over500_2026_P04_-_published:1907;Over500_2026_P04_-_published:1908;Over500_2026_P04_-_published:1922;Over500_2026_P04_-_published:1923;Over500_2026_P04_-_published:1924;Over500_2026_P04_-_published:1926;Over500_2026_P04_-_published:1927;Over500_2026_P04_-_published:1928;Over500_2026_P04_-_published:1929;Over500_2026_P04_-_published:1930;Over500_2026_P04_-_published:1931;Over500_2026_P04_-_published:1948;Over500_2026_P04_-_published:1949;Over500_2026_P04_-_published:1950;Over500_2026_P04_-_published:1951;Over500_2026_P04_-_published:1952;Over500_2026_P04_-_published:1963;Over500_2026_P04_-_published:2003;Over500_2026_P04_-_published:2004;Over500_2026_P04_-_published:2005;Over500_2026_P04_-_published:2006;Over500_2026_P04_-_published:2131;Over500_2026_P04_-_published:2178;Over500_2026_P04_-_published:2656;Over500_2026_P04_-_published:2664;Over500_2026_P04_-_published:2665;Over500_2026_P04_-_published:2666;Over500_2026_P04_-_published:2676;Over500_2026_P04_-_published:2677;Over500_2026_P04_-_published:2678;Over500_2026_P04_-_published:2717;Over500_2026_P04_-_published:2884;Over500_2026_P04_-_published:2908;Over500_2026_P04_-_published:2931;Over500_2026_P04_-_published:2932;Over500_2026_P04_-_published:3006;Over500_2026_P04_-_published:3699;Over500_2026_P04_-_published:3704;Over500_2026_P04_-_published:724;Over500_2026_P04_-_published:887;Over500_2026_P04_-_published:916;Over500_2026_P04_-_published:927"
+    },
+    {
+     "supplier": "Oaklands SEN School Berkshire Limited",
+     "tag": "care_or_education_placement",
+     "n_payments": 54,
+     "combined_gbp": 1026661.89,
+     "span_days": 0.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:2164;Over500_2026_P03_-_published:2165;Over500_2026_P03_-_published:2166;Over500_2026_P03_-_published:2167;Over500_2026_P03_-_published:2189;Over500_2026_P03_-_published:2190;Over500_2026_P03_-_published:2310;Over500_2026_P03_-_published:2311;Over500_2026_P03_-_published:3106;Over500_2026_P03_-_published:3107;Over500_2026_P03_-_published:2169;Over500_2026_P03_-_published:2170;Over500_2026_P03_-_published:2191;Over500_2026_P03_-_published:2192;Over500_2026_P03_-_published:2193;Over500_2026_P03_-_published:2312;Over500_2026_P03_-_published:2313;Over500_2026_P03_-_published:2314;Over500_2026_P03_-_published:3108;Over500_2026_P03_-_published:3109;Over500_2026_P03_-_published:2171;Over500_2026_P03_-_published:2172;Over500_2026_P03_-_published:2173;Over500_2026_P03_-_published:2194;Over500_2026_P03_-_published:2195;Over500_2026_P03_-_published:2196;Over500_2026_P03_-_published:2315;Over500_2026_P03_-_published:2316;Over500_2026_P03_-_published:2317;Over500_2026_P03_-_published:3110;Over500_2026_P03_-_published:3111;Over500_2026_P03_-_published:2174;Over500_2026_P03_-_published:2197;Over500_2026_P03_-_published:2318;Over500_2026_P03_-_published:2175;Over500_2026_P03_-_published:2176;Over500_2026_P03_-_published:2198;Over500_2026_P03_-_published:2199;Over500_2026_P03_-_published:2200;Over500_2026_P03_-_published:2201;Over500_2026_P03_-_published:2202;Over500_2026_P03_-_published:2319;Over500_2026_P03_-_published:2320;Over500_2026_P03_-_published:3112;Over500_2026_P03_-_published:3113;Over500_2026_P03_-_published:2177;Over500_2026_P03_-_published:2203;Over500_2026_P03_-_published:2204;Over500_2026_P03_-_published:2321;Over500_2026_P03_-_published:2322;Over500_2026_P03_-_published:2323;Over500_2026_P03_-_published:3114;Over500_2026_P03_-_published:3115;Over500_2026_P03_-_published:3116"
+    },
+    {
+     "supplier": "Affinity Trust Support Ltd",
+     "tag": "care_or_education_placement",
+     "n_payments": 161,
+     "combined_gbp": 688928.15,
+     "span_days": 28.05,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P03_-_published:1447;Over500_2026_P03_-_published:1450;Over500_2026_P03_-_published:1518;Over500_2026_P03_-_published:1521;Over500_2026_P03_-_published:1522;Over500_2026_P03_-_published:1523;Over500_2026_P03_-_published:1524;Over500_2026_P03_-_published:1525;Over500_2026_P03_-_published:1609;Over500_2026_P03_-_published:1611;Over500_2026_P03_-_published:1612;Over500_2026_P03_-_published:1613;Over500_2026_P03_-_published:1614;Over500_2026_P03_-_published:2920;Over500_2026_P03_-_published:2921;Over500_2026_P03_-_published:2922;Over500_2026_P03_-_published:2923;Over500_2026_P03_-_published:1444;Over500_2026_P03_-_published:1531;Over500_2026_P03_-_published:1532;Over500_2026_P03_-_published:1533;Over500_2026_P03_-_published:1539;Over500_2026_P03_-_published:1540;Over500_2026_P03_-_published:1541;Over500_2026_P03_-_published:1542;Over500_2026_P03_-_published:1543;Over500_2026_P03_-_published:1544;Over500_2026_P03_-_published:1545;Over500_2026_P03_-_published:1546;Over500_2026_P03_-_published:1547;Over500_2026_P03_-_published:1548;Over500_2026_P03_-_published:1549;Over500_2026_P03_-_published:1550;Over500_2026_P03_-_published:1551;Over500_2026_P03_-_published:1588;Over500_2026_P03_-_published:1589;Over500_2026_P03_-_published:1590;Over500_2026_P03_-_published:1591;Over500_2026_P03_-_published:1592;Over500_2026_P03_-_published:1595;Over500_2026_P03_-_published:1627;Over500_2026_P03_-_published:1628;Over500_2026_P03_-_published:1629;Over500_2026_P03_-_published:1630;Over500_2026_P03_-_published:1633;Over500_2026_P03_-_published:1634;Over500_2026_P03_-_published:1635;Over500_2026_P03_-_published:1640;Over500_2026_P03_-_published:1641;Over500_2026_P03_-_published:1642;Over500_2026_P03_-_published:1643;Over500_2026_P03_-_published:1644;Over500_2026_P03_-_published:1674;Over500_2026_P03_-_published:1678;Over500_2026_P03_-_published:1699;Over500_2026_P03_-_published:1700;Over500_2026_P03_-_published:1701;Over500_2026_P03_-_published:1702;Over500_2026_P03_-_published:1703;Over500_2026_P03_-_published:1704;Over500_2026_P03_-_published:1754;Over500_2026_P03_-_published:1764;Over500_2026_P03_-_published:1768;Over500_2026_P03_-_published:1770;Over500_2026_P03_-_published:1771;Over500_2026_P03_-_published:1831;Over500_2026_P03_-_published:1832;Over500_2026_P03_-_published:1855;Over500_2026_P03_-_published:1856;Over500_2026_P03_-_published:1977;Over500_2026_P03_-_published:1983;Over500_2026_P03_-_published:2914;Over500_2026_P03_-_published:2939;Over500_2026_P03_-_published:2940;Over500_2026_P03_-_published:2941;Over500_2026_P03_-_published:2942;Over500_2026_P03_-_published:2943;Over500_2026_P03_-_published:2944;Over500_2026_P03_-_published:2978;Over500_2026_P03_-_published:2986;Over500_2026_P03_-_published:1663;Over500_2026_P03_-_published:1664;Over500_2026_P03_-_published:1665;Over500_2026_P03_-_published:1666;Over500_2026_P03_-_published:1667;Over500_2026_P03_-_published:1689;Over500_2026_P03_-_published:1690;Over500_2026_P03_-_published:1691;Over500_2026_P03_-_published:1692;Over500_2026_P03_-_published:1693;Over500_2026_P03_-_published:1694;Over500_2026_P03_-_published:1695;Over500_2026_P03_-_published:1696;Over500_2026_P03_-_published:1715;Over500_2026_P03_-_published:1716;Over500_2026_P03_-_published:1844;Over500_2026_P03_-_published:1875;Over500_2026_P03_-_published:2955;Over500_2026_P03_-_published:2956;Over500_2026_P03_-_published:2957;Over500_2026_P03_-_published:2958;Over500_2026_P03_-_published:2959;Over500_2026_P03_-_published:935;Over500_2026_P04_-_published:2222;Over500_2026_P04_-_published:2224;Over500_2026_P04_-_published:2226;Over500_2026_P04_-_published:2227;Over500_2026_P04_-_published:2239;Over500_2026_P04_-_published:2240;Over500_2026_P04_-_published:2241;Over500_2026_P04_-_published:2251;Over500_2026_P04_-_published:2252;Over500_2026_P04_-_published:2253;Over500_2026_P04_-_published:2257;Over500_2026_P04_-_published:2258;Over500_2026_P04_-_published:2259;Over500_2026_P04_-_published:2267;Over500_2026_P04_-_published:2268;Over500_2026_P04_-_published:2269;Over500_2026_P04_-_published:2270;Over500_2026_P04_-_published:2271;Over500_2026_P04_-_published:2272;Over500_2026_P04_-_published:2294;Over500_2026_P04_-_published:2295;Over500_2026_P04_-_published:2313;Over500_2026_P04_-_published:2314;Over500_2026_P04_-_published:2315;Over500_2026_P04_-_published:2316;Over500_2026_P04_-_published:2337;Over500_2026_P04_-_published:2338;Over500_2026_P04_-_published:2339;Over500_2026_P04_-_published:2340;Over500_2026_P04_-_published:2341;Over500_2026_P04_-_published:2342;Over500_2026_P04_-_published:2343;Over500_2026_P04_-_published:2344;Over500_2026_P04_-_published:2603;Over500_2026_P04_-_published:2707;Over500_2026_P04_-_published:2742;Over500_2026_P04_-_published:2765;Over500_2026_P04_-_published:2960;Over500_2026_P04_-_published:2961;Over500_2026_P04_-_published:2970;Over500_2026_P04_-_published:2971;Over500_2026_P04_-_published:2972;Over500_2026_P04_-_published:2973;Over500_2026_P04_-_published:2974;Over500_2026_P04_-_published:2975;Over500_2026_P04_-_published:2976;Over500_2026_P04_-_published:2977;Over500_2026_P04_-_published:2978;Over500_2026_P04_-_published:2979;Over500_2026_P04_-_published:2980;Over500_2026_P04_-_published:2981;Over500_2026_P04_-_published:2982;Over500_2026_P04_-_published:3066;Over500_2026_P04_-_published:3564;Over500_2026_P04_-_published:3629;Over500_2026_P04_-_published:3730;Over500_2026_P04_-_published:3731;Over500_2026_P04_-_published:972"
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "n_payments": 120,
+     "combined_gbp": 605975.41,
+     "span_days": 27.98,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:1509;Over500_2026_P02_-_published:1034;Over500_2026_P02_-_published:1035;Over500_2026_P02_-_published:1036;Over500_2026_P02_-_published:1037;Over500_2026_P02_-_published:1038;Over500_2026_P02_-_published:1039;Over500_2026_P02_-_published:1040;Over500_2026_P02_-_published:1041;Over500_2026_P02_-_published:1042;Over500_2026_P02_-_published:1043;Over500_2026_P02_-_published:1044;Over500_2026_P02_-_published:1045;Over500_2026_P02_-_published:1431;Over500_2026_P02_-_published:1443;Over500_2026_P02_-_published:1444;Over500_2026_P02_-_published:1455;Over500_2026_P02_-_published:1456;Over500_2026_P02_-_published:1457;Over500_2026_P02_-_published:1458;Over500_2026_P02_-_published:1459;Over500_2026_P02_-_published:1460;Over500_2026_P02_-_published:1461;Over500_2026_P02_-_published:1462;Over500_2026_P02_-_published:1463;Over500_2026_P02_-_published:1464;Over500_2026_P02_-_published:1465;Over500_2026_P02_-_published:1466;Over500_2026_P02_-_published:1467;Over500_2026_P02_-_published:1468;Over500_2026_P02_-_published:1469;Over500_2026_P02_-_published:1470;Over500_2026_P02_-_published:1471;Over500_2026_P02_-_published:1472;Over500_2026_P02_-_published:1473;Over500_2026_P02_-_published:1474;Over500_2026_P02_-_published:1475;Over500_2026_P02_-_published:1524;Over500_2026_P02_-_published:1525;Over500_2026_P02_-_published:1526;Over500_2026_P02_-_published:1527;Over500_2026_P02_-_published:1528;Over500_2026_P02_-_published:1529;Over500_2026_P02_-_published:1530;Over500_2026_P02_-_published:1531;Over500_2026_P02_-_published:1532;Over500_2026_P02_-_published:1533;Over500_2026_P02_-_published:1534;Over500_2026_P02_-_published:1535;Over500_2026_P02_-_published:1536;Over500_2026_P02_-_published:1537;Over500_2026_P02_-_published:1627;Over500_2026_P02_-_published:1630;Over500_2026_P02_-_published:1832;Over500_2026_P02_-_published:1850;Over500_2026_P02_-_published:1962;Over500_2026_P02_-_published:1963;Over500_2026_P02_-_published:1976;Over500_2026_P02_-_published:868;Over500_2026_P02_-_published:869;Over500_2026_P02_-_published:870;Over500_2026_P02_-_published:871;Over500_2026_P02_-_published:872;Over500_2026_P02_-_published:875;Over500_2026_P02_-_published:958;Over500_2026_P02_-_published:959;Over500_2026_P02_-_published:960;Over500_2026_P02_-_published:961;Over500_2026_P02_-_published:962;Over500_2026_P02_-_published:963;Over500_2026_P02_-_published:964;Over500_2026_P02_-_published:965;Over500_2026_P02_-_published:966;Over500_2026_P02_-_published:967;Over500_2026_P02_-_published:968;Over500_2026_P02_-_published:969;Over500_2026_P02_-_published:970;Over500_2026_P02_-_published:971;Over500_2026_P02_-_published:972;Over500_2026_P02_-_published:973;Over500_2026_P02_-_published:974;Over500_2026_P02_-_published:975;Over500_2026_P02_-_published:976;Over500_2026_P02_-_published:977;Over500_2026_P02_-_published:978;Over500_2026_P02_-_published:979;Over500_2026_P02_-_published:980;Over500_2026_P02_-_published:981;Over500_2026_P02_-_published:982;Over500_2026_P02_-_published:983;Over500_2026_P02_-_published:984;Over500_2026_P02_-_published:985;Over500_2026_P02_-_published:986;Over500_2026_P02_-_published:987;Over500_2026_P02_-_published:988;Over500_2026_P02_-_published:1023;Over500_2026_P02_-_published:1024;Over500_2026_P02_-_published:1025;Over500_2026_P02_-_published:1026;Over500_2026_P02_-_published:1069;Over500_2026_P02_-_published:1070;Over500_2026_P02_-_published:1071;Over500_2026_P02_-_published:1072;Over500_2026_P02_-_published:1967;Over500_2026_P03_-_published:1018;Over500_2026_P03_-_published:1322;Over500_2026_P03_-_published:1857;Over500_2026_P03_-_published:2830;Over500_2026_P03_-_published:2845;Over500_2026_P03_-_published:890;Over500_2026_P03_-_published:891;Over500_2026_P03_-_published:892;Over500_2026_P03_-_published:915;Over500_2026_P03_-_published:916;Over500_2026_P03_-_published:917;Over500_2026_P03_-_published:918;Over500_2026_P03_-_published:937;Over500_2026_P03_-_published:938;Over500_2026_P03_-_published:939;Over500_2026_P03_-_published:951"
+    },
+    {
+     "supplier": "Phoenix Child Care Limited -The Grange School",
+     "tag": "care_or_education_placement",
+     "n_payments": 23,
+     "combined_gbp": 566088.82,
+     "span_days": 29.04,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:2242;Over500_2026_P02_-_published:2243;Over500_2026_P02_-_published:2244;Over500_2026_P02_-_published:2245;Over500_2026_P02_-_published:2246;Over500_2026_P02_-_published:2247;Over500_2026_P02_-_published:2248;Over500_2026_P02_-_published:2249;Over500_2026_P02_-_published:2250;Over500_2026_P02_-_published:2251;Over500_2026_P02_-_published:2252;Over500_2026_P02_-_published:2253;Over500_2026_P02_-_published:2254;Over500_2026_P02_-_published:2255;Over500_2026_P02_-_published:2256;Over500_2026_P02_-_published:2257;Over500_2026_P02_-_published:2258;Over500_2026_P02_-_published:2259;Over500_2026_P02_-_published:2260;Over500_2026_P02_-_published:2262;Over500_2026_P02_-_published:2263;Over500_2026_P03_-_published:2179;Over500_2026_P03_-_published:2229"
+    },
+    {
+     "supplier": "RUSKIN MILL TRUST",
+     "tag": "general_procurement",
+     "n_payments": 5,
+     "combined_gbp": 550097.21,
+     "span_days": 20.08,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:1822;Over500_2026_P02_-_published:823;Over500_2026_P03_-_published:2676;Over500_2026_P03_-_published:801;Over500_2026_P03_-_published:802"
+    },
+    {
+     "supplier": "Comensura Ltd",
+     "tag": "agency_staff",
+     "n_payments": 6,
+     "combined_gbp": 545377.5,
+     "span_days": 29.99,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P04_-_published:9;Over500_2026_P04_-_published:5;Over500_2026_P04_-_published:6;Over500_2026_P04_-_published:7;Over500_2026_P04_-_published:8;Over500_2026_P04_-_published:19"
+    },
+    {
+     "supplier": "Comensura Ltd",
+     "tag": "agency_staff",
+     "n_payments": 6,
+     "combined_gbp": 530906.97,
+     "span_days": 27.87,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:6;Over500_2026_P02_-_published:7;Over500_2026_P03_-_published:14;Over500_2026_P03_-_published:12;Over500_2026_P03_-_published:9;Over500_2026_P03_-_published:10"
+    },
+    {
+     "supplier": "SoftwareONE UK Ltd",
+     "tag": "general_procurement",
+     "n_payments": 4,
+     "combined_gbp": 522978.62,
+     "span_days": 0.1,
+     "all_amounts_equal": false,
+     "row_ids": "Over500_2026_P02_-_published:654;Over500_2026_P02_-_published:473;Over500_2026_P02_-_published:474;Over500_2026_P02_-_published:653"
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/split_purchases.csv",
+   "interpretation": "Several payments to one supplier close together whose combined value reaches 500,000 GBP may indicate a requirement split into smaller purchases (anti-avoidance rule CPR-13), consistent with a pattern worth confirming. Innocent explanations: regular recurring payments (common for care packages and rents, see all_amounts_equal), separate unrelated orders, or one contract invoiced in instalments. Spend dates are payment-run timestamps, not invoice dates, so windows are measured on payment-run dates. Windows are anchored greedily so each payment sits in one group per tier."
+  },
+  "duplicates": {
+   "test": "duplicates",
+   "metric_id": "duplicates",
+   "status": "ran",
+   "parameters": {
+    "window_days": 7,
+    "condition": "same normalised supplier, same amount to the penny, dates chained within window"
+   },
+   "counts": {
+    "flagged_items": 651,
+    "payments_in_groups": 1944,
+    "identical_on_all_fields_groups": 453
+   },
+   "totals_gbp": {
+    "group_total": 8055836.75,
+    "excess_over_one_per_group": 5498087.94
+   },
+   "by_tag": {
+    "grant": {
+     "count": 4,
+     "gbp": 32077.54
+    },
+    "care_or_education_placement": {
+     "count": 541,
+     "gbp": 7094414.24
+    },
+    "agency_staff": {
+     "count": 4,
+     "gbp": 5540.0
+    },
+    "premises": {
+     "count": 31,
+     "gbp": 124172.97
+    },
+    "general_procurement": {
+     "count": 71,
+     "gbp": 799632.0
+    }
+   },
+   "top20": [
+    {
+     "supplier": "Oaklands SEN School Berkshire Limited",
+     "tag": "care_or_education_placement",
+     "amount": 20337.45,
+     "n_payments": 36,
+     "total_gbp": 732148.2,
+     "span_days": 0.04,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P03_-_published:2164;Over500_2026_P03_-_published:2165;Over500_2026_P03_-_published:2166;Over500_2026_P03_-_published:2167;Over500_2026_P03_-_published:2189;Over500_2026_P03_-_published:2190;Over500_2026_P03_-_published:2311;Over500_2026_P03_-_published:3106;Over500_2026_P03_-_published:3107;Over500_2026_P03_-_published:2169;Over500_2026_P03_-_published:2170;Over500_2026_P03_-_published:2312;Over500_2026_P03_-_published:2313;Over500_2026_P03_-_published:3109;Over500_2026_P03_-_published:2173;Over500_2026_P03_-_published:2195;Over500_2026_P03_-_published:2315;Over500_2026_P03_-_published:2316;Over500_2026_P03_-_published:2317;Over500_2026_P03_-_published:3110;Over500_2026_P03_-_published:3111;Over500_2026_P03_-_published:2175;Over500_2026_P03_-_published:2176;Over500_2026_P03_-_published:2199;Over500_2026_P03_-_published:2200;Over500_2026_P03_-_published:2201;Over500_2026_P03_-_published:3112;Over500_2026_P03_-_published:3113;Over500_2026_P03_-_published:2177;Over500_2026_P03_-_published:2203;Over500_2026_P03_-_published:2204;Over500_2026_P03_-_published:2321;Over500_2026_P03_-_published:2322;Over500_2026_P03_-_published:2323;Over500_2026_P03_-_published:3114;Over500_2026_P03_-_published:3115"
+    },
+    {
+     "supplier": "Oaklands SEN School Berkshire Limited",
+     "tag": "care_or_education_placement",
+     "amount": 20534.9,
+     "n_payments": 13,
+     "total_gbp": 266953.7,
+     "span_days": 0.04,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P03_-_published:2310;Over500_2026_P03_-_published:2191;Over500_2026_P03_-_published:2192;Over500_2026_P03_-_published:2193;Over500_2026_P03_-_published:2314;Over500_2026_P03_-_published:3108;Over500_2026_P03_-_published:2171;Over500_2026_P03_-_published:2172;Over500_2026_P03_-_published:2196;Over500_2026_P03_-_published:2198;Over500_2026_P03_-_published:2319;Over500_2026_P03_-_published:2320;Over500_2026_P03_-_published:3116"
+    },
+    {
+     "supplier": "Phoenix Child Care Limited -The Grange School",
+     "tag": "care_or_education_placement",
+     "amount": 21988.16,
+     "n_payments": 10,
+     "total_gbp": 219881.6,
+     "span_days": 1.69,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P02_-_published:2242;Over500_2026_P02_-_published:2243;Over500_2026_P02_-_published:2247;Over500_2026_P02_-_published:2249;Over500_2026_P02_-_published:2252;Over500_2026_P02_-_published:2253;Over500_2026_P02_-_published:2255;Over500_2026_P02_-_published:2257;Over500_2026_P02_-_published:2260;Over500_2026_P02_-_published:2263"
+    },
+    {
+     "supplier": "VolkerHighways Ltd",
+     "tag": "general_procurement",
+     "amount": 101925.86,
+     "n_payments": 2,
+     "total_gbp": 203851.72,
+     "span_days": 2.15,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P04_-_published:3308;Over500_2026_P04_-_published:618"
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "amount": 8476.52,
+     "n_payments": 18,
+     "total_gbp": 152577.36,
+     "span_days": 0.0,
+     "identical_on_all_fields": true,
+     "row_ids": "Over500_2026_P04_-_published:1040;Over500_2026_P04_-_published:1041;Over500_2026_P04_-_published:1071;Over500_2026_P04_-_published:1086;Over500_2026_P04_-_published:1087;Over500_2026_P04_-_published:1105;Over500_2026_P04_-_published:1107;Over500_2026_P04_-_published:1115;Over500_2026_P04_-_published:1154;Over500_2026_P04_-_published:1155;Over500_2026_P04_-_published:1158;Over500_2026_P04_-_published:1825;Over500_2026_P04_-_published:1826;Over500_2026_P04_-_published:1831;Over500_2026_P04_-_published:1846;Over500_2026_P04_-_published:1904;Over500_2026_P04_-_published:1905;Over500_2026_P04_-_published:2678"
+    },
+    {
+     "supplier": "Sukhbir Singh and Harvinder Singh T/A Calcot Services for Children (CSFC)",
+     "tag": "care_or_education_placement",
+     "amount": 18768.75,
+     "n_payments": 6,
+     "total_gbp": 112612.5,
+     "span_days": 0.01,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P03_-_published:2157;Over500_2026_P03_-_published:2158;Over500_2026_P03_-_published:3102;Over500_2026_P03_-_published:2159;Over500_2026_P03_-_published:3103;Over500_2026_P03_-_published:2306"
+    },
+    {
+     "supplier": "VolkerHighways Ltd",
+     "tag": "general_procurement",
+     "amount": 54241.36,
+     "n_payments": 2,
+     "total_gbp": 108482.72,
+     "span_days": 2.93,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P04_-_published:3210;Over500_2026_P04_-_published:3302"
+    },
+    {
+     "supplier": "Phoenix Child Care Limited -The Grange School",
+     "tag": "care_or_education_placement",
+     "amount": 32711.33,
+     "n_payments": 3,
+     "total_gbp": 98133.99,
+     "span_days": 0.02,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P02_-_published:2246;Over500_2026_P02_-_published:2248;Over500_2026_P02_-_published:2251"
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "amount": 5097.52,
+     "n_payments": 19,
+     "total_gbp": 96852.88,
+     "span_days": 0.0,
+     "identical_on_all_fields": true,
+     "row_ids": "Over500_2026_P03_-_published:1011;Over500_2026_P03_-_published:1027;Over500_2026_P03_-_published:1028;Over500_2026_P03_-_published:1336;Over500_2026_P03_-_published:1477;Over500_2026_P03_-_published:1759;Over500_2026_P03_-_published:2709;Over500_2026_P03_-_published:2710;Over500_2026_P03_-_published:2844;Over500_2026_P03_-_published:837;Over500_2026_P03_-_published:893;Over500_2026_P03_-_published:894;Over500_2026_P03_-_published:903;Over500_2026_P03_-_published:919;Over500_2026_P03_-_published:944;Over500_2026_P03_-_published:946;Over500_2026_P03_-_published:961;Over500_2026_P03_-_published:975;Over500_2026_P03_-_published:987"
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "amount": 5080.18,
+     "n_payments": 19,
+     "total_gbp": 96523.42,
+     "span_days": 0.0,
+     "identical_on_all_fields": true,
+     "row_ids": "Over500_2026_P02_-_published:1035;Over500_2026_P02_-_published:1037;Over500_2026_P02_-_published:1038;Over500_2026_P02_-_published:1039;Over500_2026_P02_-_published:1040;Over500_2026_P02_-_published:1455;Over500_2026_P02_-_published:1456;Over500_2026_P02_-_published:1457;Over500_2026_P02_-_published:1850;Over500_2026_P02_-_published:868;Over500_2026_P02_-_published:959;Over500_2026_P02_-_published:960;Over500_2026_P02_-_published:961;Over500_2026_P02_-_published:962;Over500_2026_P02_-_published:964;Over500_2026_P02_-_published:965;Over500_2026_P02_-_published:969;Over500_2026_P02_-_published:970;Over500_2026_P02_-_published:971"
+    },
+    {
+     "supplier": "Huckleberry House",
+     "tag": "care_or_education_placement",
+     "amount": 30918.75,
+     "n_payments": 3,
+     "total_gbp": 92756.25,
+     "span_days": 0.12,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P02_-_published:2266;Over500_2026_P02_-_published:2267;Over500_2026_P02_-_published:2269"
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "amount": 5097.52,
+     "n_payments": 18,
+     "total_gbp": 91755.36,
+     "span_days": 0.0,
+     "identical_on_all_fields": true,
+     "row_ids": "Over500_2026_P04_-_published:1033;Over500_2026_P04_-_published:1034;Over500_2026_P04_-_published:1037;Over500_2026_P04_-_published:1072;Over500_2026_P04_-_published:1081;Over500_2026_P04_-_published:1083;Over500_2026_P04_-_published:1104;Over500_2026_P04_-_published:1136;Over500_2026_P04_-_published:1137;Over500_2026_P04_-_published:1820;Over500_2026_P04_-_published:1821;Over500_2026_P04_-_published:1823;Over500_2026_P04_-_published:1848;Over500_2026_P04_-_published:1926;Over500_2026_P04_-_published:1927;Over500_2026_P04_-_published:2664;Over500_2026_P04_-_published:2717;Over500_2026_P04_-_published:887"
+    },
+    {
+     "supplier": "Care Services To You",
+     "tag": "care_or_education_placement",
+     "amount": 23989.77,
+     "n_payments": 3,
+     "total_gbp": 71969.31,
+     "span_days": 6.32,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P04_-_published:3750;Over500_2026_P04_-_published:3092;Over500_2026_P04_-_published:3161"
+    },
+    {
+     "supplier": "Care Services To You",
+     "tag": "care_or_education_placement",
+     "amount": 23989.77,
+     "n_payments": 3,
+     "total_gbp": 71969.31,
+     "span_days": 5.98,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P03_-_published:2008;Over500_2026_P03_-_published:1931;Over500_2026_P03_-_published:3044"
+    },
+    {
+     "supplier": "Phoenix Child Care Limited -The Grange School",
+     "tag": "care_or_education_placement",
+     "amount": 23210.0,
+     "n_payments": 3,
+     "total_gbp": 69630.0,
+     "span_days": 1.66,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P02_-_published:2245;Over500_2026_P02_-_published:2258;Over500_2026_P02_-_published:2262"
+    },
+    {
+     "supplier": "Amegreen Childrens Services",
+     "tag": "care_or_education_placement",
+     "amount": 34431.08,
+     "n_payments": 2,
+     "total_gbp": 68862.16,
+     "span_days": 1.29,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P02_-_published:2092;Over500_2026_P02_-_published:2105"
+    },
+    {
+     "supplier": "Amegreen Childrens Services",
+     "tag": "care_or_education_placement",
+     "amount": 34431.08,
+     "n_payments": 2,
+     "total_gbp": 68862.16,
+     "span_days": 0.03,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P04_-_published:3081;Over500_2026_P04_-_published:3752"
+    },
+    {
+     "supplier": "Amegreen Childrens Services",
+     "tag": "care_or_education_placement",
+     "amount": 33320.4,
+     "n_payments": 2,
+     "total_gbp": 66640.8,
+     "span_days": 0.17,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P03_-_published:2032;Over500_2026_P03_-_published:2033"
+    },
+    {
+     "supplier": "Amegreen Childrens Services",
+     "tag": "care_or_education_placement",
+     "amount": 33320.4,
+     "n_payments": 2,
+     "total_gbp": 66640.8,
+     "span_days": 1.98,
+     "identical_on_all_fields": false,
+     "row_ids": "Over500_2026_P02_-_published:2091;Over500_2026_P02_-_published:2108"
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "tag": "care_or_education_placement",
+     "amount": 9903.62,
+     "n_payments": 6,
+     "total_gbp": 59421.72,
+     "span_days": 0.0,
+     "identical_on_all_fields": true,
+     "row_ids": "Over500_2026_P04_-_published:1039;Over500_2026_P04_-_published:1043;Over500_2026_P04_-_published:1073;Over500_2026_P04_-_published:1120;Over500_2026_P04_-_published:1824;Over500_2026_P04_-_published:2908"
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/duplicates.csv",
+   "interpretation": "Repeated same-amount payments to one supplier within 7 days are possible duplicate payments to investigate, not confirmed ones. Groups identical on every published field are flagged separately; with no transaction id they may still be separate legitimate payments (for example several invoices of the same value, or weekly or per-person care charges). Spend dates are payment-run timestamps, not invoice dates, so windows are measured on payment-run dates."
+  },
+  "high_value_suppliers": {
+   "test": "high_value_suppliers",
+   "metric_id": "high_value_suppliers",
+   "status": "ran",
+   "parameters": {
+    "quote_threshold_gbp": 25000,
+    "inclusive": true,
+    "rule_ids": [
+     "CPR-60",
+     "CPR-62"
+    ]
+   },
+   "counts": {
+    "flagged_items": 672,
+    "notice_status": {
+     "none": 632,
+     "exact_active": 35,
+     "exact_expired_only": 5
+    }
+   },
+   "totals_gbp": {
+    "three_month": 65109873.25,
+    "annualised_estimate": 260439493.0
+   },
+   "by_tag": {
+    "grant": {
+     "count": 123,
+     "gbp": 5868739.51
+    },
+    "care_or_education_placement": {
+     "count": 303,
+     "gbp": 29860373.15
+    },
+    "agency_staff": {
+     "count": 1,
+     "gbp": 1275552.15
+    },
+    "premises": {
+     "count": 42,
+     "gbp": 1398677.12
+    },
+    "general_procurement": {
+     "count": 203,
+     "gbp": 26706531.32
+    }
+   },
+   "top20": [
+    {
+     "supplier": "VolkerHighways Ltd",
+     "total_gbp": 7377922.21,
+     "annualised_estimate_gbp": 29511688.84,
+     "payments": 126,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:691",
+      "Over500_2026_P02_-_published:692",
+      "Over500_2026_P02_-_published:693",
+      "Over500_2026_P02_-_published:694",
+      "Over500_2026_P02_-_published:695"
+     ],
+     "n_row_ids": 126
+    },
+    {
+     "supplier": "VEOLIA ES WEST BERKSHIRE LTD (CHAPS ONLY)",
+     "total_gbp": 6186065.04,
+     "annualised_estimate_gbp": 24744260.16,
+     "payments": 3,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2196",
+      "Over500_2026_P03_-_published:2146",
+      "Over500_2026_P04_-_published:3194"
+     ],
+     "n_row_ids": 3
+    },
+    {
+     "supplier": "Millbrook Healthcare Limited",
+     "total_gbp": 3459365.35,
+     "annualised_estimate_gbp": 13837461.4,
+     "payments": 4,
+     "months_paid": 2,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P03_-_published:2144",
+      "Over500_2026_P03_-_published:2216",
+      "Over500_2026_P04_-_published:3311",
+      "Over500_2026_P04_-_published:3789"
+     ],
+     "n_row_ids": 4
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "total_gbp": 1874166.5,
+     "annualised_estimate_gbp": 7496666.0,
+     "payments": 370,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:868",
+      "Over500_2026_P02_-_published:869",
+      "Over500_2026_P02_-_published:870",
+      "Over500_2026_P02_-_published:871",
+      "Over500_2026_P02_-_published:872"
+     ],
+     "n_row_ids": 370
+    },
+    {
+     "supplier": "Comensura Ltd",
+     "total_gbp": 1275552.15,
+     "annualised_estimate_gbp": 5102208.6,
+     "payments": 14,
+     "months_paid": 3,
+     "dominant_tag": "agency_staff",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:5",
+      "Over500_2026_P02_-_published:6",
+      "Over500_2026_P02_-_published:7",
+      "Over500_2026_P03_-_published:9",
+      "Over500_2026_P03_-_published:10"
+     ],
+     "n_row_ids": 14
+    },
+    {
+     "supplier": "Affinity Trust Support Ltd",
+     "total_gbp": 1098336.76,
+     "annualised_estimate_gbp": 4393347.04,
+     "payments": 263,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:1720",
+      "Over500_2026_P02_-_published:1722",
+      "Over500_2026_P02_-_published:1723",
+      "Over500_2026_P02_-_published:1724",
+      "Over500_2026_P02_-_published:1802"
+     ],
+     "n_row_ids": 263
+    },
+    {
+     "supplier": "Oaklands SEN School Berkshire Limited",
+     "total_gbp": 1026661.89,
+     "annualised_estimate_gbp": 4106647.56,
+     "payments": 54,
+     "months_paid": 1,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P03_-_published:2164",
+      "Over500_2026_P03_-_published:2165",
+      "Over500_2026_P03_-_published:2166",
+      "Over500_2026_P03_-_published:2167",
+      "Over500_2026_P03_-_published:2169"
+     ],
+     "n_row_ids": 54
+    },
+    {
+     "supplier": "RUSKIN MILL TRUST",
+     "total_gbp": 795197.64,
+     "annualised_estimate_gbp": 3180790.56,
+     "payments": 9,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:823",
+      "Over500_2026_P02_-_published:1822",
+      "Over500_2026_P03_-_published:801",
+      "Over500_2026_P03_-_published:802",
+      "Over500_2026_P03_-_published:2676"
+     ],
+     "n_row_ids": 9
+    },
+    {
+     "supplier": "Amegreen Childrens Services",
+     "total_gbp": 750437.33,
+     "annualised_estimate_gbp": 3001749.32,
+     "payments": 27,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2076",
+      "Over500_2026_P02_-_published:2088",
+      "Over500_2026_P02_-_published:2089",
+      "Over500_2026_P02_-_published:2091",
+      "Over500_2026_P02_-_published:2092"
+     ],
+     "n_row_ids": 27
+    },
+    {
+     "supplier": "Brighter Living Care Ltd",
+     "total_gbp": 747183.47,
+     "annualised_estimate_gbp": 2988733.88,
+     "payments": 74,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:1705",
+      "Over500_2026_P02_-_published:1719",
+      "Over500_2026_P02_-_published:1728",
+      "Over500_2026_P02_-_published:1729",
+      "Over500_2026_P02_-_published:1730"
+     ],
+     "n_row_ids": 74
+    },
+    {
+     "supplier": "Sukhbir Singh and Harvinder Singh T/A Calcot Services for Children (CSFC)",
+     "total_gbp": 639381.6,
+     "annualised_estimate_gbp": 2557526.4,
+     "payments": 26,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2042",
+      "Over500_2026_P02_-_published:2043",
+      "Over500_2026_P02_-_published:2044",
+      "Over500_2026_P02_-_published:2045",
+      "Over500_2026_P02_-_published:2046"
+     ],
+     "n_row_ids": 26
+    },
+    {
+     "supplier": "We Are The Care Company Ltd",
+     "total_gbp": 589012.31,
+     "annualised_estimate_gbp": 2356049.24,
+     "payments": 349,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:881",
+      "Over500_2026_P02_-_published:882",
+      "Over500_2026_P02_-_published:888",
+      "Over500_2026_P02_-_published:889",
+      "Over500_2026_P02_-_published:890"
+     ],
+     "n_row_ids": 349
+    },
+    {
+     "supplier": "The Better Group Ltd",
+     "total_gbp": 588490.08,
+     "annualised_estimate_gbp": 2353960.32,
+     "payments": 26,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:9",
+      "Over500_2026_P02_-_published:10",
+      "Over500_2026_P02_-_published:11",
+      "Over500_2026_P02_-_published:665",
+      "Over500_2026_P02_-_published:666"
+     ],
+     "n_row_ids": 26
+    },
+    {
+     "supplier": "Phoenix Child Care Limited -The Grange School",
+     "total_gbp": 567708.85,
+     "annualised_estimate_gbp": 2270835.4,
+     "payments": 25,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2242",
+      "Over500_2026_P02_-_published:2243",
+      "Over500_2026_P02_-_published:2244",
+      "Over500_2026_P02_-_published:2245",
+      "Over500_2026_P02_-_published:2246"
+     ],
+     "n_row_ids": 25
+    },
+    {
+     "supplier": "VOYAGE CARE",
+     "total_gbp": 554678.88,
+     "annualised_estimate_gbp": 2218715.52,
+     "payments": 80,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:1638",
+      "Over500_2026_P02_-_published:1639",
+      "Over500_2026_P02_-_published:1640",
+      "Over500_2026_P02_-_published:1641",
+      "Over500_2026_P02_-_published:1642"
+     ],
+     "n_row_ids": 80
+    },
+    {
+     "supplier": "GCH (Alder) Ltd t/a Hungerford Care Home",
+     "total_gbp": 545531.64,
+     "annualised_estimate_gbp": 2182126.56,
+     "payments": 104,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:955",
+      "Over500_2026_P02_-_published:956",
+      "Over500_2026_P02_-_published:1008",
+      "Over500_2026_P02_-_published:1009",
+      "Over500_2026_P02_-_published:1010"
+     ],
+     "n_row_ids": 104
+    },
+    {
+     "supplier": "SoftwareONE UK Ltd",
+     "total_gbp": 522978.62,
+     "annualised_estimate_gbp": 2091914.48,
+     "payments": 4,
+     "months_paid": 1,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:473",
+      "Over500_2026_P02_-_published:474",
+      "Over500_2026_P02_-_published:653",
+      "Over500_2026_P02_-_published:654"
+     ],
+     "n_row_ids": 4
+    },
+    {
+     "supplier": "Livity Life Ltd",
+     "total_gbp": 513074.85,
+     "annualised_estimate_gbp": 2052299.4,
+     "payments": 9,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2199",
+      "Over500_2026_P02_-_published:2200",
+      "Over500_2026_P03_-_published:2218",
+      "Over500_2026_P03_-_published:3087",
+      "Over500_2026_P03_-_published:3088"
+     ],
+     "n_row_ids": 9
+    },
+    {
+     "supplier": "WEST BERKSHIRE MENCAP",
+     "total_gbp": 505286.21,
+     "annualised_estimate_gbp": 2021144.84,
+     "payments": 115,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:628",
+      "Over500_2026_P02_-_published:787",
+      "Over500_2026_P02_-_published:788",
+      "Over500_2026_P02_-_published:789",
+      "Over500_2026_P02_-_published:790"
+     ],
+     "n_row_ids": 115
+    },
+    {
+     "supplier": "PURLEY PARK TRUST LTD",
+     "total_gbp": 471283.82,
+     "annualised_estimate_gbp": 1885135.28,
+     "payments": 94,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:768",
+      "Over500_2026_P02_-_published:774",
+      "Over500_2026_P02_-_published:775",
+      "Over500_2026_P02_-_published:776",
+      "Over500_2026_P02_-_published:777"
+     ],
+     "n_row_ids": 94
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/high_value_suppliers.csv",
+   "interpretation": "Suppliers whose annualised estimate meets the invitation-to-quote threshold: the population for which to request contract, quote or tender evidence. Being listed is not a finding; many will hold a valid framework, DPS call-off or lawful exclusion (care placements may be outside competition, Appendix C row F), or be covered by a contract not published as a notice. The annualised estimate extrapolates three months."
+  },
+  "off_contract": {
+   "test": "off_contract",
+   "metric_id": "off_contract",
+   "status": "ran",
+   "parameters": {
+    "notice_threshold_gbp": 25000,
+    "inclusive": true,
+    "rule_ids": [
+     "CPR-61",
+     "CPR-63"
+    ],
+    "condition": "annualised estimate meets threshold and no exact name match in any council notice"
+   },
+   "counts": {
+    "flagged_items": 632,
+    "with_candidate_notice": 17
+   },
+   "totals_gbp": {
+    "three_month": 62294765.18,
+    "annualised_estimate": 249179060.72
+   },
+   "by_tag": {
+    "grant": {
+     "count": 123,
+     "gbp": 5868739.51
+    },
+    "care_or_education_placement": {
+     "count": 299,
+     "gbp": 29280114.04
+    },
+    "agency_staff": {
+     "count": 1,
+     "gbp": 1275552.15
+    },
+    "premises": {
+     "count": 40,
+     "gbp": 1322878.21
+    },
+    "general_procurement": {
+     "count": 169,
+     "gbp": 24547481.27
+    }
+   },
+   "top20": [
+    {
+     "supplier": "VolkerHighways Ltd",
+     "total_gbp": 7377922.21,
+     "annualised_estimate_gbp": 29511688.84,
+     "payments": 126,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:691",
+      "Over500_2026_P02_-_published:692",
+      "Over500_2026_P02_-_published:693",
+      "Over500_2026_P02_-_published:694",
+      "Over500_2026_P02_-_published:695"
+     ],
+     "n_row_ids": 126
+    },
+    {
+     "supplier": "VEOLIA ES WEST BERKSHIRE LTD (CHAPS ONLY)",
+     "total_gbp": 6186065.04,
+     "annualised_estimate_gbp": 24744260.16,
+     "payments": 3,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2196",
+      "Over500_2026_P03_-_published:2146",
+      "Over500_2026_P04_-_published:3194"
+     ],
+     "n_row_ids": 3
+    },
+    {
+     "supplier": "Millbrook Healthcare Limited",
+     "total_gbp": 3459365.35,
+     "annualised_estimate_gbp": 13837461.4,
+     "payments": 4,
+     "months_paid": 2,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P03_-_published:2144",
+      "Over500_2026_P03_-_published:2216",
+      "Over500_2026_P04_-_published:3311",
+      "Over500_2026_P04_-_published:3789"
+     ],
+     "n_row_ids": 4
+    },
+    {
+     "supplier": "BUPA Care Services",
+     "total_gbp": 1874166.5,
+     "annualised_estimate_gbp": 7496666.0,
+     "payments": 370,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:868",
+      "Over500_2026_P02_-_published:869",
+      "Over500_2026_P02_-_published:870",
+      "Over500_2026_P02_-_published:871",
+      "Over500_2026_P02_-_published:872"
+     ],
+     "n_row_ids": 370
+    },
+    {
+     "supplier": "Comensura Ltd",
+     "total_gbp": 1275552.15,
+     "annualised_estimate_gbp": 5102208.6,
+     "payments": 14,
+     "months_paid": 3,
+     "dominant_tag": "agency_staff",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:5",
+      "Over500_2026_P02_-_published:6",
+      "Over500_2026_P02_-_published:7",
+      "Over500_2026_P03_-_published:9",
+      "Over500_2026_P03_-_published:10"
+     ],
+     "n_row_ids": 14
+    },
+    {
+     "supplier": "Affinity Trust Support Ltd",
+     "total_gbp": 1098336.76,
+     "annualised_estimate_gbp": 4393347.04,
+     "payments": 263,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:1720",
+      "Over500_2026_P02_-_published:1722",
+      "Over500_2026_P02_-_published:1723",
+      "Over500_2026_P02_-_published:1724",
+      "Over500_2026_P02_-_published:1802"
+     ],
+     "n_row_ids": 263
+    },
+    {
+     "supplier": "Oaklands SEN School Berkshire Limited",
+     "total_gbp": 1026661.89,
+     "annualised_estimate_gbp": 4106647.56,
+     "payments": 54,
+     "months_paid": 1,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P03_-_published:2164",
+      "Over500_2026_P03_-_published:2165",
+      "Over500_2026_P03_-_published:2166",
+      "Over500_2026_P03_-_published:2167",
+      "Over500_2026_P03_-_published:2169"
+     ],
+     "n_row_ids": 54
+    },
+    {
+     "supplier": "RUSKIN MILL TRUST",
+     "total_gbp": 795197.64,
+     "annualised_estimate_gbp": 3180790.56,
+     "payments": 9,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:823",
+      "Over500_2026_P02_-_published:1822",
+      "Over500_2026_P03_-_published:801",
+      "Over500_2026_P03_-_published:802",
+      "Over500_2026_P03_-_published:2676"
+     ],
+     "n_row_ids": 9
+    },
+    {
+     "supplier": "Amegreen Childrens Services",
+     "total_gbp": 750437.33,
+     "annualised_estimate_gbp": 3001749.32,
+     "payments": 27,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2076",
+      "Over500_2026_P02_-_published:2088",
+      "Over500_2026_P02_-_published:2089",
+      "Over500_2026_P02_-_published:2091",
+      "Over500_2026_P02_-_published:2092"
+     ],
+     "n_row_ids": 27
+    },
+    {
+     "supplier": "Brighter Living Care Ltd",
+     "total_gbp": 747183.47,
+     "annualised_estimate_gbp": 2988733.88,
+     "payments": 74,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:1705",
+      "Over500_2026_P02_-_published:1719",
+      "Over500_2026_P02_-_published:1728",
+      "Over500_2026_P02_-_published:1729",
+      "Over500_2026_P02_-_published:1730"
+     ],
+     "n_row_ids": 74
+    },
+    {
+     "supplier": "Sukhbir Singh and Harvinder Singh T/A Calcot Services for Children (CSFC)",
+     "total_gbp": 639381.6,
+     "annualised_estimate_gbp": 2557526.4,
+     "payments": 26,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2042",
+      "Over500_2026_P02_-_published:2043",
+      "Over500_2026_P02_-_published:2044",
+      "Over500_2026_P02_-_published:2045",
+      "Over500_2026_P02_-_published:2046"
+     ],
+     "n_row_ids": 26
+    },
+    {
+     "supplier": "We Are The Care Company Ltd",
+     "total_gbp": 589012.31,
+     "annualised_estimate_gbp": 2356049.24,
+     "payments": 349,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:881",
+      "Over500_2026_P02_-_published:882",
+      "Over500_2026_P02_-_published:888",
+      "Over500_2026_P02_-_published:889",
+      "Over500_2026_P02_-_published:890"
+     ],
+     "n_row_ids": 349
+    },
+    {
+     "supplier": "The Better Group Ltd",
+     "total_gbp": 588490.08,
+     "annualised_estimate_gbp": 2353960.32,
+     "payments": 26,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:9",
+      "Over500_2026_P02_-_published:10",
+      "Over500_2026_P02_-_published:11",
+      "Over500_2026_P02_-_published:665",
+      "Over500_2026_P02_-_published:666"
+     ],
+     "n_row_ids": 26
+    },
+    {
+     "supplier": "Phoenix Child Care Limited -The Grange School",
+     "total_gbp": 567708.85,
+     "annualised_estimate_gbp": 2270835.4,
+     "payments": 25,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2242",
+      "Over500_2026_P02_-_published:2243",
+      "Over500_2026_P02_-_published:2244",
+      "Over500_2026_P02_-_published:2245",
+      "Over500_2026_P02_-_published:2246"
+     ],
+     "n_row_ids": 25
+    },
+    {
+     "supplier": "VOYAGE CARE",
+     "total_gbp": 554678.88,
+     "annualised_estimate_gbp": 2218715.52,
+     "payments": 80,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:1638",
+      "Over500_2026_P02_-_published:1639",
+      "Over500_2026_P02_-_published:1640",
+      "Over500_2026_P02_-_published:1641",
+      "Over500_2026_P02_-_published:1642"
+     ],
+     "n_row_ids": 80
+    },
+    {
+     "supplier": "GCH (Alder) Ltd t/a Hungerford Care Home",
+     "total_gbp": 545531.64,
+     "annualised_estimate_gbp": 2182126.56,
+     "payments": 104,
+     "months_paid": 3,
+     "dominant_tag": "care_or_education_placement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:955",
+      "Over500_2026_P02_-_published:956",
+      "Over500_2026_P02_-_published:1008",
+      "Over500_2026_P02_-_published:1009",
+      "Over500_2026_P02_-_published:1010"
+     ],
+     "n_row_ids": 104
+    },
+    {
+     "supplier": "SoftwareONE UK Ltd",
+     "total_gbp": 522978.62,
+     "annualised_estimate_gbp": 2091914.48,
+     "payments": 4,
+     "months_paid": 1,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:473",
+      "Over500_2026_P02_-_published:474",
+      "Over500_2026_P02_-_published:653",
+      "Over500_2026_P02_-_published:654"
+     ],
+     "n_row_ids": 4
+    },
+    {
+     "supplier": "Livity Life Ltd",
+     "total_gbp": 513074.85,
+     "annualised_estimate_gbp": 2052299.4,
+     "payments": 9,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2199",
+      "Over500_2026_P02_-_published:2200",
+      "Over500_2026_P03_-_published:2218",
+      "Over500_2026_P03_-_published:3087",
+      "Over500_2026_P03_-_published:3088"
+     ],
+     "n_row_ids": 9
+    },
+    {
+     "supplier": "WEST BERKSHIRE MENCAP",
+     "total_gbp": 505286.21,
+     "annualised_estimate_gbp": 2021144.84,
+     "payments": 115,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:628",
+      "Over500_2026_P02_-_published:787",
+      "Over500_2026_P02_-_published:788",
+      "Over500_2026_P02_-_published:789",
+      "Over500_2026_P02_-_published:790"
+     ],
+     "n_row_ids": 115
+    },
+    {
+     "supplier": "PURLEY PARK TRUST LTD",
+     "total_gbp": 471283.82,
+     "annualised_estimate_gbp": 1885135.28,
+     "payments": 94,
+     "months_paid": 3,
+     "dominant_tag": "general_procurement",
+     "notice_status": "none",
+     "candidate_notice": "",
+     "candidate_reason": "",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:768",
+      "Over500_2026_P02_-_published:774",
+      "Over500_2026_P02_-_published:775",
+      "Over500_2026_P02_-_published:776",
+      "Over500_2026_P02_-_published:777"
+     ],
+     "n_row_ids": 94
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/off_contract.csv",
+   "interpretation": "Suppliers above the notice threshold with no exact-name council notice may indicate spend without a published contract; worth confirming. The Contracts Finder export holds only contracts above about 25,000 GBP, so this test never questions suppliers below the threshold. Innocent explanations: care placements and other individual placements (possibly lawfully outside competition, Appendix C row F), framework or DPS call-offs, other public-sector bodies, notices published under a different or group name (see candidate_notice, never counted as matches), contracts awarded before 2021 or not published, grants, or utilities. Disjoint from expired_notice_spend."
+  },
+  "expired_notice_spend": {
+   "test": "expired_notice_spend",
+   "metric_id": "expired_notice_spend",
+   "status": "ran",
+   "parameters": {
+    "window_start": "2026-05-01",
+    "rule_ids": [
+     "CPR-69"
+    ],
+    "condition": "every exact-matching notice has a contract end date before the window start; blank end date counts as active"
+   },
+   "counts": {
+    "flagged_items": 8
+   },
+   "totals_gbp": {
+    "three_month": 243364.42
+   },
+   "by_tag": {
+    "grant": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "care_or_education_placement": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "agency_staff": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "premises": {
+     "count": 2,
+     "gbp": 68721.94
+    },
+    "general_procurement": {
+     "count": 6,
+     "gbp": 174642.48
+    }
+   },
+   "top20": [
+    {
+     "supplier": "Hope & Clay (Construction) Ltd",
+     "tag": "general_procurement",
+     "total_gbp": 91306.75,
+     "annualised_estimate_gbp": 365227.0,
+     "payments": 1,
+     "notice_ids": "IT-402-1300-P00001300 - AWARD;IT-402-864-P00000864 - AWARD",
+     "latest_notice_end": "2024-10-11 00:00:00",
+     "row_ids_sample": [
+      "Over500_2026_P03_-_published:704"
+     ],
+     "n_row_ids": 1
+    },
+    {
+     "supplier": "BERKSHIRE MECHANICAL SERVICES",
+     "tag": "premises",
+     "total_gbp": 68040.0,
+     "annualised_estimate_gbp": 272160.0,
+     "payments": 45,
+     "notice_ids": "IT-402-1083-P00001083 - AWARD",
+     "latest_notice_end": "2024-03-31 00:00:00",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:30",
+      "Over500_2026_P02_-_published:31",
+      "Over500_2026_P02_-_published:32",
+      "Over500_2026_P02_-_published:33",
+      "Over500_2026_P02_-_published:34"
+     ],
+     "n_row_ids": 45
+    },
+    {
+     "supplier": "Berkshire Womens Aid",
+     "tag": "general_procurement",
+     "total_gbp": 52997.5,
+     "annualised_estimate_gbp": 211990.0,
+     "payments": 2,
+     "notice_ids": "P00000926",
+     "latest_notice_end": "2026-03-31 00:00:00",
+     "row_ids_sample": [
+      "Over500_2026_P04_-_published:721",
+      "Over500_2026_P04_-_published:856"
+     ],
+     "n_row_ids": 2
+    },
+    {
+     "supplier": "G7 BUSINESS SOLUTIONS LIMITED",
+     "tag": "general_procurement",
+     "total_gbp": 16364.56,
+     "annualised_estimate_gbp": 65458.24,
+     "payments": 8,
+     "notice_ids": "G-Cloud 12 Framework",
+     "latest_notice_end": "2023-01-18 00:00:00",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:467",
+      "Over500_2026_P02_-_published:468",
+      "Over500_2026_P02_-_published:762",
+      "Over500_2026_P03_-_published:531",
+      "Over500_2026_P03_-_published:721"
+     ],
+     "n_row_ids": 8
+    },
+    {
+     "supplier": "CACI Limited",
+     "tag": "general_procurement",
+     "total_gbp": 12071.67,
+     "annualised_estimate_gbp": 48286.68,
+     "payments": 1,
+     "notice_ids": "Youth Justice - ChildView",
+     "latest_notice_end": "2025-04-30 00:00:00",
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:459"
+     ],
+     "n_row_ids": 1
+    },
+    {
+     "supplier": "Morton Pattison Ltd",
+     "tag": "general_procurement",
+     "total_gbp": 1102.0,
+     "annualised_estimate_gbp": 4408.0,
+     "payments": 1,
+     "notice_ids": "IT-402-1354-P00001354 - AWARD",
+     "latest_notice_end": "2024-10-18 00:00:00",
+     "row_ids_sample": [
+      "Over500_2026_P03_-_published:686"
+     ],
+     "n_row_ids": 1
+    },
+    {
+     "supplier": "Davis and Associates Consultancy Limited",
+     "tag": "general_procurement",
+     "total_gbp": 800.0,
+     "annualised_estimate_gbp": 3200.0,
+     "payments": 1,
+     "notice_ids": "P00000986",
+     "latest_notice_end": "2023-09-30 00:00:00",
+     "row_ids_sample": [
+      "Over500_2026_P03_-_published:821"
+     ],
+     "n_row_ids": 1
+    },
+    {
+     "supplier": "Tactical Facilities Management Ltd",
+     "tag": "premises",
+     "total_gbp": 681.94,
+     "annualised_estimate_gbp": 2727.76,
+     "payments": 1,
+     "notice_ids": "P00001043",
+     "latest_notice_end": "2023-09-30 00:00:00",
+     "row_ids_sample": [
+      "Over500_2026_P04_-_published:58"
+     ],
+     "n_row_ids": 1
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/expired_notice_spend.csv",
+   "interpretation": "Suppliers paid in the window whose every matching notice ended before it began may indicate spend after contract expiry without an approved extension (Appendix C row D, CPR-69); worth confirming. Innocent explanations: a newer contract or extension not published as a notice, an approved extension recorded only in council records, call-off from a framework, or a name-only match to a different entity. Matching is by name only. Disjoint from off_contract."
+  },
+  "spend_vs_award": {
+   "test": "spend_vs_award",
+   "metric_id": "spend_vs_award",
+   "status": "ran",
+   "parameters": {
+    "ratio_threshold": 1.25,
+    "rule_ids": [
+     "CPR-70",
+     "CPR-71"
+    ],
+    "contract_years": "(contract end - contract start + 1 day) / 365.25",
+    "condition": "supplier has exactly one active exact-match notice, single-supplier, Awarded Value > 0"
+   },
+   "counts": {
+    "flagged_items": 7,
+    "assessed": 18,
+    "skipped_with_reason": {
+     "several_active_notices": 9,
+     "multi_supplier_notice": 10,
+     "zero_or_missing_award_value": 1,
+     "implausible_or_missing_duration": 0
+    }
+   },
+   "totals_gbp": {
+    "annualised_estimate_flagged": 2535072.76
+   },
+   "by_tag": {
+    "grant": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "care_or_education_placement": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "agency_staff": {
+     "count": 0,
+     "gbp": 0.0
+    },
+    "premises": {
+     "count": 1,
+     "gbp": 7758.91
+    },
+    "general_procurement": {
+     "count": 6,
+     "gbp": 626009.28
+    }
+   },
+   "top20": [
+    {
+     "supplier": "NEC SOFTWARE SOLUTIONS UK LIMITED",
+     "tag": "general_procurement",
+     "notice_id": "RM6259/CL766",
+     "awarded_value_gbp": 615540.0,
+     "contract_years": 3.0,
+     "annualised_estimate_gbp": 1257534.28,
+     "ratio": 6.13,
+     "payments": 10,
+     "row_ids_sample": [
+      "Over500_2026_P04_-_published:427",
+      "Over500_2026_P04_-_published:487",
+      "Over500_2026_P04_-_published:488",
+      "Over500_2026_P04_-_published:489",
+      "Over500_2026_P04_-_published:492"
+     ],
+     "n_row_ids": 10
+    },
+    {
+     "supplier": "BookingLab Limited",
+     "tag": "general_procurement",
+     "notice_id": "IT-402-1498-P00001498 - AWARD",
+     "awarded_value_gbp": 173000.0,
+     "contract_years": 7.0,
+     "annualised_estimate_gbp": 96000.0,
+     "ratio": 3.88,
+     "payments": 1,
+     "row_ids_sample": [
+      "Over500_2026_P03_-_published:396"
+     ],
+     "n_row_ids": 1
+    },
+    {
+     "supplier": "Exacom Systems Ltd",
+     "tag": "general_procurement",
+     "notice_id": "G-Cloud 14 RM1557.14",
+     "awarded_value_gbp": 50358.0,
+     "contract_years": 4.0,
+     "annualised_estimate_gbp": 48423.4,
+     "ratio": 3.85,
+     "payments": 1,
+     "row_ids_sample": [
+      "Over500_2026_P03_-_published:384"
+     ],
+     "n_row_ids": 1
+    },
+    {
+     "supplier": "SMS-Environmental Ltd",
+     "tag": "premises",
+     "notice_id": "IT-402-1599-P00001599 - AWARD",
+     "awarded_value_gbp": 26021.66,
+     "contract_years": 2.0,
+     "annualised_estimate_gbp": 31035.64,
+     "ratio": 2.38,
+     "payments": 7,
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:17",
+      "Over500_2026_P02_-_published:19",
+      "Over500_2026_P02_-_published:55",
+      "Over500_2026_P03_-_published:29",
+      "Over500_2026_P03_-_published:276"
+     ],
+     "n_row_ids": 7
+    },
+    {
+     "supplier": "Softcat Ltd",
+     "tag": "general_procurement",
+     "notice_id": "IT-402-1666-P00001666 - AWARD",
+     "awarded_value_gbp": 57907.0,
+     "contract_years": 3.0,
+     "annualised_estimate_gbp": 44020.0,
+     "ratio": 2.28,
+     "payments": 2,
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:460",
+      "Over500_2026_P03_-_published:375"
+     ],
+     "n_row_ids": 2
+    },
+    {
+     "supplier": "IDOX SOFTWARE LTD",
+     "tag": "general_procurement",
+     "notice_id": "P00000844",
+     "awarded_value_gbp": 714533.0,
+     "contract_years": 7.0,
+     "annualised_estimate_gbp": 204905.64,
+     "ratio": 2.01,
+     "payments": 2,
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:462",
+      "Over500_2026_P03_-_published:371"
+     ],
+     "n_row_ids": 2
+    },
+    {
+     "supplier": "TWO SAINTS LTD",
+     "tag": "general_procurement",
+     "notice_id": "IT-402-1432-P00001432 - AWARD",
+     "awarded_value_gbp": 2500000.0,
+     "contract_years": 5.0,
+     "annualised_estimate_gbp": 853153.8,
+     "ratio": 1.71,
+     "payments": 7,
+     "row_ids_sample": [
+      "Over500_2026_P02_-_published:2160",
+      "Over500_2026_P02_-_published:2161",
+      "Over500_2026_P02_-_published:2162",
+      "Over500_2026_P03_-_published:2130",
+      "Over500_2026_P03_-_published:3080"
+     ],
+     "n_row_ids": 7
+    }
+   ],
+   "full_list_file": "outputs/analytics-full/spend_vs_award.csv",
+   "interpretation": "Annualised spend at or above 1.25 times the annual equivalent of the award may indicate spend beyond the award without an approved variation (Appendix C row E, CPR-70, CPR-71); worth confirming. Innocent explanations: Awarded Value is often an estimate or a minimum rather than a cap, payments may include other contracts with the same supplier, lumpy or front-loaded payment profiles in a three-month window, or a variation approved in council records. Name-only matching."
+  }
+ }
+}

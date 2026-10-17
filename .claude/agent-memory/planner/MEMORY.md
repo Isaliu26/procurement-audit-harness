@@ -1,0 +1,1 @@
+- [Builder quirks](builder-quirks.md) — how to write audit-plan.json so build_pack.py accepts it

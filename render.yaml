@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: procurement-audit-harness
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/status
+    autoDeploy: true
+    envVars:
+      # Secrets: you type these into the Render dashboard; they are never stored in this file.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ACCESS_CODE
+        sync: false
+      - key: LEDGER_CAP_USD
+        value: "4.00"

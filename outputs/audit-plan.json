@@ -1,0 +1,411 @@
+{
+ "register_version": 2,
+ "memo": {
+  "objective": "Test {{$pack.risks_in_scope}} approved risk indicators in procurement spend, covering the quote, tender, approval and contract-notice rules [rule:CPR-13] [rule:CPR-60].",
+  "approach": "Targeted samples are drawn from the flagged lists, sized by each risk's final score, and each sampled group is expanded to its transactions. Care placements and grants are filtered out of rule tests as they follow other routes.",
+  "points": [],
+  "exclusions": [
+   "The rejected care and education placement risk was rejected by the auditor and is not planned."
+  ],
+  "limitations": [
+   "Sampled groups are chosen by the group's tag, so expanded transactions may include rows tagged as care placements or grants; the tag column on each sample row marks them as context only for the rule test.",
+   "The award-ratio test could assess only {{$.tests.spend_vs_award.counts.assessed}} suppliers; {{$.tests.spend_vs_award.counts.skipped_with_reason.several_active_notices}} with several active notices, {{$.tests.spend_vs_award.counts.skipped_with_reason.multi_supplier_notice}} on multi-supplier notices and {{$.tests.spend_vs_award.counts.skipped_with_reason.zero_or_missing_award_value}} with no award value were skipped and are untested [metric:$.tests.spend_vs_award.counts.skipped_with_reason].",
+   "Off-contract suppliers beyond the sampled items are not tested; the full list is in outputs/analytics-full/off_contract.csv."
+  ]
+ },
+ "risks": [
+  {
+   "risk_id": "R-01",
+   "controls": [
+    {
+     "id": "C-01",
+     "description": "A requirement at or above the quote tier is quoted from at least three sources [rule:CPR-60] (works, concession and light touch contracts follow [rule:CPR-62]) and is not split or disaggregated to avoid the quote tier [rule:CPR-13]."
+    }
+   ],
+   "tests": [
+    {
+     "id": "T-01",
+     "control_ids": [
+      "C-01"
+     ],
+     "objective": "Check whether grouped same-supplier payments relate to one underlying requirement, using general-procurement and premises groups only (care placements and grants follow other routes) [rule:CPR-13]. The spend data carries no works or goods marker, so works-type groups are identified from the supporting records requested [rule:CPR-62].",
+     "step": "For each sampled group compare orders, invoices and quotes, and confirm the combined value was quoted under [rule:CPR-60] [metric:$.tests.split_purchases@25000.counts.flagged_items]. Record whether a framework or contract covers the group.",
+     "sample": {
+      "file": "split_purchases.csv",
+      "filter": [
+       {
+        "col": "tier",
+        "op": "==",
+        "value": 25000
+       },
+       {
+        "col": "tag",
+        "op": "in",
+        "value": [
+         "general_procurement",
+         "premises"
+        ]
+       }
+      ],
+      "sort": [
+       {
+        "col": "combined_gbp",
+        "desc": true
+       }
+      ],
+      "n": "by_score"
+     },
+     "pbc": [
+      "Purchase orders, invoices and quotation records for the sampled suppliers",
+      "Contract or framework agreements covering the sampled suppliers"
+     ]
+    }
+   ]
+  },
+  {
+   "risk_id": "R-02",
+   "controls": [
+    {
+     "id": "C-02",
+     "description": "Requirements in the lowest quote band are quoted from an appropriate source [rule:CPR-59] and not split to stay under the quote boundary [rule:CPR-13]."
+    }
+   ],
+   "tests": [
+    {
+     "id": "T-02",
+     "control_ids": [
+      "C-02"
+     ],
+     "objective": "Check whether payments just under the lowest quote boundary are supported by a quote and a single requirement, excluding care placements and grants [rule:CPR-59].",
+     "step": "For each sampled group obtain the quote and order and confirm the requirement was not divided [metric:$.tests.split_purchases@1000.counts.flagged_items].",
+     "sample": {
+      "file": "split_purchases.csv",
+      "filter": [
+       {
+        "col": "tier",
+        "op": "==",
+        "value": 1000
+       },
+       {
+        "col": "tag",
+        "op": "in",
+        "value": [
+         "general_procurement",
+         "premises"
+        ]
+       }
+      ],
+      "sort": [
+       {
+        "col": "combined_gbp",
+        "desc": true
+       }
+      ],
+      "n": "by_score"
+     },
+     "pbc": [
+      "Quotation records and orders for the sampled suppliers",
+      "Purchase orders, invoices and quotation records for the sampled suppliers"
+     ]
+    }
+   ]
+  },
+  {
+   "risk_id": "R-03",
+   "controls": [
+    {
+     "id": "C-03",
+     "description": "An award in the high-value tier is treated as a Key Decision of the Council [rule:CPR-04]; works, concession and light touch contracts follow the full tender route [rule:CPR-64] and goods and services above the Threshold follow [rule:CPR-65]."
+    }
+   ],
+   "tests": [
+    {
+     "id": "T-03",
+     "control_ids": [
+      "C-03"
+     ],
+     "objective": "Check the approval route and any existing contract for combined payments reaching the high-value tier, excluding care placements and grants [rule:CPR-04].",
+     "step": "For each sampled group confirm the route applying to its type (works-type [rule:CPR-64], goods and services [rule:CPR-65]), the tender record and the Key Decision record [rule:CPR-04] [metric:$.tests.split_purchases@500000.counts.flagged_items].",
+     "sample": {
+      "file": "split_purchases.csv",
+      "filter": [
+       {
+        "col": "tier",
+        "op": "==",
+        "value": 500000
+       },
+       {
+        "col": "tag",
+        "op": "in",
+        "value": [
+         "general_procurement",
+         "premises",
+         "agency_staff"
+        ]
+       }
+      ],
+      "sort": [
+       {
+        "col": "combined_gbp",
+        "desc": true
+       }
+      ],
+      "n": "by_score"
+     },
+     "pbc": [
+      "Key Decision records and tender evaluation records for the sampled suppliers",
+      "Contract or framework agreements covering the sampled suppliers"
+     ]
+    }
+   ]
+  },
+  {
+   "risk_id": "R-04",
+   "controls": [
+    {
+     "id": "C-04",
+     "description": "Contracts above the tier are competed and advertised [rule:CPR-61] [rule:CPR-63] [rule:CPR-65] so that a notice exists, or an exclusion or framework basis is recorded [rule:CPR-14]."
+    }
+   ],
+   "tests": [
+    {
+     "id": "T-04",
+     "control_ids": [
+      "C-04"
+     ],
+     "objective": "Check whether suppliers with no exact-name notice hold a contract, framework or recorded exclusion, excluding care placements and grants [rule:CPR-61].",
+     "step": "For each sampled supplier request contract, framework or exclusion evidence. Suppliers with a near-miss candidate notice are sampled first, then the largest by annualised estimate; the candidate names are in outputs/analytics-full/off_contract.csv (candidate_notice column) [metric:$.tests.off_contract.counts.with_candidate_notice] [metric:$.tests.off_contract.counts.flagged_items].",
+     "sample": {
+      "file": "off_contract.csv",
+      "filter": [
+       {
+        "col": "tag",
+        "op": "in",
+        "value": [
+         "general_procurement",
+         "premises"
+        ]
+       }
+      ],
+      "sort": [
+       {
+        "col": "candidate_notice",
+        "desc": true
+       },
+       {
+        "col": "annualised_estimate_gbp",
+        "desc": true
+       }
+      ],
+      "n": "by_score"
+     },
+     "pbc": [
+      "Contract, framework or exclusion evidence for the sampled suppliers",
+      "Procurement route records for the sampled suppliers"
+     ]
+    }
+   ]
+  },
+  {
+   "risk_id": "R-05",
+   "controls": [
+    {
+     "id": "C-05",
+     "description": "An extension to an existing contract is only used where the contract provides for it, with the approval of the chief finance officer [rule:CPR-69]."
+    }
+   ],
+   "tests": [
+    {
+     "id": "T-05",
+     "control_ids": [
+      "C-05"
+     ],
+     "objective": "Check whether payments after the only matching notice ended are covered by an approved extension or a newer contract [rule:CPR-69].",
+     "step": "For each sampled supplier obtain the chief finance officer's approval of the extension, or the replacement contract [rule:CPR-69] [metric:$.tests.expired_notice_spend.counts.flagged_items].",
+     "sample": {
+      "file": "expired_notice_spend.csv",
+      "filter": [],
+      "sort": [
+       {
+        "col": "total_gbp",
+        "desc": true
+       }
+      ],
+      "n": "by_score"
+     },
+     "pbc": [
+      "Extension approvals or replacement contracts for the sampled suppliers",
+      "Contract end dates and variation records for the sampled suppliers"
+     ]
+    }
+   ]
+  },
+  {
+   "risk_id": "R-06",
+   "controls": [
+    {
+     "id": "C-06",
+     "description": "A variation is approved in advance in writing by the Monitoring Officer and chief finance officer where the contract value is below the Threshold [rule:CPR-70], or by the relevant board where it is above the Threshold [rule:CPR-71]."
+    }
+   ],
+   "tests": [
+    {
+     "id": "T-06",
+     "control_ids": [
+      "C-06"
+     ],
+     "objective": "Check whether spend above the annual award is covered by an approved variation [rule:CPR-70].",
+     "step": "For each sampled supplier compare payments with the award, decide which rule applies from the contract value ([rule:CPR-70] or [rule:CPR-71]), and obtain the prior written approval from the named approvers [metric:$.tests.spend_vs_award.counts.flagged_items]. Award values may be estimates or maxima.",
+     "sample": {
+      "file": "spend_vs_award.csv",
+      "filter": [],
+      "sort": [
+       {
+        "col": "ratio",
+        "desc": true
+       }
+      ],
+      "n": "by_score"
+     },
+     "pbc": [
+      "Variation approvals and current contract value for the sampled suppliers",
+      "Contract end dates and variation records for the sampled suppliers",
+      "Contract values and variations for suppliers skipped by the award-ratio test"
+     ]
+    }
+   ]
+  },
+  {
+   "risk_id": "R-07",
+   "controls": [
+    {
+     "id": "C-07",
+     "description": "Each published payment in the spend transparency data [rule:CPR-06] is supported by one invoice and is paid once."
+    }
+   ],
+   "tests": [
+    {
+     "id": "T-07",
+     "control_ids": [
+      "C-07"
+     ],
+     "objective": "Check whether identical same-supplier payments are separate invoices, excluding care placements and grants [rule:CPR-06].",
+     "step": "For each sampled group match payments to invoices and remittances; groups identical on every field are sampled first [metric:$.tests.duplicates.counts.identical_on_all_fields_groups]. Identical rows may be legitimate, and the full flagged population is in the duplicates list [metric:$.tests.duplicates.counts.flagged_items].",
+     "sample": {
+      "file": "duplicates.csv",
+      "filter": [
+       {
+        "col": "tag",
+        "op": "in",
+        "value": [
+         "general_procurement",
+         "premises"
+        ]
+       }
+      ],
+      "sort": [
+       {
+        "col": "identical_on_all_fields",
+        "desc": true
+       },
+       {
+        "col": "total_gbp",
+        "desc": true
+       }
+      ],
+      "n": "by_score"
+     },
+     "pbc": [
+      "Invoices and remittance advices for the sampled payments"
+     ]
+    }
+   ]
+  }
+ ],
+ "not_tested": [
+  {
+   "rule_ids": [
+    "CPR-01",
+    "CPR-02",
+    "CPR-03",
+    "CPR-05",
+    "CPR-09",
+    "CPR-10",
+    "CPR-12",
+    "CPR-15",
+    "CPR-16",
+    "CPR-17",
+    "CPR-18",
+    "CPR-19",
+    "CPR-20"
+   ],
+   "reason": "Approval, documentation and evaluation steps evidenced only in council records; not covered by the approved risks."
+  },
+  {
+   "rule_ids": [
+    "CPR-07",
+    "CPR-08",
+    "CPR-11",
+    "CPR-36"
+   ],
+   "reason": "Publication and advertising duties evidenced in council records or notices; not covered by the approved risks."
+  },
+  {
+   "rule_ids": [
+    "CPR-21",
+    "CPR-22",
+    "CPR-23",
+    "CPR-24",
+    "CPR-25",
+    "CPR-26",
+    "CPR-27",
+    "CPR-28",
+    "CPR-29",
+    "CPR-30",
+    "CPR-31",
+    "CPR-32",
+    "CPR-33",
+    "CPR-34",
+    "CPR-35",
+    "CPR-37",
+    "CPR-38",
+    "CPR-39",
+    "CPR-40",
+    "CPR-41",
+    "CPR-42",
+    "CPR-43",
+    "CPR-44",
+    "CPR-45",
+    "CPR-46",
+    "CPR-47",
+    "CPR-48",
+    "CPR-49",
+    "CPR-50",
+    "CPR-51",
+    "CPR-52"
+   ],
+   "reason": "Waiver, exception, contract-terms and sealing rules evidenced only in council records; not covered by the approved risks."
+  },
+  {
+   "rule_ids": [
+    "CPR-53",
+    "CPR-54",
+    "CPR-55",
+    "CPR-56",
+    "CPR-57",
+    "CPR-58"
+   ],
+   "reason": "Contract approval-level rules (Appendix A) evidenced in council records; not covered by the approved risks."
+  },
+  {
+   "rule_ids": [
+    "CPR-66",
+    "CPR-67",
+    "CPR-68",
+    "CPR-72",
+    "CPR-73"
+   ],
+   "reason": "Exclusion routes evidenced only in council records; not covered by the approved risks."
+  }
+ ]
+}

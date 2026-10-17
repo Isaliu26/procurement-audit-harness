@@ -1,0 +1,23 @@
+# Python environment and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Scratch and fixture folders
+scratch/
+tmp/
+temp/
+/fixtures/
+
+# Kept in the repo (listed for clarity; nothing here is ignored):
+#   data/  outputs/  scripts/  .claude/  CLAUDE.md
+
+# Secrets and live-run state (Part B)
+.env
+.env.*
+!.env.example
+live/

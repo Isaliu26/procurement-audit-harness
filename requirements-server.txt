@@ -1,0 +1,8 @@
+# Server image dependencies (the Part A analysis scripts need pandas and openpyxl too)
+pandas==3.0.6
+openpyxl==3.1.5
+fastapi==0.143.3
+uvicorn==0.54.0
+pydantic>=2,<3
+python-dotenv==1.2.4
+claude-agent-sdk==0.2.168

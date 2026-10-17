@@ -1,0 +1,1 @@
+- [Challenger lessons](challenger-lessons.md) — how-to tips for reviewing the pack and keeping the table

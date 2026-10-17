@@ -1,0 +1,226 @@
+{
+ "version": 2,
+ "decisions_seen": {
+  "R-01": {
+   "decision": "APPROVE",
+   "comment": ""
+  },
+  "R-04": {
+   "decision": "APPROVE",
+   "comment": ""
+  },
+  "R-02": {
+   "decision": "APPROVE",
+   "comment": ""
+  },
+  "R-03": {
+   "decision": "APPROVE",
+   "comment": ""
+  },
+  "R-06": {
+   "decision": "APPROVE",
+   "comment": ""
+  },
+  "R-05": {
+   "decision": "OVERRIDE",
+   "comment": "likelihood=4. Paying suppliers after their only notice has ended points to contracts rolling on without re-procurement, which is common in practice."
+  },
+  "R-07": {
+   "decision": "APPROVE",
+   "comment": "Keep likelihood at 2: no Contract Procedure Rule covers duplicates, and many identical rows may be export artefacts."
+  },
+  "R-08": {
+   "decision": "REJECT",
+   "comment": "Care placements recur by design and will be covered by a separate social care commissioning review."
+  }
+ },
+ "risks": {
+  "R-01": {
+   "id": "R-01",
+   "title": "Same-supplier payments combining past the quote threshold",
+   "theme": "splitting-25k",
+   "statement": "Payments to one supplier close together may be a single requirement split so each stays under the invitation-to-quote threshold [rule:CPR-13] [rule:CPR-60]. These are risk indicators to investigate, not findings.",
+   "likelihood": {
+    "base_score": 4,
+    "rubric": "L4",
+    "justification": "{{$.tests.split_purchases@25000.counts.flagged_items}} flagged supplier groups, of which {{$.tests.split_purchases@25000.by_tag.care_or_education_placement.count}} are care or education placements and {{$.tests.split_purchases@25000.by_tag.grant.count}} grants, leaving well over twenty outside the exempt tags [metric:$.tests.split_purchases@25000.counts.flagged_items]; the combined total is far above the tier value of [rule:CPR-60]. Clustering just under the same threshold is below the L4 count, so L5 is not met [metric:$.tests.threshold_clustering@25000.counts.flagged_items].",
+    "uplift": {
+     "applied": false,
+     "audit_ids": [],
+     "reason": "The Contract Letting audit has a Reasonable opinion [history:AUD-01], so it is not a repeat finding."
+    }
+   },
+   "impact": {
+    "score": 5,
+    "justification": "General-procurement-tagged combined value of {{$.tests.split_purchases@25000.by_tag.general_procurement.gbp|gbp}} alone exceeds the top council impact band [metric:$.tests.split_purchases@25000.by_tag.general_procurement]; total combined {{$.tests.split_purchases@25000.totals_gbp.combined|gbp}} [metric:$.tests.split_purchases@25000.totals_gbp.combined]."
+   },
+   "evidence": [
+    "Largest group: {{$.tests.split_purchases@25000.top20.0.supplier}} [metric:$.tests.split_purchases@25000.top20]",
+    "Recurring equal-amount groups: {{$.tests.split_purchases@25000.counts.groups_all_amounts_equal}} [metric:$.tests.split_purchases@25000.counts.groups_all_amounts_equal]"
+   ],
+   "focus": "Recommend testing the largest non-care groups for one underlying requirement, excluding equal-amount recurring care charges."
+  },
+  "R-02": {
+   "id": "R-02",
+   "title": "Low-value payments clustering and combining at the lowest quote boundary",
+   "theme": "splitting-1k",
+   "statement": "Many payments sit just under, or combine past, the lowest procurement-route boundary [rule:CPR-59], and the anti-splitting rule applies [rule:CPR-13]. Risk indicators to investigate.",
+   "likelihood": {
+    "base_score": 5,
+    "rubric": "L5",
+    "justification": "Two independent tests meet L4 at this tier: {{$.tests.split_purchases@1000.counts.flagged_items}} split groups [metric:$.tests.split_purchases@1000.counts.flagged_items] and {{$.tests.threshold_clustering@1000.counts.flagged_items}} near-threshold payments [metric:$.tests.threshold_clustering@1000.counts.flagged_items], each with well over twenty items outside the exempt tags, engaging [rule:CPR-59]. Much of the clustering is care-tagged, which may reflect tariff pricing.",
+    "uplift": {
+     "applied": false,
+     "audit_ids": [],
+     "reason": "No adverse audit opinion on this theme [history:AUD-11]."
+    }
+   },
+   "impact": {
+    "score": 3,
+    "justification": "General-procurement-tagged combined value {{$.tests.split_purchases@1000.by_tag.general_procurement.gbp|gbp}} falls in the Medium band [metric:$.tests.split_purchases@1000.by_tag.general_procurement]; the lower-value tier limits financial exposure per [rule:CPR-59]."
+   },
+   "evidence": [
+    "Near-threshold payments in general procurement: {{$.tests.threshold_clustering@1000.by_tag.general_procurement.count}} [metric:$.tests.threshold_clustering@1000.by_tag]"
+   ],
+   "focus": "Recommend a small targeted sample of non-care groups to confirm whether quotes were obtained; lower priority than the larger-tier split risk."
+  },
+  "R-03": {
+   "id": "R-03",
+   "title": "Combined payments approaching the high-value approval and tender tier",
+   "theme": "splitting-500k",
+   "statement": "Payments to one supplier combine past the high-value tier [rule:CPR-64] [rule:CPR-04], which carries enhanced approval. Risk indicators to investigate.",
+   "likelihood": {
+    "base_score": 3,
+    "rubric": "L3",
+    "justification": "{{$.tests.split_purchases@500000.counts.flagged_items}} flagged groups, with {{$.tests.split_purchases@500000.by_tag.care_or_education_placement.count}} in the care tag, leaving between five and nineteen outside the exempt tags [metric:$.tests.split_purchases@500000.counts.flagged_items]; no payment clusters just under the tier [metric:$.tests.threshold_clustering@500000.counts.flagged_items].",
+    "uplift": {
+     "applied": false,
+     "audit_ids": [],
+     "reason": "No adverse related audit opinion [history:AUD-01]."
+    }
+   },
+   "impact": {
+    "score": 5,
+    "justification": "General-procurement-tagged combined value {{$.tests.split_purchases@500000.by_tag.general_procurement.gbp|gbp}} [metric:$.tests.split_purchases@500000.by_tag.general_procurement] engages the approval rule [rule:CPR-04]."
+   },
+   "evidence": [
+    "Largest group: {{$.tests.split_purchases@500000.top20.0.supplier}} [metric:$.tests.split_purchases@500000.top20]"
+   ],
+   "focus": "Recommend confirming the approval route and any existing contract for the few non-care groups."
+  },
+  "R-04": {
+   "id": "R-04",
+   "title": "Spend with suppliers having no council contract notice",
+   "theme": "off-contract",
+   "statement": "Suppliers whose annualised estimate exceeds the notice threshold have no exact-name council notice [rule:CPR-61] [rule:CPR-14]. Many may hold frameworks or contracts not published as notices. Risk indicators to investigate.",
+   "likelihood": {
+    "base_score": 4,
+    "rubric": "L4",
+    "justification": "{{$.tests.off_contract.counts.flagged_items}} suppliers flagged, of which {{$.tests.off_contract.by_tag.grant.count}} grants and {{$.tests.off_contract.by_tag.care_or_education_placement.count}} care placements are exempt tags, leaving well over twenty [metric:$.tests.off_contract.counts.flagged_items]; annualised estimate {{$.tests.off_contract.totals_gbp.annualised_estimate|gbp}} exceeds the tier of [rule:CPR-61]. The Contracts Finder export only holds larger contracts, which limits this test [metric:$.limitations]. [history:RT-01]",
+    "uplift": {
+     "applied": false,
+     "audit_ids": [],
+     "reason": "Contract Letting audit is Reasonable [history:AUD-01]."
+    }
+   },
+   "impact": {
+    "score": 5,
+    "justification": "General-procurement-tagged three-month payments {{$.tests.off_contract.by_tag.general_procurement.gbp|gbp}} [metric:$.tests.off_contract.by_tag.general_procurement] exceed the top band; value for money is a registered theme [history:RT-03]."
+   },
+   "evidence": [
+    "Largest supplier: {{$.tests.off_contract.top20.0.supplier}} [metric:$.tests.off_contract.top20]",
+    "Suppliers with a near-miss candidate notice: {{$.tests.off_contract.counts.with_candidate_notice}} [metric:$.tests.off_contract.counts.with_candidate_notice]"
+   ],
+   "focus": "Recommend requesting contract, framework or exclusion evidence for the largest non-care, non-grant suppliers, starting with near-miss name candidates."
+  },
+  "R-05": {
+   "id": "R-05",
+   "title": "Payments after the only matching notice has ended",
+   "theme": "expired-notice",
+   "statement": "Suppliers paid in the window whose every matching notice ended earlier may indicate spend after expiry without an approved extension [rule:CPR-69]. A newer contract may exist without a notice. Risk indicators to investigate.",
+   "likelihood": {
+    "base_score": 3,
+    "rubric": "L3",
+    "justification": "{{$.tests.expired_notice_spend.counts.flagged_items}} suppliers flagged, none in exempt tags, which is between five and nineteen [metric:$.tests.expired_notice_spend.counts.flagged_items], engaging [rule:CPR-69].",
+    "uplift": {
+     "applied": false,
+     "audit_ids": [],
+     "reason": "No adverse related audit opinion [history:AUD-01]."
+    }
+   },
+   "impact": {
+    "score": 3,
+    "justification": "Three-month payments {{$.tests.expired_notice_spend.totals_gbp.three_month|gbp}} fall in the Medium band [metric:$.tests.expired_notice_spend.totals_gbp.three_month]."
+   },
+   "evidence": [
+    "Largest supplier: {{$.tests.expired_notice_spend.top20.0.supplier}} [metric:$.tests.expired_notice_spend.top20]"
+   ],
+   "focus": "Recommend requesting extension or new-contract records for each flagged supplier."
+  },
+  "R-06": {
+   "id": "R-06",
+   "title": "Spend running above the awarded contract value",
+   "theme": "spend-vs-award",
+   "statement": "Annualised spend is well above the annual equivalent of the award, which may indicate spend beyond the award without an approved variation [rule:CPR-70] [rule:CPR-71]. Award values may be estimates. Risk indicators to investigate.",
+   "likelihood": {
+    "base_score": 3,
+    "rubric": "L3",
+    "justification": "{{$.tests.spend_vs_award.counts.flagged_items}} suppliers flagged of {{$.tests.spend_vs_award.counts.assessed}} assessed, none in exempt tags [metric:$.tests.spend_vs_award.counts.flagged_items], engaging [rule:CPR-70].",
+    "uplift": {
+     "applied": false,
+     "audit_ids": [],
+     "reason": "No adverse related audit opinion [history:AUD-01]."
+    }
+   },
+   "impact": {
+    "score": 5,
+    "justification": "Flagged annualised estimate {{$.tests.spend_vs_award.totals_gbp.annualised_estimate_flagged|gbp}} [metric:$.tests.spend_vs_award.totals_gbp.annualised_estimate_flagged], an annualised estimate of the spend at these suppliers, not of any overspend."
+   },
+   "evidence": [
+    "Highest ratio supplier: {{$.tests.spend_vs_award.top20.0.supplier}} at {{$.tests.spend_vs_award.top20.0.ratio|ratio}} times [metric:$.tests.spend_vs_award.top20]"
+   ],
+   "focus": "Recommend comparing payments with the award and any variation approvals for the flagged suppliers."
+  },
+  "R-07": {
+   "id": "R-07",
+   "title": "Possible duplicate payments",
+   "theme": "duplicates",
+   "statement": "Repeated same-amount payments to one supplier within a short window may be duplicates to investigate; identical rows may be legitimate. Financial control is a registered theme [history:RT-02].",
+   "likelihood": {
+    "base_score": 2,
+    "rubric": "L2",
+    "justification": "{{$.tests.duplicates.counts.flagged_items}} flagged items [metric:$.tests.duplicates.counts.flagged_items], but no Contract Procedure Rule directly addresses duplicate payments, so L3 and L4 conditions are not met; the Accounts Payable audit was Reasonable [history:AUD-11]. Lower level taken.",
+    "uplift": {
+     "applied": false,
+     "audit_ids": [],
+     "reason": "Reasonable opinion is not a repeat finding [history:AUD-11]."
+    }
+   },
+   "impact": {
+    "score": 4,
+    "justification": "General-procurement-tagged group total {{$.tests.duplicates.by_tag.general_procurement.gbp|gbp}} [metric:$.tests.duplicates.by_tag.general_procurement]."
+   },
+   "evidence": [
+    "Groups identical on every field: {{$.tests.duplicates.counts.identical_on_all_fields_groups}} [metric:$.tests.duplicates.counts.identical_on_all_fields_groups]"
+   ],
+   "focus": "Recommend a lower-priority sample of non-care identical groups against invoices."
+  }
+ },
+ "rejected": {
+  "R-08": {
+   "title": "Care and education placement spend without a published notice",
+   "comment": "Care placements recur by design and will be covered by a separate social care commissioning review."
+  }
+ },
+ "rev_lines": [
+  "- **R-01** APPROVE: unchanged",
+  "- **R-02** APPROVE: unchanged",
+  "- **R-03** APPROVE: unchanged",
+  "- **R-04** APPROVE: unchanged",
+  "- **R-05** OVERRIDE ⚑: auditor set the rating (likelihood=4. Paying suppliers after their only notice has ended points to contracts rolling on without re-procurement, which is common in practice.)",
+  "- **R-06** APPROVE: unchanged",
+  "- **R-07** APPROVE: unchanged",
+  "- **R-08** REJECT: removed from scope. Auditor comment: Care placements recur by design and will be covered by a separate social care commissioning review."
+ ],
+ "rev_warn": []
+}

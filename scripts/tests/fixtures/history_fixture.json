@@ -1,0 +1,154 @@
+{
+ "sources": [
+  {
+   "file": "audit-completed-work-2024-25-annual.pdf",
+   "pages": 2,
+   "sha256": "1e86e2d613889a7048f8b0478ddc835f784ad139488112061d5cc64114007247"
+  },
+  {
+   "file": "audit-completed-work-2025-26-q3.pdf",
+   "pages": 1,
+   "sha256": "6681b9a0f93771b0ba7660bdab33bcc605c7f32a06f132f37aa0f4465b48856c"
+  },
+  {
+   "file": "internal-audit-plan-2025-28.pdf",
+   "pages": 7,
+   "sha256": "7e36b4a7aac008018f05eb4d360c02dbe2685e499f75852c2fd6601cb5f28f8c"
+  },
+  {
+   "file": "risk-management-strategy-2024-27.pdf",
+   "pages": 35,
+   "sha256": "a5a881e486a63c5fb848d4d3e7adef2723c07b830a617f423b7d80e8764d72a7"
+  }
+ ],
+ "audits": [
+  {
+   "source_file": "audit-completed-work-2024-25-annual.pdf",
+   "pdf_page": 1,
+   "quote": "Finance, Property and | Procurement | Contract Letting | Reasonable Assurance",
+   "id": "AUD-01",
+   "audit_title": "Contract Letting",
+   "opinion": "Reasonable Assurance",
+   "service": "Finance, Property and Procurement"
+  },
+  {
+   "source_file": "audit-completed-work-2024-25-annual.pdf",
+   "pdf_page": 1,
+   "quote": "Systems Security (Firewall, | Antivirus, Traffic Management) | Reasonable Assurance",
+   "id": "AUD-02",
+   "audit_title": "Systems Security (Firewall, Antivirus, Traffic Management)",
+   "opinion": "Reasonable Assurance"
+  }
+ ],
+ "follow_ups": [
+  {
+   "source_file": "audit-completed-work-2024-25-annual.pdf",
+   "pdf_page": 2,
+   "quote": "Garland (now Burghfield | Common Federation) | Weak | Unsatisfactory",
+   "id": "FUP-01",
+   "audit_title": "Garland (now Burghfield Common Federation)",
+   "opinion_report": "Weak",
+   "opinion_implementation": "Unsatisfactory"
+  }
+ ],
+ "advisory_work": [
+  {
+   "source_file": "audit-completed-work-2024-25-annual.pdf",
+   "pdf_page": 2,
+   "quote": "Transformation SWOT",
+   "id": "ADV-01",
+   "audit_title": "Transformation SWOT"
+  }
+ ],
+ "agreed_actions": [],
+ "risk_themes": [
+  {
+   "source_file": "risk-management-strategy-2024-27.pdf",
+   "pdf_page": 33,
+   "quote": "Contracts & | Dependency on, or failure of, contractors to deliver services or | products to the agreed cost and specification.",
+   "id": "RT-01",
+   "theme": "Contracts & Partnerships"
+  }
+ ],
+ "scoring_method": {
+  "usable": true,
+  "impact_scale": [
+   {
+    "source_file": "risk-management-strategy-2024-27.pdf",
+    "pdf_page": 14,
+    "quote": "The Council evaluates its identified risks on a five-point scale",
+    "id": "SM-IMP"
+   }
+  ],
+  "likelihood_scale": [
+   {
+    "source_file": "risk-management-strategy-2024-27.pdf",
+    "pdf_page": 15,
+    "quote": "Risk will occur within a 12 month period | 100%",
+    "id": "SM-LIK"
+   }
+  ],
+  "matrix": [
+   {
+    "source_file": "risk-management-strategy-2024-27.pdf",
+    "pdf_page": 18,
+    "quote": "Moderate High High Extreme Extreme | 4 8 12 16 20",
+    "id": "SM-MAT-4"
+   }
+  ],
+  "bands": [
+   {
+    "source_file": "risk-management-strategy-2024-27.pdf",
+    "pdf_page": 19,
+    "quote": "Extreme | 15 -25",
+    "id": "SM-BAND-X"
+   }
+  ],
+  "appetite": [
+   {
+    "source_file": "risk-management-strategy-2024-27.pdf",
+    "pdf_page": 17,
+    "quote": "Financial Risk Appetite – Flexible",
+    "id": "SM-APP-FIN"
+   }
+  ],
+  "escalation": [
+   {
+    "source_file": "risk-management-strategy-2024-27.pdf",
+    "pdf_page": 21,
+    "quote": "Score 9 or above",
+    "id": "SM-ESC"
+   }
+  ]
+ },
+ "discrepancies": [
+  {
+   "id": "DIS-01",
+   "kind": "internal_inconsistency",
+   "description": "Paragraph 4.3 numbers Medium impact as (2); Table 1 numbers it 3.",
+   "evidence": [
+    {
+     "source_file": "risk-management-strategy-2024-27.pdf",
+     "pdf_page": 14,
+     "quote": "Negligible (1), Minor (2), Medium (2), Major (4)"
+    },
+    {
+     "source_file": "risk-management-strategy-2024-27.pdf",
+     "pdf_page": 18,
+     "quote": "Medium | 3 6 9 12 15"
+    }
+   ]
+  }
+ ],
+ "gaps": [
+  {
+   "id": "GAP-01",
+   "what": "No agreed audit actions, due dates or action status in the papers",
+   "looked_in": [
+    "audit-completed-work-2024-25-annual.pdf",
+    "audit-completed-work-2025-26-q3.pdf",
+    "internal-audit-plan-2025-28.pdf"
+   ]
+  }
+ ]
+}

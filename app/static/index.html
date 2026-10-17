@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Procurement Audit Planner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>Procurement Audit Planner</h1>
+    <p class="sub">West Berkshire Council · agentic audit planning pipeline</p>
+  </div>
+  <div class="right">
+    <label class="code">Access code <input id="code" type="password" autocomplete="off" placeholder="graders only"></label>
+    <div class="src" role="group" aria-label="Run to view">
+    <button id="src-committed" class="on">Committed run</button>
+    <button id="src-live" disabled title="No live run since the server started">Live run</button>
+    </div>
+  </div>
+</header>
+<details id="howto" class="howto" open>
+  <summary>How to use this demo</summary>
+  <p><b>What this is.</b> An agentic system that plans an internal audit of procurement for West Berkshire Council from its public data. Six stages turn the Contract Procedure Rules, a year of spend and past audit papers into a risk register, an auditor decision gate, and a cross-checked audit planning pack. The agents and skills here are the same files that ran in Claude Code.</p>
+  <p><b>Browsing is free.</b> You are looking at a complete <i>committed run</i>. Click any of the six stages to read its outputs. Nothing you do while browsing calls a model or costs anything.</p>
+  <p><b>Try it live (access code needed).</b> Enter the access code above, then open <b>stage 4</b>, change one decision (for example make R-02 an <i>OVERRIDE</i> with <code>likelihood=2</code>), and submit. The risk-assessor agent reruns live, streams its progress here, and the revised register appears in the <i>Live run</i> view. Each live run costs real money and is capped; only one runs at a time. Stage 6 lets you record a sign-off. Committed outputs are never changed.</p>
+</details>
+<div id="banner" class="banner"></div>
+<section id="job" class="job" hidden></section>
+<nav id="stages" aria-label="Pipeline stages"></nav>
+<main>
+  <section id="panel"></section>
+</main>
+<footer>Outputs are risk indicators to investigate, not findings of wrongdoing by the council, any department or any supplier.</footer>
+<script src="vendor/marked.min.js"></script>
+<script src="vendor/purify.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

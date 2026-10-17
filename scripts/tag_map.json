@@ -1,0 +1,28 @@
+{
+  "order": ["grant", "care_or_education_placement", "agency_staff", "premises", "general_procurement"],
+  "rules": {
+    "grant": {
+      "narrative_regex": "grant",
+      "rationale": "Narrative says grant. Rules 1.6.2 treat a grant as a contract, so grants stay in scope."
+    },
+    "care_or_education_placement": {
+      "narrative_exact": ["Adult Placement Allowances", "Allowances for provision care", "Direct Payment", "Payments to Carers"],
+      "narrative_in_service": {
+        "narratives": ["Private Contractors", "Payment to contractor", "Other agencies", "Private Contractors Additional Cost"],
+        "service_regex": "social care|children|education|send"
+      },
+      "rationale": "Placement/care allowances/direct payments by narrative, and contractor payments inside social-care or education services. Appendix C row F excludes some individual care placements from competition, so a flag here may be lawfully outside competition."
+    },
+    "agency_staff": {
+      "narrative_regex": "agency & temporary|temporary staff|agency staff",
+      "supplier_regex": "\\brecruitment\\b|\\bstaffing\\b|\\btemps?\\b|\\blocum\\b|\\bresourcing\\b",
+      "rationale": "Narrative or supplier text indicating agency or temporary staffing."
+    },
+    "premises": {
+      "category_exact": ["Premises"],
+      "narrative_regex": "^rents?$|repairs? ?(and|&)? ?maint|corporate r&m|cleaning|grounds maintenance|minor works",
+      "rationale": "Expenditure category Premises, plus rents, repairs and maintenance, cleaning, grounds maintenance and minor works narratives."
+    },
+    "general_procurement": {"rationale": "Default for everything else; ambiguous narratives listed in tagging.unmapped_review."}
+  }
+}

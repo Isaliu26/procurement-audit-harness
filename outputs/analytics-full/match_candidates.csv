@@ -1,0 +1,21 @@
+spend_supplier,notice_supplier,notice_id,reason,ratio,annualised_estimate_gbp
+ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,ABC Travel (Wokingham) Ltd,P00000342,trading-as part equals notice name,0.727,252564.0
+ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,ABC Travel,West Berkshire Council Transport Dynamic Purchasing System (DPS) Ongoing awards July-Sept 2025,trading-as part equals notice name,0.444,252564.0
+BROADWAY CARS,Broadway Cars (Newbury) Ltd,P00000342,tokens of one name contained in the other,0.765,527755.72
+BROADWAY CARS,Air Premier Cars Berkshire Ltd T/A Broadway Cars,West Berkshire Council Transport Dynamic Purchasing System (DPS) Ongoing awards July-Sept 2025,tokens of one name contained in the other,0.456,527755.72
+D J TRAVEL,DJ Travel Ltd,P00000342 Jan-Mar 2023,difflib ratio >= 0.85,0.947,271867.64
+ELITE SECURITY GROUP,Elite Alarm Monitoring Services Limited t/a Elite Security Group,IT-402-1200-P00001200 - AWARD,tokens of one name contained in the other,0.526,40713.0
+Glen Cleaning Company Ltd,Glen Cleaning,IT-402-1488-P00001488 - AWARD,tokens of one name contained in the other,0.765,369572.48
+HOUSING CARE 21,Housing 21,IT-402-1089-P00001089 - AWARD,tokens of one name contained in the other,0.8,333007.04
+Mark Dillon t/a Penmar Transport Ltd,Penmar Transport,West Berkshire Council Transport - Dynamic Purchasing System (DPS) ongoing awards Oct-Dec 2025,trading-as part equals notice name,0.667,141128.0
+MRS M F RICHARDSON T/A MFR Contracts,MFR Contracts,P00000342 Oct-Dec 2024,trading-as part equals notice name,0.531,61460.0
+N Mehmood T/A A Star Executive Cars Ltd,A Star Executive Cars,West Berkshire Council Transport Dynamic Purchasing System (DPS) Ongoing awards July-Sept 2025,trading-as part equals notice name,0.75,49956.0
+POTTINGER'S HIRE SERVICE,Pottingers Hire Services,West Berkshire Council Transport Dynamic Purchasing System (DPS) Ongoing awards July-Sept 2025,difflib ratio >= 0.85,0.979,37410.0
+S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,K Ricketts & S Richards Taxis,IT-402-1542-P00001542 - AWARD,tokens of one name contained in the other,0.795,68576.0
+S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,K Ricketts & S Richards,P00000342 Oct-Dec 2022,tokens of one name contained in the other,0.694,68576.0
+Sikandar Hayat t/a Prompt Cars,Prompt Cars,West Berkshire Council Transport Dynamic Purchasing System (DPS) Ongoing awards July-Sept 2025,trading-as part equals notice name,0.537,749002.0
+Solutions4Health Ltd,SOLUTIONS 4 HEALTH LTD,P00000897,difflib ratio >= 0.85,0.941,181110.48
+SOUTHERN COACH LINES LTD,Southern Coach Lines Ltd T/A Aldermaston Coach Lines,West Berkshire Council Transport Dynamic Purchasing System (DPS) Ongoing awards July-Sept 2025,tokens of one name contained in the other,0.588,222127.56
+Swan Advocacy,Swan Advocacy Network,IT-402-974-P00000974 - AWARD,tokens of one name contained in the other,0.765,204864.0
+The Advocacy People (formerly SEAP),The Advocacy People,IT-402-974-P00000974 - AWARD,tokens of one name contained in the other,0.731,126612.92
+WCL UK Ltd (Trading as Everything ICT),WCL (UK) LIMITED,P00001021,trading-as part equals notice name,0.316,411531.12

@@ -1,0 +1,340 @@
+tier,band_low,row_id,date,amount,supplier,tag,service,category,narrative
+1000,900.0,Over500_2026_P02_-_published:44,2026-05-12 15:16:14.937,960.02,360 Security & Support Services Ltd,premises,Development & Housing,Premises,Corporate R&M
+1000,900.0,Over500_2026_P02_-_published:48,2026-05-28 16:52:03.717,980.89,360 Security & Support Services Ltd,premises,Development & Housing,Premises,Corporate R&M
+1000,900.0,Over500_2026_P02_-_published:57,2026-05-07 13:39:26.117,941.91,TOTALENERGIES GAS & POWER LIMITED,premises,Development & Housing,Premises,Energy costs
+1000,900.0,Over500_2026_P02_-_published:222,2026-05-20 13:10:35.063,970.0,Sikandar Hayat t/a Prompt Cars,general_procurement,Children's Social Care,Transport,Transport Hire
+1000,900.0,Over500_2026_P02_-_published:311,2026-05-08 12:49:38.880,930.0,Sikandar Hayat t/a Prompt Cars,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P02_-_published:313,2026-05-12 12:56:02.360,980.0,N Mehmood T/A A Star Executive Cars Ltd,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P02_-_published:341,2026-05-01 12:47:59.517,995.95,Go Green Taxis Ltd,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P02_-_published:399,2026-05-20 16:57:38.260,905.0,MRS M F RICHARDSON T/A MFR Contracts,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P02_-_published:455,2026-05-20 16:07:08.240,951.0,Cirrus Research PLC,general_procurement,Community Services,Supplies & Services,Repairs - Equipment
+1000,900.0,Over500_2026_P02_-_published:470,2026-05-21 09:36:59.660,958.46,INSIGHT DIRECT (UK) LTD,general_procurement,"Transformation, Customer & ICT",Supplies & Services,IT
+1000,900.0,Over500_2026_P02_-_published:513,2026-05-07 17:25:18.653,914.93,ACS Business Supplies Ltd,general_procurement,Community Services,Supplies & Services,Print & Stationery
+1000,900.0,Over500_2026_P02_-_published:532,2026-05-06 12:09:39.030,987.0,P. APPLEYARD (TOFFS CATERING),general_procurement,Community Services,Supplies & Services,Catering
+1000,900.0,Over500_2026_P02_-_published:547,2026-05-27 16:41:42.580,912.0,PRESTIGE NETWORK,general_procurement,Children's Social Care,Supplies & Services,Professional Fees
+1000,900.0,Over500_2026_P02_-_published:553,2026-05-27 12:41:56.507,954.0,Early Education,general_procurement,Education & SEND,Supplies & Services,Professional Fees
+1000,900.0,Over500_2026_P02_-_published:762,2026-05-19 13:27:26.590,910.0,G7 BUSINESS SOLUTIONS LIMITED,general_procurement,"Finance, Property & Procurement",Supplies & Services,Consultants
+1000,900.0,Over500_2026_P02_-_published:792,2026-05-20 08:47:44.180,985.86,THE NEWBURY COMMUNITY RESOURCE CENTRE LTD,general_procurement,Adult Social Care,Third Party Payments,Voluntary Associations
+1000,900.0,Over500_2026_P02_-_published:794,2026-05-20 08:47:44.180,931.09,THE NEWBURY COMMUNITY RESOURCE CENTRE LTD,general_procurement,Adult Social Care,Third Party Payments,Voluntary Associations
+1000,900.0,Over500_2026_P02_-_published:795,2026-05-20 08:47:44.180,985.86,THE NEWBURY COMMUNITY RESOURCE CENTRE LTD,general_procurement,Adult Social Care,Third Party Payments,Voluntary Associations
+1000,900.0,Over500_2026_P02_-_published:866,2026-05-20 16:46:40.113,945.0,Purple Oak Support,general_procurement,Children's Social Care,Third Party Payments,Voluntary Associations
+1000,900.0,Over500_2026_P02_-_published:871,2026-05-13 10:12:08.150,903.95,BUPA Care Services,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:886,2026-05-13 10:12:08.150,954.05,Your Serenity Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:888,2026-05-13 10:12:08.150,907.16,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:893,2026-05-13 10:12:08.150,999.57,Abi-support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:895,2026-05-20 08:47:44.180,996.48,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:920,2026-05-27 09:34:45.977,945.56,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:922,2026-05-13 10:12:08.150,999.57,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:927,2026-05-20 08:47:44.180,910.86,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:932,2026-05-22 09:08:05.493,926.76,Care Outlook Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1180,2026-05-13 10:12:08.150,947.67,Your Serenity Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1193,2026-05-13 10:12:08.150,954.05,Topline Care Solutions Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1233,2026-05-20 08:47:44.180,954.05,Noubles Healthcare Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1244,2026-05-20 08:47:44.180,954.05,Noubles Healthcare Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1258,2026-05-20 08:47:44.180,910.9,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1263,2026-05-20 08:47:44.180,910.86,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1278,2026-05-20 08:47:44.180,910.86,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1332,2026-05-22 09:08:05.493,989.19,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1349,2026-05-27 09:34:45.977,918.58,Care @ Home Newbury Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1350,2026-05-27 09:34:45.977,922.21,CARE PARTNERS (NEWBURY) LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1376,2026-05-13 10:12:08.150,905.15,Acorn Home Support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1433,2026-05-13 10:12:08.150,954.02,Abi-support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1434,2026-05-20 08:47:44.180,910.86,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1440,2026-05-20 08:47:44.180,920.65,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1585,2026-05-06 10:20:24.033,928.2,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1589,2026-05-13 10:12:08.150,954.05,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1598,2026-05-13 10:12:08.150,947.96,Abi-support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1605,2026-05-20 08:47:44.180,931.25,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1611,2026-05-20 08:47:44.180,948.35,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1612,2026-05-20 08:47:44.180,937.16,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1614,2026-05-20 08:47:44.180,942.65,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1618,2026-05-27 09:34:45.977,999.96,I.V Care Limited t/a Good Oaks Home Care (Reading),care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1763,2026-05-20 08:47:44.180,913.18,INDEPENDENCE WITH DIGNITY SUPPORT SERVICES LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1766,2026-05-20 08:47:44.180,907.72,FOCUS SUPPORT LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1780,2026-05-20 08:47:44.180,920.42,CREATIVE SUPPORT,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1784,2026-05-22 09:08:05.493,989.8,Cedar Hope Care Services Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1787,2026-05-22 09:08:05.493,944.35,Cedar Hope Care Services Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1791,2026-05-22 09:08:05.493,906.72,VOYAGE CARE,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1819,2026-05-22 09:08:05.493,933.48,Transparent Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1830,2026-05-22 09:08:05.493,966.0,Johav Care support Healthcare Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1876,2026-05-20 08:47:44.180,954.02,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:1986,2026-05-13 10:12:08.150,980.49,Shaw Healthcare (Group) Limited - Homefield House Nursing Home,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2003,2026-05-20 08:47:44.180,936.64,Apex Prime Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2072,2026-05-19 12:57:21.053,969.67,Aston Nursing Services LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2073,2026-05-19 12:57:21.053,969.67,Aston Nursing Services LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2078,2026-05-19 13:07:22.980,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2125,2026-05-18 16:46:17.293,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2126,2026-05-19 13:07:22.980,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2127,2026-05-20 12:37:19.963,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2128,2026-05-20 12:37:19.963,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2142,2026-05-19 10:16:33.663,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2147,2026-05-20 12:40:20.983,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2148,2026-05-20 12:50:19.323,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P02_-_published:2165,2026-05-12 11:19:53.440,900.0,Chipside Ltd,general_procurement,Environment,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:4,2026-06-10 14:19:06.263,933.24,AMBITION 24 HOURS,agency_staff,Adult Social Care,Employees,Agency & Temporary Staff
+1000,900.0,Over500_2026_P03_-_published:17,2026-06-30 09:43:48.540,995.0,PHF Training,general_procurement,Community Services,Employees,Training
+1000,900.0,Over500_2026_P03_-_published:43,2026-06-25 09:22:20.057,980.89,360 Security & Support Services Ltd,premises,Development & Housing,Premises,Corporate R&M
+1000,900.0,Over500_2026_P03_-_published:48,2026-06-09 15:46:28.000,903.68,ANCHOR PIPEWORK LIMITED,premises,Community Services,Premises,Corporate R&M
+1000,900.0,Over500_2026_P03_-_published:51,2026-06-03 12:55:21.200,960.02,360 Security & Support Services Ltd,premises,Development & Housing,Premises,Corporate R&M
+1000,900.0,Over500_2026_P03_-_published:53,2026-06-17 17:05:38.013,980.89,360 Security & Support Services Ltd,premises,Development & Housing,Premises,Corporate R&M
+1000,900.0,Over500_2026_P03_-_published:61,2026-06-30 12:53:20.977,991.01,MECE FIRE & SECURITY LTD,premises,Environment,Premises,Corporate R&M
+1000,900.0,Over500_2026_P03_-_published:80,2026-06-01 14:38:31.167,901.45,SSE ENERGY SOLUTIONS,premises,Environment,Premises,Energy costs
+1000,900.0,Over500_2026_P03_-_published:129,2026-06-19 16:25:37.210,917.01,CASTLE WATER LIMITED,premises,Development & Housing,Premises,Water Rates
+1000,900.0,Over500_2026_P03_-_published:137,2026-06-08 12:05:31.283,901.77,Glen Cleaning Company Ltd,premises,Community Services,Premises,Cleaning
+1000,900.0,Over500_2026_P03_-_published:166,2026-06-03 09:05:20.583,968.0,Premier Cars,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P03_-_published:190,2026-06-30 13:13:40.147,920.0,BRITS AIRPORT CARS LIMITED,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P03_-_published:209,2026-06-04 13:08:57.967,996.43,Sikandar Hayat t/a Prompt Cars,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P03_-_published:306,2026-06-16 13:16:22.430,901.47,SOUTHERN MEDICAL LTD,premises,Adult Social Care,Premises,Cleaning
+1000,900.0,Over500_2026_P03_-_published:308,2026-06-01 10:25:21.480,919.96,SYNCARE T/A REDLAND HEALTHCARE LTD,premises,Adult Social Care,Premises,Cleaning
+1000,900.0,Over500_2026_P03_-_published:311,2026-06-09 12:49:05.497,930.63,Glen Cleaning Company Ltd,premises,Community Services,Premises,Cleaning
+1000,900.0,Over500_2026_P03_-_published:312,2026-06-30 09:37:21.583,930.63,Glen Cleaning Company Ltd,premises,Community Services,Premises,Cleaning
+1000,900.0,Over500_2026_P03_-_published:462,2026-06-09 12:19:18.837,900.0,Amber Athill (12CP Barristers),general_procurement,Community Services,Supplies & Services,Professional Fees
+1000,900.0,Over500_2026_P03_-_published:463,2026-06-16 09:45:44.433,990.5,P S Aylmer Veterinary Consultancy,general_procurement,Community Services,Supplies & Services,Professional Fees
+1000,900.0,Over500_2026_P03_-_published:517,2026-06-15 10:09:34.920,976.0,ADCS,general_procurement,Executive Director People - Children's Services,Supplies & Services,Conference provision
+1000,900.0,Over500_2026_P03_-_published:682,2026-06-30 12:43:02.437,916.21,WSP UK  LTD,general_procurement,Environment,Third Party Payments,Payment to contractor
+1000,900.0,Over500_2026_P03_-_published:720,2026-06-11 15:25:55.810,942.18,WSP UK  LTD,general_procurement,Development & Housing,Supplies & Services,Consultants
+1000,900.0,Over500_2026_P03_-_published:722,2026-06-10 13:09:12.280,950.0,ADF ENVIRONMENTAL LTD,premises,Education & SEND,Premises,Survey
+1000,900.0,Over500_2026_P03_-_published:831,2026-06-15 10:25:54.017,993.48,PRESTIGE NETWORK,general_procurement,Children's Social Care,Supplies & Services,Professional Fees
+1000,900.0,Over500_2026_P03_-_published:972,2026-06-03 09:57:27.700,996.75,Address Enterprise Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:990,2026-06-03 09:57:27.700,953.06,Bloomfield Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:997,2026-06-03 09:57:27.700,910.8,Eniro Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1002,2026-06-10 09:51:27.507,968.0,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1034,2026-06-03 09:57:27.700,915.74,Eternal Homecare Reading,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1035,2026-06-03 09:57:27.700,972.13,Eternal Homecare Reading,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1117,2026-06-10 09:51:27.507,956.36,Noubles Healthcare Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1142,2026-06-10 09:51:27.507,905.1,Eniro Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1145,2026-06-17 10:32:49.720,913.08,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1147,2026-06-17 10:32:49.720,913.08,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1160,2026-06-24 10:35:07.460,920.86,Care @ Home Newbury Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1162,2026-06-24 10:35:07.460,956.36,Topline Care Solutions Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1183,2026-06-24 10:35:07.460,956.32,Eternal Homecare Reading,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1207,2026-06-24 10:35:07.460,913.12,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1223,2026-06-24 10:35:07.460,956.36,Topline Care Solutions Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1238,2026-06-24 10:35:07.460,940.1,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1261,2026-06-10 09:51:27.507,908.31,Acorn Home Support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1305,2026-06-17 10:32:49.720,913.08,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1307,2026-06-24 10:35:07.460,950.63,Abi-support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1308,2026-06-24 10:35:07.460,939.26,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1359,2026-06-10 09:51:27.507,954.05,Best Pinnacle Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1367,2026-06-10 09:51:27.507,956.36,Eniro Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1446,2026-06-24 10:35:07.460,952.0,Johav Care support Healthcare Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1523,2026-06-03 09:57:27.700,940.42,Affinity Trust Support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1558,2026-06-24 10:35:07.460,956.36,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1567,2026-06-10 09:51:27.507,990.0,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1587,2026-06-24 10:35:07.460,999.6,Johav Care support Healthcare Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1613,2026-06-03 09:57:27.700,940.42,Affinity Trust Support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1620,2026-06-10 09:51:27.507,923.52,CREATIVE SUPPORT,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1707,2026-06-24 10:35:07.460,906.72,VOYAGE CARE,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1748,2026-06-24 10:35:07.460,985.76,Interakt Community Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1762,2026-06-10 09:51:27.507,954.05,Best Pinnacle Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1767,2026-06-24 10:35:07.460,906.24,PURLEY PARK TRUST LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1769,2026-06-24 10:35:07.460,956.36,Best Pinnacle Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1790,2026-06-03 09:57:27.700,967.13,Interakt Community Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1803,2026-06-24 10:35:07.460,979.55,Interakt Community Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1840,2026-06-10 09:51:27.507,906.07,JC99 Ltd T/A Visiting Angels,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1873,2026-06-17 10:32:49.720,900.0,Purple Oak Support,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1923,2026-06-09 12:06:00.880,969.68,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:1967,2026-06-10 09:51:27.507,938.08,Apex Prime Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2108,2026-06-08 15:39:03.527,969.68,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2109,2026-06-09 12:55:50.390,969.68,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2121,2026-06-09 12:55:50.390,969.68,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2403,2026-06-10 15:45:51.170,925.84,VolkerHighways Ltd,general_procurement,Environment,Third Party Payments,Payment to contractor
+1000,900.0,Over500_2026_P03_-_published:2697,2026-06-24 10:35:07.460,956.36,Goldcrest Care Services,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2737,2026-06-10 09:51:27.507,956.36,Noubles Healthcare Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2740,2026-06-10 09:51:27.507,939.26,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2780,2026-06-17 10:32:49.720,956.36,Abi-support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2822,2026-06-03 09:57:27.700,954.05,Eniro Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2828,2026-06-24 10:35:07.460,956.36,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2859,2026-06-03 09:57:27.700,979.59,Address Enterprise Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2866,2026-06-10 09:51:27.507,999.6,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2882,2026-06-24 10:35:07.460,933.58,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2912,2026-06-10 09:51:27.507,948.8,Johav Care support Healthcare Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2967,2026-06-17 10:32:49.720,967.13,Interakt Community Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2980,2026-06-24 10:35:07.460,956.36,Best Pinnacle Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2983,2026-06-10 09:51:27.507,954.05,Best Pinnacle Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:2992,2026-06-24 10:35:07.460,922.18,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:3067,2026-06-08 15:45:54.390,969.68,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:3071,2026-06-08 15:45:54.390,969.68,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:3072,2026-06-09 12:55:50.390,969.68,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:3073,2026-06-09 13:26:06.170,969.68,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P03_-_published:3085,2026-06-01 16:25:29.577,910.0,SEISMIC SEWAGE SYSTEMS LTD,general_procurement,Environment,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:4,2026-07-31 10:34:15.303,945.0,CHANCES GIVES CHOICES,agency_staff,Children's Social Care,Employees,Agency & Temporary Staff
+1000,900.0,Over500_2026_P04_-_published:34,2026-07-31 14:33:59.207,914.0,Expert Access Solutions Ltd,premises,Adult Social Care,Premises,Corporate R&M
+1000,900.0,Over500_2026_P04_-_published:47,2026-07-28 11:04:24.037,925.16,ANCHOR PIPEWORK LIMITED,premises,Community Services,Premises,Corporate R&M
+1000,900.0,Over500_2026_P04_-_published:48,2026-07-06 16:44:05.123,975.0,BERKSHIRE MECHANICAL SERVICES,premises,Development & Housing,Premises,Corporate R&M
+1000,900.0,Over500_2026_P04_-_published:52,2026-07-03 16:17:20.527,980.89,360 Security & Support Services Ltd,premises,Development & Housing,Premises,Corporate R&M
+1000,900.0,Over500_2026_P04_-_published:57,2026-07-09 09:55:56.600,900.0,BERKSHIRE MECHANICAL SERVICES,premises,Development & Housing,Premises,Corporate R&M
+1000,900.0,Over500_2026_P04_-_published:126,2026-07-30 13:43:57.997,901.77,Glen Cleaning Company Ltd,premises,Community Services,Premises,Cleaning
+1000,900.0,Over500_2026_P04_-_published:136,2026-07-17 09:46:32.627,933.91,SOUTHERN MEDICAL LTD,premises,Adult Social Care,Premises,Cleaning
+1000,900.0,Over500_2026_P04_-_published:141,2026-07-30 13:43:57.997,901.77,Glen Cleaning Company Ltd,premises,Community Services,Premises,Cleaning
+1000,900.0,Over500_2026_P04_-_published:142,2026-07-30 13:53:33.730,901.77,Glen Cleaning Company Ltd,premises,Community Services,Premises,Cleaning
+1000,900.0,Over500_2026_P04_-_published:158,2026-07-08 17:27:37.473,990.83,POTTINGER'S HIRE SERVICE,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P04_-_published:179,2026-07-08 14:34:14.283,990.0,A1 CARS,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P04_-_published:241,2026-07-14 14:56:07.753,905.34,EVM DIRECT LIMITED,general_procurement,Environment,Transport,Direct Transport Costs
+1000,900.0,Over500_2026_P04_-_published:242,2026-07-15 16:55:28.353,990.06,Rygor Commercials Ltd,general_procurement,Environment,Transport,Direct Transport Costs
+1000,900.0,Over500_2026_P04_-_published:282,2026-07-29 08:37:31.137,975.0,MAISHA STAFFING SOLUTIONS LTD,agency_staff,Children's Social Care,Transport,Transport Hire
+1000,900.0,Over500_2026_P04_-_published:300,2026-07-08 16:47:40.240,999.32,WEAVAWAY TRAVEL LTD,general_procurement,Education & SEND,Transport,Transport Hire
+1000,900.0,Over500_2026_P04_-_published:353,2026-07-23 09:47:31.900,962.6,Go Green Taxis Ltd,general_procurement,Children's Social Care,Supplies & Services,Public Transport
+1000,900.0,Over500_2026_P04_-_published:357,2026-07-23 09:47:31.900,962.6,Go Green Taxis Ltd,general_procurement,Children's Social Care,Supplies & Services,Public Transport
+1000,900.0,Over500_2026_P04_-_published:359,2026-07-22 17:06:28.280,936.0,READING TRANSPORT LTD,general_procurement,Education & SEND,Supplies & Services,Public Transport
+1000,900.0,Over500_2026_P04_-_published:380,2026-07-27 18:02:49.017,975.0,CONNECT VENDING LTD,premises,"Finance, Property & Procurement",Premises,Corporate R&M
+1000,900.0,Over500_2026_P04_-_published:390,2026-07-22 09:59:56.203,990.0,KB Real Estate Management Ltd,premises,Development & Housing,Premises,Rents
+1000,900.0,Over500_2026_P04_-_published:397,2026-07-24 09:36:25.903,930.63,Glen Cleaning Company Ltd,premises,Community Services,Premises,Cleaning
+1000,900.0,Over500_2026_P04_-_published:422,2026-07-30 09:43:46.927,980.0,HSI FURNITURE,general_procurement,"Finance, Property & Procurement",Supplies & Services,Repairs - Equipment
+1000,900.0,Over500_2026_P04_-_published:425,2026-07-09 09:05:27.793,935.3,EUCLID LTD,general_procurement,Environment,Supplies & Services,IT
+1000,900.0,Over500_2026_P04_-_published:432,2026-07-29 08:37:31.137,975.0,MAISHA STAFFING SOLUTIONS LTD,agency_staff,Children's Social Care,Transport,Transport Hire
+1000,900.0,Over500_2026_P04_-_published:484,2026-07-23 09:47:31.900,962.6,Go Green Taxis Ltd,general_procurement,Children's Social Care,Supplies & Services,Public Transport
+1000,900.0,Over500_2026_P04_-_published:503,2026-07-15 13:35:32.397,912.5,Melanie Sneddon,general_procurement,Environment,Supplies & Services,Training Third Parties
+1000,900.0,Over500_2026_P04_-_published:608,2026-07-28 10:24:38.883,969.0,PRESTIGE NETWORK,general_procurement,Children's Social Care,Supplies & Services,Professional Fees
+1000,900.0,Over500_2026_P04_-_published:615,2026-07-28 12:57:29.070,970.46,360 Security & Support Services Ltd,general_procurement,Development & Housing,Supplies & Services,Professional Fees
+1000,900.0,Over500_2026_P04_-_published:665,2026-07-16 08:56:06.430,918.0,SPIRE RIDGE BOARDING KENNELS AND CATTERY,general_procurement,Adult Social Care,Supplies & Services,Animal welfare
+1000,900.0,Over500_2026_P04_-_published:820,2026-07-02 14:43:40.600,905.58,WSP UK  LTD,general_procurement,Environment,Third Party Payments,Payment to contractor
+1000,900.0,Over500_2026_P04_-_published:827,2026-07-17 06:04:33.690,989.0,Arbtech Consulting Ltd,general_procurement,Environment,Third Party Payments,Payment to contractor
+1000,900.0,Over500_2026_P04_-_published:890,2026-07-01 11:03:57.340,956.36,Your Serenity Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:924,2026-07-08 10:43:22.513,933.57,Abi-support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:929,2026-07-08 10:43:22.513,956.36,Your Serenity Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:951,2026-07-15 10:33:10.383,956.36,Goldcrest Care Services,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1007,2026-07-15 16:35:33.743,990.0,FAMILY FUTURES CONSORTIUM CIC,general_procurement,Children's Social Care,Supplies & Services,Professional Fees
+1000,900.0,Over500_2026_P04_-_published:1016,2026-07-31 10:24:44.597,950.0,ACCESS UK LIMITED,general_procurement,Adult Social Care - Transformation Projects,Supplies & Services,Professional Fees
+1000,900.0,Over500_2026_P04_-_published:1197,2026-07-01 11:03:57.340,923.96,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1235,2026-07-08 10:43:22.513,956.36,Topline Care Solutions Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1313,2026-07-08 10:43:22.513,972.72,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1330,2026-07-08 10:43:22.513,933.57,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1347,2026-07-08 10:43:22.513,956.36,Abi-support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1391,2026-07-15 10:33:10.383,956.32,Eternal Homecare Reading,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1392,2026-07-15 10:33:10.383,984.8,Eternal Homecare Reading,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1393,2026-07-15 10:33:10.383,956.34,Caremark (West Berkshire & Reading),care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1440,2026-07-15 10:33:10.383,955.36,Bloomfield Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1460,2026-07-15 10:33:10.383,913.12,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1461,2026-07-15 10:33:10.383,913.1,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1475,2026-07-15 10:33:10.383,913.08,PureSoul Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1532,2026-07-17 11:32:00.470,939.27,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1548,2026-07-29 11:34:52.340,916.3,CARE PARTNERS (NEWBURY) LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1572,2026-07-15 10:33:10.383,926.51,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1616,2026-07-29 11:34:52.340,956.36,Noubles Healthcare Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1619,2026-07-29 11:34:52.340,949.96,Your Serenity Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1662,2026-07-29 11:34:52.340,956.36,Topline Care Solutions Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1665,2026-07-29 11:34:52.340,950.66,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1672,2026-07-29 11:34:52.340,984.81,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1679,2026-07-29 11:34:52.340,956.36,Topline Care Solutions Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1741,2026-07-29 11:34:52.340,964.53,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1742,2026-07-29 11:34:52.340,967.73,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1758,2026-07-08 10:43:22.513,931.6,Acorn Home Support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1763,2026-07-29 11:34:52.340,939.22,HOUSING CARE 21,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1764,2026-07-29 11:34:52.340,901.9,HOUSING CARE 21,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1781,2026-07-01 11:03:57.340,910.8,Goldcrest Care Services,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1786,2026-07-29 11:34:52.340,931.6,Acorn Home Support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1788,2026-07-15 10:33:10.383,973.43,Goldcrest Care Services,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1797,2026-07-29 11:34:52.340,956.36,Eniro Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1816,2026-07-08 10:43:22.513,944.98,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1857,2026-07-01 11:03:57.340,949.96,Your Serenity Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1859,2026-07-01 11:03:57.340,921.24,Bloomfield Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1884,2026-07-29 11:34:52.340,956.36,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1899,2026-07-15 10:33:10.383,944.97,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1900,2026-07-29 11:34:52.340,956.36,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:1923,2026-07-08 10:43:22.513,989.29,BUPA Care Services,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2015,2026-07-01 11:03:57.340,981.96,Address Enterprise Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2016,2026-07-08 10:43:22.513,956.36,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2034,2026-07-15 10:33:10.383,958.58,Address Enterprise Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2043,2026-07-08 10:43:22.513,956.36,Noubles Healthcare Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2047,2026-07-08 10:43:22.513,949.96,Your Serenity Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2063,2026-07-08 10:43:22.513,922.18,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2064,2026-07-29 11:34:52.340,910.8,I.V Care Limited t/a Good Oaks Home Care (Reading),care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2093,2026-07-15 10:33:10.383,975.8,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2105,2026-07-29 11:34:52.340,981.96,Address Enterprise Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2116,2026-07-29 11:34:52.340,956.36,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2120,2026-07-29 11:34:52.340,939.26,I.V Care Limited t/a Good Oaks Home Care (Reading),care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2122,2026-07-29 11:34:52.340,956.36,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2151,2026-07-15 10:33:10.383,952.0,Johav Care support Healthcare Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2221,2026-07-29 11:34:52.340,952.0,Johav Care support Healthcare Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2277,2026-07-22 10:06:08.977,933.33,Care @ Home Newbury Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2280,2026-07-29 11:34:52.340,921.06,Bloomfield Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2325,2026-07-08 10:43:22.513,916.72,INDEPENDENCE WITH DIGNITY SUPPORT SERVICES LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2378,2026-07-29 11:34:52.340,956.76,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2379,2026-07-29 11:34:52.340,940.1,All-Care (GB) Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2404,2026-07-15 10:33:10.383,906.72,VOYAGE CARE,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2443,2026-07-15 10:33:10.383,923.52,CREATIVE SUPPORT,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2452,2026-07-15 10:33:10.383,918.54,The Yume Project Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2569,2026-07-29 11:34:52.340,910.8,FOCUS SUPPORT LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2578,2026-07-29 11:34:52.340,916.72,INDEPENDENCE WITH DIGNITY SUPPORT SERVICES LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2608,2026-07-29 11:34:52.340,923.52,CREATIVE SUPPORT,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2613,2026-07-08 10:43:22.513,933.48,Transparent Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2614,2026-07-08 10:43:22.513,933.48,Transparent Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2616,2026-07-15 10:33:10.383,940.44,The Yume Project Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2639,2026-07-15 10:33:10.383,940.44,The Yume Project Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2651,2026-07-29 11:34:52.340,910.81,Topline Care Solutions Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2653,2026-07-08 10:43:22.513,956.32,Abi-support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2654,2026-07-17 11:32:00.470,996.18,Goldcrest Care Services,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2655,2026-07-29 11:34:52.340,984.81,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2722,2026-07-15 10:33:10.383,956.36,Best Pinnacle Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2739,2026-07-29 11:34:52.340,956.36,Best Pinnacle Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2744,2026-07-29 11:34:52.340,956.36,Best Pinnacle Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2773,2026-07-08 10:43:22.513,922.18,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2775,2026-07-29 11:34:52.340,956.32,Comfort Harmony Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2791,2026-07-15 10:33:10.383,909.19,JC99 Ltd T/A Visiting Angels,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2801,2026-07-01 11:03:57.340,910.8,I.V Care Limited t/a Good Oaks Home Care (Reading),care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2803,2026-07-08 10:43:22.513,999.6,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2810,2026-07-15 10:33:10.383,910.81,Abi-support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2813,2026-07-29 11:34:52.340,999.6,We Are The Care Company Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:2923,2026-07-17 11:32:00.470,938.08,Apex Prime Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3115,2026-07-23 08:49:34.800,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3116,2026-07-23 09:27:20.270,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3145,2026-07-01 16:44:06.493,973.35,Next Step Services,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3149,2026-07-29 11:34:52.340,967.12,Affinity Trust Support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3205,2026-07-22 17:19:36.513,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3223,2026-07-22 17:25:35.037,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3224,2026-07-22 17:25:35.037,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3290,2026-07-16 08:36:26.097,905.33,Manor Primary School,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+1000,900.0,Over500_2026_P04_-_published:3558,2026-07-15 10:33:10.383,967.13,Interakt Community Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3628,2026-07-15 10:33:10.383,956.36,Best Pinnacle Care Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3773,2026-07-22 16:47:06.253,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3774,2026-07-23 09:47:31.900,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3779,2026-07-23 09:37:19.667,938.4,STEP BY STEP PARTNERSHIP LTD,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+1000,900.0,Over500_2026_P04_-_published:3803,2026-07-16 09:25:56.477,973.0,Young Giants Ltd.,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+1000,900.0,Over500_2026_P04_-_published:3804,2026-07-16 09:29:18.810,912.0,Young Giants Ltd.,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+1000,900.0,Over500_2026_P04_-_published:4165,2026-07-08 13:07:38.063,902.16,DWP DEBT MANAGEMENT,general_procurement,Finance,,Court Order Control
+25000,22500.0,Over500_2026_P02_-_published:530,2026-05-27 12:56:02.700,23694.03,Elior UK PLC,general_procurement,Adult Social Care,Supplies & Services,Catering
+25000,22500.0,Over500_2026_P02_-_published:560,2026-05-12 13:16:19.520,24227.07,DevComms South East Ltd,general_procurement,Development & Housing,Supplies & Services,Professional Fees
+25000,22500.0,Over500_2026_P02_-_published:2021,2026-05-01 11:37:59.327,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P02_-_published:2033,2026-05-12 13:59:46.577,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P02_-_published:2037,2026-05-13 14:30:26.577,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P02_-_published:2096,2026-05-26 13:22:24.707,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P02_-_published:2241,2026-05-12 15:16:14.937,24618.75,Sukhbir Singh and Harvinder Singh T/A Calcot Services for Children (CSFC),care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P02_-_published:2245,2026-05-19 16:50:07.487,23210.0,Phoenix Child Care Limited -The Grange School,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P02_-_published:2258,2026-05-20 13:07:03.390,23210.0,Phoenix Child Care Limited -The Grange School,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P02_-_published:2259,2026-05-20 13:10:26.200,23076.67,Phoenix Child Care Limited -The Grange School,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P02_-_published:2262,2026-05-21 08:40:19.987,23210.0,Phoenix Child Care Limited -The Grange School,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P02_-_published:2265,2026-05-22 17:02:15.800,24578.67,ACORN CARE & EDUCATION LTD,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P02_-_published:2268,2026-05-26 11:52:06.643,24453.39,Huckleberry House,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P02_-_published:2271,2026-05-26 14:45:42.510,24110.58,ACORN CARE & EDUCATION LTD,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P03_-_published:13,2026-06-01 16:04:46.123,24088.98,The Better Group Ltd,general_procurement,Children's Social Care,Employees,Training
+25000,22500.0,Over500_2026_P03_-_published:105,2026-06-09 12:29:06.173,23660.0,READING WEST APARTHOTEL,premises,Development & Housing,Premises,Rents
+25000,22500.0,Over500_2026_P03_-_published:396,2026-06-10 11:29:10.023,24000.0,BookingLab Limited,general_procurement,"Transformation, Customer & ICT",Supplies & Services,IT
+25000,22500.0,Over500_2026_P03_-_published:440,2026-06-16 13:25:27.470,23516.69,Elior UK PLC,general_procurement,Adult Social Care,Supplies & Services,Catering
+25000,22500.0,Over500_2026_P03_-_published:506,2026-06-17 10:43:51.317,22882.17,MINI OAKS PRESCHOOL,grant,Education (DSG Funded) & Other Education Grants,Supplies & Services,Grants
+25000,22500.0,Over500_2026_P03_-_published:601,2026-06-17 10:43:51.317,23073.34,PIED PIPER PRE-SCHOOL,grant,Education (DSG Funded) & Other Education Grants,Supplies & Services,Grants
+25000,22500.0,Over500_2026_P03_-_published:649,2026-06-18 08:41:59.737,24244.0,Triple Value Impact,general_procurement,Chief Executive,Supplies & Services,General Expenses
+25000,22500.0,Over500_2026_P03_-_published:683,2026-06-08 15:19:01.680,23591.22,VolkerHighways Ltd,general_procurement,Environment,Third Party Payments,Payment to contractor
+25000,22500.0,Over500_2026_P03_-_published:1660,2026-06-24 10:35:07.460,24719.02,FOCUS SUPPORT LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P03_-_published:1833,2026-06-24 10:35:07.460,23053.87,FOCUS SUPPORT LTD,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P03_-_published:1931,2026-06-16 12:56:32.340,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P03_-_published:2004,2026-06-03 10:15:15.200,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P03_-_published:2008,2026-06-16 12:49:40.840,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P03_-_published:2056,2026-06-17 10:43:51.317,24850.39,CHARMAINE CAULFIELD,grant,Education (DSG Funded) & Other Education Grants,Supplies & Services,Grants
+25000,22500.0,Over500_2026_P03_-_published:2074,2026-06-17 10:43:51.317,24705.36,BEANSHEAF COMMUNITY PRE-SCHOO,grant,Education (DSG Funded) & Other Education Grants,Supplies & Services,Grants
+25000,22500.0,Over500_2026_P03_-_published:2106,2026-06-30 10:03:42.140,24587.49,Unity Residential Care Services,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P03_-_published:2206,2026-06-17 16:15:39.177,22616.72,ACORN CARE & EDUCATION LTD,care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P03_-_published:2307,2026-06-03 10:28:37.203,24788.75,Sukhbir Singh and Harvinder Singh T/A Calcot Services for Children (CSFC),care_or_education_placement,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies
+25000,22500.0,Over500_2026_P03_-_published:3044,2026-06-22 12:16:05.430,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P04_-_published:533,2026-07-28 12:57:29.070,23173.08,Elior UK PLC,general_procurement,Adult Social Care,Supplies & Services,Catering
+25000,22500.0,Over500_2026_P04_-_published:1271,2026-07-06 13:13:53.243,22963.98,WEST BERKSHIRE TRAINING CONSORTIUM,grant,Education & SEND,Supplies & Services,Grants
+25000,22500.0,Over500_2026_P04_-_published:1281,2026-07-29 13:44:13.470,24476.02,The Better Group Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Payment to contractor
+25000,22500.0,Over500_2026_P04_-_published:2239,2026-07-01 11:03:57.340,24926.0,Affinity Trust Support Ltd,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P04_-_published:2262,2026-07-01 11:03:57.340,22849.04,Bleep 360 Care Limited,care_or_education_placement,Adult Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P04_-_published:3059,2026-07-09 08:37:40.320,24383.88,Utopia Supported Housing Ltd,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P04_-_published:3092,2026-07-23 16:07:49.550,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P04_-_published:3154,2026-07-06 16:34:11.053,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P04_-_published:3161,2026-07-23 16:16:19.610,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P04_-_published:3165,2026-07-31 10:53:47.473,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P04_-_published:3743,2026-07-01 14:27:13.577,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors
+25000,22500.0,Over500_2026_P04_-_published:3750,2026-07-17 08:39:32.373,23989.77,Care Services To You,care_or_education_placement,Children's Social Care,Third Party Payments,Private Contractors

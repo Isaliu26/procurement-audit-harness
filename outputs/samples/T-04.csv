@@ -1,0 +1,457 @@
+test_id,risk_id,item_rank,item,item_transactions,row_id,date,amount,supplier,service,category,narrative,tag
+T-04,R-04,1,WCL UK Ltd (Trading as Everything ICT),1,Over500_2026_P04_-_published:1276,2026-07-22 13:55:41.607,102882.78,WCL UK Ltd (Trading as Everything ICT),Education & SEND,Supplies & Services,Subscriptions,general_procurement
+T-04,R-04,2,The Advocacy People (formerly SEAP),3,Over500_2026_P02_-_published:854,2026-05-12 12:36:24.243,768.0,The Advocacy People (formerly SEAP),Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,2,The Advocacy People (formerly SEAP),3,Over500_2026_P03_-_published:447,2026-06-12 08:36:06.850,835.98,The Advocacy People (formerly SEAP),Adult Social Care,Supplies & Services,Professional Fees,general_procurement
+T-04,R-04,2,The Advocacy People (formerly SEAP),3,Over500_2026_P04_-_published:885,2026-07-06 16:27:41.013,30049.25,The Advocacy People (formerly SEAP),Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,3,Swan Advocacy,8,Over500_2026_P02_-_published:543,2026-05-29 13:11:51.287,5633.76,Swan Advocacy,Adult Social Care,Supplies & Services,Professional Fees,general_procurement
+T-04,R-04,3,Swan Advocacy,8,Over500_2026_P02_-_published:853,2026-05-29 13:11:51.287,7170.24,Swan Advocacy,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,3,Swan Advocacy,8,Over500_2026_P03_-_published:443,2026-06-01 10:25:21.480,5625.76,Swan Advocacy,Adult Social Care,Supplies & Services,Professional Fees,general_procurement
+T-04,R-04,3,Swan Advocacy,8,Over500_2026_P03_-_published:817,2026-06-01 10:25:21.480,7178.24,Swan Advocacy,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,3,Swan Advocacy,8,Over500_2026_P03_-_published:442,2026-06-16 13:19:38.600,5633.76,Swan Advocacy,Adult Social Care,Supplies & Services,Professional Fees,general_procurement
+T-04,R-04,3,Swan Advocacy,8,Over500_2026_P03_-_published:818,2026-06-16 13:19:38.600,7170.24,Swan Advocacy,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,3,Swan Advocacy,8,Over500_2026_P04_-_published:536,2026-07-23 09:37:19.667,5633.76,Swan Advocacy,Adult Social Care,Supplies & Services,Professional Fees,general_procurement
+T-04,R-04,3,Swan Advocacy,8,Over500_2026_P04_-_published:884,2026-07-23 09:37:19.667,7170.24,Swan Advocacy,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:173,2026-06-16 13:05:52.967,4043.93,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:179,2026-06-16 13:05:52.967,819.72,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:211,2026-06-16 13:05:52.967,6588.28,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:216,2026-06-16 13:05:52.967,765.07,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:250,2026-06-16 13:05:52.967,1020.72,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:338,2026-06-16 13:05:52.967,4332.78,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:174,2026-06-16 13:09:42.107,6304.46,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:217,2026-06-16 13:09:42.107,604.54,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:175,2026-06-16 13:16:22.430,6754.78,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:218,2026-06-16 13:16:22.430,647.72,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:219,2026-06-17 09:39:46.517,1093.63,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:248,2026-06-17 09:39:46.517,7058.87,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:180,2026-06-17 09:55:52.153,1268.05,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:249,2026-06-17 09:55:52.153,6213.45,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:220,2026-06-17 09:59:48.320,1358.63,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,4,SOUTHERN COACH LINES LTD,16,Over500_2026_P03_-_published:339,2026-06-17 09:59:48.320,6657.26,SOUTHERN COACH LINES LTD,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,5,Solutions4Health Ltd,4,Over500_2026_P03_-_published:1978,2026-06-01 12:55:04.863,14305.56,Solutions4Health Ltd,Public Health & Wellbeing,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,5,Solutions4Health Ltd,4,Over500_2026_P03_-_published:1984,2026-06-02 14:24:47.950,8333.25,Solutions4Health Ltd,Public Health & Wellbeing,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,5,Solutions4Health Ltd,4,Over500_2026_P04_-_published:3054,2026-07-01 14:23:06.423,14305.56,Solutions4Health Ltd,Public Health & Wellbeing,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,5,Solutions4Health Ltd,4,Over500_2026_P04_-_published:3735,2026-07-02 10:13:45.760,8333.25,Solutions4Health Ltd,Public Health & Wellbeing,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P02_-_published:235,2026-05-06 09:59:33.260,632.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P02_-_published:236,2026-05-06 10:29:29.333,556.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P02_-_published:311,2026-05-08 12:49:38.880,930.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P02_-_published:356,2026-05-08 12:49:38.880,1240.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P02_-_published:398,2026-05-13 14:56:06.050,2086.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P02_-_published:269,2026-05-19 12:46:56.597,1795.5,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P02_-_published:222,2026-05-20 13:10:35.063,970.0,Sikandar Hayat t/a Prompt Cars,Children's Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P02_-_published:223,2026-05-20 14:17:23.953,1173.0,Sikandar Hayat t/a Prompt Cars,Children's Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P02_-_published:224,2026-05-22 10:05:39.933,595.0,Sikandar Hayat t/a Prompt Cars,Children's Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:157,2026-06-03 06:03:53.833,2111.0,Sikandar Hayat t/a Prompt Cars,Children's Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:162,2026-06-03 06:03:53.833,9944.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:183,2026-06-03 06:03:53.833,73296.5,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:203,2026-06-03 06:03:53.833,26085.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:208,2026-06-03 06:03:53.833,17607.5,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:209,2026-06-04 13:08:57.967,996.43,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:345,2026-06-04 13:08:57.967,1328.57,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:254,2026-06-04 15:45:51.163,2520.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:239,2026-06-04 16:55:24.010,2173.5,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:325,2026-06-05 14:38:52.370,1112.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P03_-_published:261,2026-06-22 16:46:02.040,2172.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:159,2026-07-08 17:34:01.993,640.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:463,2026-07-08 17:34:01.993,640.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:433,2026-07-09 06:02:54.113,1008.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:466,2026-07-09 06:02:54.113,1316.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:271,2026-07-21 09:06:56.603,3192.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:226,2026-07-21 09:49:49.050,880.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:272,2026-07-21 09:49:49.050,880.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:189,2026-07-21 09:56:52.210,1262.14,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:273,2026-07-21 09:56:52.210,2660.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:324,2026-07-21 09:56:52.210,1682.86,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:220,2026-07-21 10:07:09.847,3743.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:221,2026-07-21 10:16:25.973,3168.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:206,2026-07-21 10:19:49.410,1880.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:274,2026-07-22 11:37:10.683,1820.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:276,2026-07-22 16:49:42.870,1151.43,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:455,2026-07-22 16:49:42.870,863.57,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:292,2026-07-22 17:06:28.280,3307.5,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:481,2026-07-27 08:53:09.900,2520.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:435,2026-07-27 08:56:10.693,3152.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,6,Sikandar Hayat t/a Prompt Cars,40,Over500_2026_P04_-_published:222,2026-07-29 13:44:13.470,2160.0,Sikandar Hayat t/a Prompt Cars,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,7,POTTINGER'S HIRE SERVICE,8,Over500_2026_P02_-_published:231,2026-05-01 10:57:57.507,676.67,POTTINGER'S HIRE SERVICE,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,7,POTTINGER'S HIRE SERVICE,8,Over500_2026_P02_-_published:285,2026-05-01 10:57:57.507,1353.33,POTTINGER'S HIRE SERVICE,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,7,POTTINGER'S HIRE SERVICE,8,Over500_2026_P02_-_published:248,2026-05-27 12:41:56.507,725.0,POTTINGER'S HIRE SERVICE,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,7,POTTINGER'S HIRE SERVICE,8,Over500_2026_P02_-_published:291,2026-05-27 12:41:56.507,1450.0,POTTINGER'S HIRE SERVICE,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,7,POTTINGER'S HIRE SERVICE,8,Over500_2026_P04_-_published:158,2026-07-08 17:27:37.473,990.83,POTTINGER'S HIRE SERVICE,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,7,POTTINGER'S HIRE SERVICE,8,Over500_2026_P04_-_published:297,2026-07-08 17:27:37.473,1981.67,POTTINGER'S HIRE SERVICE,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,7,POTTINGER'S HIRE SERVICE,8,Over500_2026_P04_-_published:176,2026-07-27 08:46:04.503,1450.0,POTTINGER'S HIRE SERVICE,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,7,POTTINGER'S HIRE SERVICE,8,Over500_2026_P04_-_published:229,2026-07-27 08:46:04.503,725.0,POTTINGER'S HIRE SERVICE,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P02_-_published:349,2026-05-06 10:26:29.123,2240.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P03_-_published:1741,2026-06-03 09:57:27.700,560.0,Mark Dillon t/a Penmar Transport Ltd,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P03_-_published:223,2026-06-04 13:08:57.967,2240.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P03_-_published:238,2026-06-04 16:55:24.010,1760.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P03_-_published:328,2026-06-04 16:55:24.010,3360.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P03_-_published:1724,2026-06-10 09:51:27.507,560.0,Mark Dillon t/a Penmar Transport Ltd,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P04_-_published:2621,2026-07-15 10:33:10.383,700.0,Mark Dillon t/a Penmar Transport Ltd,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P04_-_published:234,2026-07-15 11:26:58.373,4920.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P04_-_published:269,2026-07-15 11:35:55.560,3360.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P04_-_published:348,2026-07-15 11:39:15.080,640.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P04_-_published:303,2026-07-15 13:19:09.317,4592.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P04_-_published:237,2026-07-28 12:37:37.857,3120.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P04_-_published:347,2026-07-28 12:37:37.857,2400.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P04_-_published:193,2026-07-29 07:57:36.107,4200.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,8,Mark Dillon t/a Penmar Transport Ltd,15,Over500_2026_P04_-_published:330,2026-07-29 13:37:32.803,630.0,Mark Dillon t/a Penmar Transport Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P02_-_published:350,2026-05-06 10:26:29.123,1400.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P02_-_published:351,2026-05-06 10:26:29.123,780.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P02_-_published:353,2026-05-06 10:29:38.840,1120.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P02_-_published:378,2026-05-12 13:09:47.440,860.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P02_-_published:399,2026-05-20 16:57:38.260,905.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P02_-_published:417,2026-05-27 13:01:55.637,1500.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P02_-_published:420,2026-05-28 08:45:44.277,1200.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P02_-_published:421,2026-05-28 08:51:52.663,1030.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P03_-_published:234,2026-06-11 09:55:18.473,620.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P03_-_published:260,2026-06-17 10:15:53.430,790.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P04_-_published:201,2026-07-08 17:27:37.473,2100.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P04_-_published:465,2026-07-08 17:34:01.993,1560.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,9,MRS M F RICHARDSON T/A MFR Contracts,13,Over500_2026_P04_-_published:332,2026-07-30 09:17:32.217,1500.0,MRS M F RICHARDSON T/A MFR Contracts,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,10,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,8,Over500_2026_P02_-_published:300,2026-05-01 12:13:59.563,1932.0,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,10,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,8,Over500_2026_P02_-_published:340,2026-05-01 12:13:59.563,1820.0,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,10,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,8,Over500_2026_P02_-_published:322,2026-05-27 10:03:04.440,2070.0,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,10,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,8,Over500_2026_P02_-_published:406,2026-05-27 10:03:04.440,1950.0,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,10,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,8,Over500_2026_P04_-_published:178,2026-07-08 09:53:59.940,2898.0,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,10,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,8,Over500_2026_P04_-_published:312,2026-07-08 09:53:59.940,2730.0,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,10,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,8,Over500_2026_P04_-_published:248,2026-07-22 16:56:55.850,1794.0,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,10,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,8,Over500_2026_P04_-_published:480,2026-07-22 16:56:55.850,1950.0,S RICHARDS T/AS K RICKETTS & S RICHARDS TAXIS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:150,2026-05-05 14:15:26.560,685.03,Glen Cleaning Company Ltd,Children's Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:148,2026-05-05 15:05:32.030,1121.06,Glen Cleaning Company Ltd,Adult Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:158,2026-05-08 08:35:31.687,1851.88,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:163,2026-05-08 12:39:36.257,569.28,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:165,2026-05-08 12:39:36.257,1153.35,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:154,2026-05-08 13:15:33.907,1486.42,Glen Cleaning Company Ltd,Children's Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:155,2026-05-08 13:15:33.907,572.47,Glen Cleaning Company Ltd,Children's Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:156,2026-05-13 08:29:46.113,597.57,Glen Cleaning Company Ltd,Education (DSG Funded) & Other Education Grants,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:151,2026-05-13 15:59:52.090,755.6,Glen Cleaning Company Ltd,Children's Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:161,2026-05-13 15:59:52.090,1153.37,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:146,2026-05-19 15:46:39.100,755.59,Glen Cleaning Company Ltd,Adult Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:162,2026-05-21 09:46:52.183,1153.37,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:164,2026-05-21 09:46:52.183,569.28,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:166,2026-05-21 09:46:52.183,1153.35,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:167,2026-05-26 09:45:45.223,1020.66,Glen Cleaning Company Ltd,Environment,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:168,2026-05-26 09:52:16.310,1457.59,Glen Cleaning Company Ltd,Environment,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:173,2026-05-26 10:33:23.813,5829.96,Glen Cleaning Company Ltd,"Finance, Property & Procurement",Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:175,2026-05-26 10:33:23.813,779.78,Glen Cleaning Company Ltd,"Finance, Property & Procurement",Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:147,2026-05-26 11:23:20.620,779.77,Glen Cleaning Company Ltd,Adult Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:157,2026-05-27 09:22:53.830,616.69,Glen Cleaning Company Ltd,Education (DSG Funded) & Other Education Grants,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:159,2026-05-27 13:01:55.637,1851.88,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:176,2026-05-27 14:06:43.000,755.6,Glen Cleaning Company Ltd,"Finance, Property & Procurement",Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:149,2026-05-28 14:02:02.417,1118.8,Glen Cleaning Company Ltd,Adult Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:152,2026-05-28 14:02:02.417,1533.99,Glen Cleaning Company Ltd,Children's Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:160,2026-05-28 14:02:02.417,1911.14,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:153,2026-05-28 16:42:07.210,590.79,Glen Cleaning Company Ltd,Children's Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P02_-_published:174,2026-05-29 10:15:58.863,5649.19,Glen Cleaning Company Ltd,"Finance, Property & Procurement",Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:131,2026-06-02 15:24:56.077,706.95,Glen Cleaning Company Ltd,Children's Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:135,2026-06-03 12:48:45.140,2543.28,Glen Cleaning Company Ltd,Adult Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:137,2026-06-08 12:05:31.283,901.77,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:136,2026-06-09 12:39:10.073,779.78,Glen Cleaning Company Ltd,Children's Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:311,2026-06-09 12:49:05.497,930.63,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:133,2026-06-24 12:22:50.007,1020.66,Glen Cleaning Company Ltd,Environment,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:313,2026-06-24 12:22:50.007,1457.59,Glen Cleaning Company Ltd,Environment,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:307,2026-06-30 09:37:21.583,2543.28,Glen Cleaning Company Ltd,Adult Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:312,2026-06-30 09:37:21.583,930.63,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:130,2026-06-30 09:43:38.593,1156.93,Glen Cleaning Company Ltd,Adult Social Care,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P03_-_published:132,2026-06-30 15:13:20.590,1911.14,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:134,2026-07-01 08:17:09.407,779.78,Glen Cleaning Company Ltd,"Finance, Property & Procurement",Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:135,2026-07-01 08:17:09.407,894.59,Glen Cleaning Company Ltd,Capital Financing and Income Investment,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:140,2026-07-01 08:17:09.407,616.69,Glen Cleaning Company Ltd,Education (DSG Funded) & Other Education Grants,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:148,2026-07-01 08:17:09.407,5829.96,Glen Cleaning Company Ltd,"Finance, Property & Procurement",Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:144,2026-07-03 16:14:13.910,891.09,Glen Cleaning Company Ltd,Development & Housing,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:145,2026-07-06 14:13:53.880,891.09,Glen Cleaning Company Ltd,Development & Housing,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:133,2026-07-06 14:17:33.040,863.46,Glen Cleaning Company Ltd,Development & Housing,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:143,2026-07-06 16:57:42.490,1190.28,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:132,2026-07-07 10:57:35.550,1190.26,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:131,2026-07-07 11:53:59.550,587.5,Glen Cleaning Company Ltd,Community Services,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:398,2026-07-09 08:37:40.320,1144.0,Glen Cleaning Company Ltd,Development & Housing,Premises,Cleaning,premises
+T-04,R-04,11,Glen Cleaning Company Ltd,68,Over500_2026_P04_-_published:124,2026-07-13 15:25:26.290,706.95,Glen Cleaning Company Ltd,Children's Social Care,Premises,Cleaning,premises
+T-04,R-04,12,ELITE SECURITY GROUP,9,Over500_2026_P02_-_published:20,2026-05-01 10:57:57.507,582.8,ELITE SECURITY GROUP,Adult Social Care,Premises,Corporate R&M,premises
+T-04,R-04,12,ELITE SECURITY GROUP,9,Over500_2026_P03_-_published:30,2026-06-02 15:24:56.077,553.66,ELITE SECURITY GROUP,Adult Social Care,Premises,Corporate R&M,premises
+T-04,R-04,12,ELITE SECURITY GROUP,9,Over500_2026_P03_-_published:62,2026-06-03 07:14:43.733,2003.45,ELITE SECURITY GROUP,"Finance, Property & Procurement",Premises,Corporate R&M,premises
+T-04,R-04,12,ELITE SECURITY GROUP,9,Over500_2026_P03_-_published:283,2026-06-05 09:45:04.463,553.66,ELITE SECURITY GROUP,"Finance, Property & Procurement",Premises,Corporate R&M,premises
+T-04,R-04,12,ELITE SECURITY GROUP,9,Over500_2026_P03_-_published:284,2026-06-12 11:36:30.053,582.8,ELITE SECURITY GROUP,"Finance, Property & Procurement",Premises,Corporate R&M,premises
+T-04,R-04,12,ELITE SECURITY GROUP,9,Over500_2026_P04_-_published:84,2026-07-01 09:33:12.823,2215.58,ELITE SECURITY GROUP,"Finance, Property & Procurement",Premises,Corporate R&M,premises
+T-04,R-04,12,ELITE SECURITY GROUP,9,Over500_2026_P04_-_published:24,2026-07-07 09:27:34.423,641.08,ELITE SECURITY GROUP,Adult Social Care,Premises,Corporate R&M,premises
+T-04,R-04,12,ELITE SECURITY GROUP,9,Over500_2026_P04_-_published:68,2026-07-07 13:24:41.503,641.08,ELITE SECURITY GROUP,"Finance, Property & Procurement",Premises,Corporate R&M,premises
+T-04,R-04,12,ELITE SECURITY GROUP,9,Over500_2026_P04_-_published:66,2026-07-07 13:24:53.550,2404.14,ELITE SECURITY GROUP,"Finance, Property & Procurement",Premises,Corporate R&M,premises
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P02_-_published:934,2026-05-06 10:20:24.033,3100.0,D J TRAVEL,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P02_-_published:217,2026-05-18 16:46:17.293,6700.0,D J TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P02_-_published:315,2026-05-19 12:36:50.350,2144.74,D J TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P02_-_published:218,2026-05-19 12:40:05.960,6520.0,D J TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P02_-_published:219,2026-05-19 12:40:15.187,2554.08,D J TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P02_-_published:942,2026-05-20 08:47:44.180,2790.0,D J TRAVEL,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P03_-_published:244,2026-06-02 14:18:58.737,2297.94,D J TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P03_-_published:155,2026-06-02 14:24:47.950,6194.0,D J TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P03_-_published:156,2026-06-04 13:05:13.143,6365.0,D J TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P03_-_published:159,2026-06-04 13:05:13.143,2854.56,D J TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P03_-_published:936,2026-06-24 10:35:07.460,2945.0,D J TRAVEL,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P04_-_published:182,2026-07-08 16:47:40.240,3370.31,D J TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P04_-_published:278,2026-07-14 15:05:53.320,7035.0,D J TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P04_-_published:279,2026-07-14 15:05:53.320,6846.0,D J TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P04_-_published:217,2026-07-14 17:05:53.573,3305.28,D J TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,13,D J TRAVEL,16,Over500_2026_P04_-_published:1025,2026-07-15 10:33:10.383,2945.0,D J TRAVEL,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:364,2026-05-12 11:19:53.440,3747.69,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:367,2026-05-12 12:56:02.360,2800.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:368,2026-05-12 12:56:02.360,2100.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:369,2026-05-12 12:56:02.360,3640.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:371,2026-05-12 12:59:43.970,2240.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:372,2026-05-12 12:59:43.970,3640.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:240,2026-05-12 16:35:54.763,1213.33,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:288,2026-05-12 16:35:54.763,2426.67,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:297,2026-05-13 13:55:59.547,1148.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:314,2026-05-13 13:59:54.203,595.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:391,2026-05-13 13:59:54.203,1785.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:245,2026-05-13 14:07:05.533,2076.67,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:394,2026-05-13 14:07:05.533,3220.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:395,2026-05-13 14:07:05.533,3640.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:396,2026-05-13 14:07:18.240,3010.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:403,2026-05-26 13:02:40.640,3000.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:404,2026-05-26 13:05:52.720,4015.38,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:299,2026-05-27 12:22:43.497,1230.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:410,2026-05-27 12:35:52.803,2400.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:411,2026-05-27 12:35:52.803,2250.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:412,2026-05-27 12:35:52.803,3900.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:326,2026-05-27 12:41:56.507,595.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:414,2026-05-27 12:41:56.507,3220.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:415,2026-05-27 12:41:56.507,1785.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:416,2026-05-27 12:41:56.507,3900.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:249,2026-05-27 12:55:50.270,1300.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:292,2026-05-27 12:55:50.270,2600.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:250,2026-05-27 13:01:55.637,2225.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:418,2026-05-27 13:01:55.637,3900.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P02_-_published:419,2026-05-27 13:01:55.637,3010.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:184,2026-07-09 09:27:41.367,892.5,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:468,2026-07-09 09:27:41.367,2677.5,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:174,2026-07-13 13:35:35.780,608.17,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:224,2026-07-13 13:35:35.780,3040.83,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:259,2026-07-13 14:09:07.573,5330.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:177,2026-07-13 15:57:54.190,1722.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:260,2026-07-13 15:57:54.190,5487.69,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:262,2026-07-13 16:06:08.353,3280.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:287,2026-07-13 16:06:08.353,1776.67,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:447,2026-07-13 16:06:08.353,3553.33,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:471,2026-07-13 16:06:08.353,4100.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:472,2026-07-13 16:06:08.353,3075.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:263,2026-07-13 16:09:06.320,4715.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:264,2026-07-13 16:09:06.320,5330.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:318,2026-07-13 16:09:06.320,4407.5,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,14,BROADWAY CARS,46,Over500_2026_P04_-_published:474,2026-07-13 16:09:06.320,5330.0,BROADWAY CARS,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:295,2026-05-05 13:16:08.860,2072.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:208,2026-05-06 09:25:58.443,2145.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:212,2026-05-06 09:25:58.443,715.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:309,2026-05-06 09:25:58.443,1980.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:343,2026-05-06 09:25:58.443,792.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:259,2026-05-06 10:06:00.973,3472.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:352,2026-05-06 10:29:38.840,3150.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:362,2026-05-11 10:26:07.990,3180.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:211,2026-05-28 16:31:47.930,2037.75,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P02_-_published:213,2026-05-28 16:31:47.930,679.25,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P03_-_published:243,2026-06-01 10:28:35.323,2121.43,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P03_-_published:342,2026-06-01 10:28:35.323,848.57,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P03_-_published:221,2026-06-01 12:55:04.863,3825.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P03_-_published:197,2026-06-01 13:35:02.520,3720.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P03_-_published:335,2026-06-01 16:15:22.567,2220.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P03_-_published:258,2026-06-16 12:46:03.100,3975.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P04_-_published:277,2026-07-14 16:06:33.363,2359.5,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P04_-_published:428,2026-07-14 16:06:33.363,786.5,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Adult Social Care,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P04_-_published:299,2026-07-15 12:49:06.640,3256.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P04_-_published:270,2026-07-15 13:06:08.077,5355.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P04_-_published:323,2026-07-15 13:06:08.077,5035.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P04_-_published:304,2026-07-24 08:46:22.120,2828.57,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P04_-_published:334,2026-07-24 08:46:22.120,1131.43,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,15,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,24,Over500_2026_P04_-_published:296,2026-07-30 08:53:47.263,5456.0,ABC TRAVEL (WOKINGHAM) LIMITED T/A ABC TRAVEL,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,16,N Mehmood T/A A Star Executive Cars Ltd,7,Over500_2026_P02_-_published:313,2026-05-12 12:56:02.360,980.0,N Mehmood T/A A Star Executive Cars Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,16,N Mehmood T/A A Star Executive Cars Ltd,7,Over500_2026_P02_-_published:365,2026-05-12 12:56:02.360,1960.0,N Mehmood T/A A Star Executive Cars Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,16,N Mehmood T/A A Star Executive Cars Ltd,7,Over500_2026_P02_-_published:272,2026-05-20 09:36:47.467,2800.0,N Mehmood T/A A Star Executive Cars Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,16,N Mehmood T/A A Star Executive Cars Ltd,7,Over500_2026_P04_-_published:298,2026-07-08 16:54:07.357,540.0,N Mehmood T/A A Star Executive Cars Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,16,N Mehmood T/A A Star Executive Cars Ltd,7,Over500_2026_P04_-_published:185,2026-07-13 16:09:06.320,735.0,N Mehmood T/A A Star Executive Cars Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,16,N Mehmood T/A A Star Executive Cars Ltd,7,Over500_2026_P04_-_published:473,2026-07-13 16:09:06.320,1470.0,N Mehmood T/A A Star Executive Cars Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,16,N Mehmood T/A A Star Executive Cars Ltd,7,Over500_2026_P04_-_published:331,2026-07-29 17:03:41.017,4004.0,N Mehmood T/A A Star Executive Cars Ltd,Education & SEND,Transport,Transport Hire,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:691,2026-05-01 15:57:56.360,89122.5,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2174,2026-05-05 14:15:26.560,4764.64,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2175,2026-05-05 14:15:26.560,51310.21,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2177,2026-05-05 14:15:26.560,16876.43,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2178,2026-05-05 14:15:26.560,16916.01,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2183,2026-05-05 14:45:53.833,96417.9,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:713,2026-05-05 14:45:53.833,7742.55,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2181,2026-05-05 14:49:20.450,9068.36,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:723,2026-05-05 14:49:20.450,18033.36,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:695,2026-05-05 14:55:49.610,15041.26,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:709,2026-05-05 14:55:49.610,311353.42,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:717,2026-05-05 14:55:49.610,57920.32,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:727,2026-05-11 11:29:47.233,3196.62,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:700,2026-05-12 12:45:52.013,85125.0,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:720,2026-05-12 12:49:43.153,32864.67,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:701,2026-05-12 13:16:19.520,17896.87,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:696,2026-05-12 14:16:32.910,2566.36,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:714,2026-05-12 14:16:32.910,1550.0,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:724,2026-05-12 14:16:32.910,7828.2,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:710,2026-05-12 14:26:14.800,119381.4,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:692,2026-05-13 10:26:43.163,185970.32,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:702,2026-05-13 11:45:59.687,195844.36,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:703,2026-05-13 16:35:47.567,12297.34,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2176,2026-05-19 11:46:49.703,54241.36,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2179,2026-05-19 11:46:49.703,17882.35,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2184,2026-05-19 11:46:49.703,101925.86,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2193,2026-05-19 12:50:13.293,1668.58,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2173,2026-05-19 15:40:14.960,28217.54,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:704,2026-05-20 11:07:20.560,43509.85,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2185,2026-05-20 11:10:24.783,19420.72,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:731,2026-05-20 12:26:47.040,2585.44,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2170,2026-05-20 13:10:26.200,16304.62,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:705,2026-05-20 13:10:26.200,157038.29,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:728,2026-05-20 13:10:26.200,10169.81,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2172,2026-05-22 10:02:40.797,2070.26,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:734,2026-05-22 10:02:40.797,5199.81,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:729,2026-05-22 16:33:29.280,46320.84,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:730,2026-05-22 16:33:29.280,1679.16,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2180,2026-05-26 11:15:44.490,7015.34,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:711,2026-05-26 11:23:20.620,200305.25,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:715,2026-05-26 11:23:20.620,5225.72,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:725,2026-05-26 11:35:56.997,28989.53,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:2182,2026-05-26 11:45:48.727,4046.54,VolkerHighways Ltd,Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:726,2026-05-26 12:02:49.490,2610.11,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:712,2026-05-26 13:05:52.720,83960.48,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:716,2026-05-26 13:05:52.720,850.0,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:697,2026-05-26 14:12:39.790,1711.48,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:721,2026-05-26 14:12:39.790,10122.39,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:698,2026-05-27 09:47:51.080,34813.14,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,17,VolkerHighways Ltd,126,Over500_2026_P02_-_published:722,2026-05-27 09:47:51.080,54099.6,VolkerHighways Ltd,Environment,Third Party Payments,Payment to contractor,general_procurement
+T-04,R-04,18,VEOLIA ES WEST BERKSHIRE LTD (CHAPS ONLY),3,Over500_2026_P02_-_published:2196,2026-05-27 12:48:46.293,2201856.4,VEOLIA ES WEST BERKSHIRE LTD (CHAPS ONLY),Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,18,VEOLIA ES WEST BERKSHIRE LTD (CHAPS ONLY),3,Over500_2026_P03_-_published:2146,2026-06-29 08:53:20.387,2180425.32,VEOLIA ES WEST BERKSHIRE LTD (CHAPS ONLY),Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,18,VEOLIA ES WEST BERKSHIRE LTD (CHAPS ONLY),3,Over500_2026_P04_-_published:3194,2026-07-27 13:34:01.120,1803783.32,VEOLIA ES WEST BERKSHIRE LTD (CHAPS ONLY),Environment,Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,19,Millbrook Healthcare Limited,4,Over500_2026_P03_-_published:2216,2026-06-03 10:15:15.200,1141918.0,Millbrook Healthcare Limited,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,19,Millbrook Healthcare Limited,4,Over500_2026_P03_-_published:2144,2026-06-25 08:46:18.087,1141918.0,Millbrook Healthcare Limited,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,19,Millbrook Healthcare Limited,4,Over500_2026_P04_-_published:3789,2026-07-29 13:24:15.933,1141918.0,Millbrook Healthcare Limited,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,19,Millbrook Healthcare Limited,4,Over500_2026_P04_-_published:3311,2026-07-29 13:33:40.697,33611.35,Millbrook Healthcare Limited,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,20,RUSKIN MILL TRUST,9,Over500_2026_P02_-_published:1822,2026-05-13 13:20:06.850,151859.86,RUSKIN MILL TRUST,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,20,RUSKIN MILL TRUST,9,Over500_2026_P02_-_published:823,2026-05-13 13:20:06.850,179236.76,RUSKIN MILL TRUST,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,20,RUSKIN MILL TRUST,9,Over500_2026_P03_-_published:2676,2026-06-02 15:08:34.843,93223.17,RUSKIN MILL TRUST,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,20,RUSKIN MILL TRUST,9,Over500_2026_P03_-_published:801,2026-06-02 15:08:34.843,2959.6,RUSKIN MILL TRUST,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,20,RUSKIN MILL TRUST,9,Over500_2026_P03_-_published:802,2026-06-02 15:08:34.843,122817.82,RUSKIN MILL TRUST,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,20,RUSKIN MILL TRUST,9,Over500_2026_P04_-_published:3252,2026-07-06 16:33:58.617,39103.0,RUSKIN MILL TRUST,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies,care_or_education_placement
+T-04,R-04,20,RUSKIN MILL TRUST,9,Over500_2026_P04_-_published:3332,2026-07-06 16:33:58.617,18071.36,RUSKIN MILL TRUST,Education (DSG Funded) & Other Education Grants,Third Party Payments,Other agencies,care_or_education_placement
+T-04,R-04,20,RUSKIN MILL TRUST,9,Over500_2026_P04_-_published:1512,2026-07-15 10:33:10.383,105061.03,RUSKIN MILL TRUST,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,20,RUSKIN MILL TRUST,9,Over500_2026_P04_-_published:877,2026-07-15 10:33:10.383,82865.04,RUSKIN MILL TRUST,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,21,SoftwareONE UK Ltd,4,Over500_2026_P02_-_published:654,2026-05-27 10:03:04.440,1759.34,SoftwareONE UK Ltd,"Transformation, Customer & ICT",Supplies & Services,Subscriptions,general_procurement
+T-04,R-04,21,SoftwareONE UK Ltd,4,Over500_2026_P02_-_published:473,2026-05-27 11:55:56.537,375697.68,SoftwareONE UK Ltd,"Transformation, Customer & ICT",Supplies & Services,IT,general_procurement
+T-04,R-04,21,SoftwareONE UK Ltd,4,Over500_2026_P02_-_published:474,2026-05-27 12:22:43.497,85871.04,SoftwareONE UK Ltd,"Transformation, Customer & ICT",Supplies & Services,IT,general_procurement
+T-04,R-04,21,SoftwareONE UK Ltd,4,Over500_2026_P02_-_published:653,2026-05-27 12:22:43.497,59650.56,SoftwareONE UK Ltd,"Transformation, Customer & ICT",Supplies & Services,Subscriptions,general_procurement
+T-04,R-04,22,Livity Life Ltd,9,Over500_2026_P02_-_published:2199,2026-05-13 11:35:58.877,42882.27,Livity Life Ltd,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,22,Livity Life Ltd,9,Over500_2026_P02_-_published:2200,2026-05-13 11:56:01.483,135591.03,Livity Life Ltd,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,22,Livity Life Ltd,9,Over500_2026_P03_-_published:3087,2026-06-17 12:55:41.853,127886.78,Livity Life Ltd,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,22,Livity Life Ltd,9,Over500_2026_P03_-_published:3088,2026-06-17 13:02:03.357,35078.97,Livity Life Ltd,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,22,Livity Life Ltd,9,Over500_2026_P03_-_published:2218,2026-06-25 08:46:18.087,9220.77,Livity Life Ltd,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,22,Livity Life Ltd,9,Over500_2026_P04_-_published:3196,2026-07-13 15:25:26.290,26337.9,Livity Life Ltd,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,22,Livity Life Ltd,9,Over500_2026_P04_-_published:3215,2026-07-13 15:35:22.613,38706.21,Livity Life Ltd,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,22,Livity Life Ltd,9,Over500_2026_P04_-_published:3197,2026-07-13 15:45:27.253,46409.47,Livity Life Ltd,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,22,Livity Life Ltd,9,Over500_2026_P04_-_published:3310,2026-07-13 16:29:01.137,50961.45,Livity Life Ltd,"Finance, Property & Procurement",Third Party Payments,Private Contractors,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:787,2026-05-06 10:20:24.033,6012.36,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:788,2026-05-06 10:20:24.033,1931.48,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:789,2026-05-06 10:20:24.033,2139.48,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:790,2026-05-06 10:20:24.033,2367.3,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:809,2026-05-20 08:47:44.180,670.46,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:810,2026-05-20 08:47:44.180,672.25,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:811,2026-05-20 08:47:44.180,672.25,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:812,2026-05-20 08:47:44.180,672.25,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:813,2026-05-20 08:47:44.180,1119.82,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:814,2026-05-20 08:47:44.180,896.93,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:815,2026-05-20 08:47:44.180,672.25,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:816,2026-05-20 08:47:44.180,560.0,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:817,2026-05-20 08:47:44.180,785.5,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:818,2026-05-20 08:47:44.180,674.04,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:819,2026-05-20 08:47:44.180,3089.35,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:820,2026-05-20 08:47:44.180,895.14,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:821,2026-05-20 08:47:44.180,782.86,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:822,2026-05-20 08:47:44.180,895.14,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:628,2026-05-27 12:15:44.290,1117.3,WEST BERKSHIRE MENCAP,Education & SEND,Supplies & Services,Grants,grant
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P02_-_published:856,2026-05-27 14:31:51.517,641.76,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:2673,2026-06-03 09:57:27.700,5309.92,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:2674,2026-06-03 09:57:27.700,6736.12,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:2675,2026-06-03 09:57:27.700,1509.76,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:758,2026-06-03 09:57:27.700,17986.32,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:759,2026-06-03 09:57:27.700,11723.37,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:775,2026-06-03 09:57:27.700,8951.34,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:776,2026-06-03 09:57:27.700,6163.82,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:777,2026-06-03 09:57:27.700,2373.36,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:780,2026-06-03 09:57:27.700,8767.09,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:781,2026-06-03 09:57:27.700,756.36,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:782,2026-06-03 09:57:27.700,12337.0,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:783,2026-06-03 09:57:27.700,10429.68,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:784,2026-06-03 09:57:27.700,3018.24,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:795,2026-06-03 09:57:27.700,6641.04,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:796,2026-06-03 09:57:27.700,1509.4,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:2684,2026-06-09 10:25:50.717,538.32,WEST BERKSHIRE MENCAP,Children's Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:2685,2026-06-09 12:06:13.690,684.12,WEST BERKSHIRE MENCAP,Children's Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:792,2026-06-09 12:55:50.390,1389.83,WEST BERKSHIRE MENCAP,Children's Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:793,2026-06-09 13:39:07.280,641.88,WEST BERKSHIRE MENCAP,Children's Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:832,2026-06-09 13:39:07.280,592.38,WEST BERKSHIRE MENCAP,Children's Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:794,2026-06-09 14:59:02.953,682.05,WEST BERKSHIRE MENCAP,Children's Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:868,2026-06-09 14:59:02.953,518.11,WEST BERKSHIRE MENCAP,Children's Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:760,2026-06-17 10:32:49.720,8972.76,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:761,2026-06-17 10:32:49.720,6180.2,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:762,2026-06-17 10:32:49.720,11755.56,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:763,2026-06-17 10:32:49.720,12370.88,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:785,2026-06-17 10:32:49.720,18035.64,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:797,2026-06-17 10:32:49.720,8787.84,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:798,2026-06-17 10:32:49.720,2377.0,WEST BERKSHIRE MENCAP,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,23,WEST BERKSHIRE MENCAP,115,Over500_2026_P03_-_published:810,2026-06-17 16:23:02.523,547.91,WEST BERKSHIRE MENCAP,Children's Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:768,2026-05-13 10:12:08.150,6526.4,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:774,2026-05-13 10:12:08.150,5504.51,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:775,2026-05-13 10:12:08.150,5504.51,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:776,2026-05-13 10:12:08.150,9651.59,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:777,2026-05-13 10:12:08.150,10131.47,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:778,2026-05-13 10:12:08.150,5991.98,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:779,2026-05-13 10:12:08.150,5973.38,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:780,2026-05-13 10:12:08.150,8303.17,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:781,2026-05-13 10:12:08.150,9679.0,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:824,2026-05-13 10:12:08.150,4615.78,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:825,2026-05-13 10:12:08.150,7107.15,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:826,2026-05-13 10:12:08.150,5904.03,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:827,2026-05-13 10:12:08.150,4270.5,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P02_-_published:828,2026-05-13 10:12:08.150,8325.6,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:2667,2026-06-10 09:51:27.507,6542.2,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:2670,2026-06-10 09:51:27.507,5517.84,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:2671,2026-06-10 09:51:27.507,5987.84,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:2677,2026-06-10 09:51:27.507,8345.76,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:752,2026-06-10 09:51:27.507,5517.84,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:753,2026-06-10 09:51:27.507,9665.0,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:754,2026-06-10 09:51:27.507,6006.48,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:772,2026-06-10 09:51:27.507,10156.0,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:773,2026-06-10 09:51:27.507,9702.44,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:779,2026-06-10 09:51:27.507,8323.28,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:786,2026-06-10 09:51:27.507,4626.96,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:787,2026-06-10 09:51:27.507,5917.16,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:803,2026-06-10 09:51:27.507,7124.36,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:804,2026-06-10 09:51:27.507,4280.84,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:1537,2026-06-24 10:35:07.460,7992.98,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:1586,2026-06-24 10:35:07.460,1209.6,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:1631,2026-06-24 10:35:07.460,3946.4,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:1632,2026-06-24 10:35:07.460,4970.97,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:1658,2026-06-24 10:35:07.460,4983.08,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:1767,2026-06-24 10:35:07.460,906.24,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:2934,2026-06-24 10:35:07.460,7976.62,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:2935,2026-06-24 10:35:07.460,5144.72,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:2936,2026-06-24 10:35:07.460,4930.49,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:2950,2026-06-24 10:35:07.460,3956.0,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:2953,2026-06-24 10:35:07.460,8012.44,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P03_-_published:799,2026-06-24 10:35:07.460,7084.14,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:1408,2026-07-01 11:03:57.340,4682.72,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:1409,2026-07-01 11:03:57.340,639.52,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:1410,2026-07-01 11:03:57.340,4835.93,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Voluntary Associations,general_procurement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:2232,2026-07-01 11:03:57.340,1215.36,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:2233,2026-07-01 11:03:57.340,3956.0,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:2245,2026-07-01 11:03:57.340,5157.2,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:2247,2026-07-01 11:03:57.340,1604.0,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:2248,2026-07-01 11:03:57.340,4942.6,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:2255,2026-07-01 11:03:57.340,1601.28,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,24,PURLEY PARK TRUST LTD,94,Over500_2026_P04_-_published:2264,2026-07-01 11:03:57.340,8012.44,PURLEY PARK TRUST LTD,Adult Social Care,Third Party Payments,Private Contractors,care_or_education_placement
+T-04,R-04,25,Elior UK PLC,9,Over500_2026_P02_-_published:525,2026-05-13 17:06:44.850,18371.14,Elior UK PLC,Adult Social Care,Supplies & Services,Catering,general_procurement
+T-04,R-04,25,Elior UK PLC,9,Over500_2026_P02_-_published:526,2026-05-13 17:06:44.850,11912.65,Elior UK PLC,Adult Social Care,Supplies & Services,Catering,general_procurement
+T-04,R-04,25,Elior UK PLC,9,Over500_2026_P02_-_published:530,2026-05-27 12:56:02.700,23694.03,Elior UK PLC,Adult Social Care,Supplies & Services,Catering,general_procurement
+T-04,R-04,25,Elior UK PLC,9,Over500_2026_P03_-_published:434,2026-06-11 16:35:35.760,11935.93,Elior UK PLC,Adult Social Care,Supplies & Services,Catering,general_procurement
+T-04,R-04,25,Elior UK PLC,9,Over500_2026_P03_-_published:440,2026-06-16 13:25:27.470,23516.69,Elior UK PLC,Adult Social Care,Supplies & Services,Catering,general_procurement
+T-04,R-04,25,Elior UK PLC,9,Over500_2026_P03_-_published:433,2026-06-17 17:05:38.013,18592.3,Elior UK PLC,Adult Social Care,Supplies & Services,Catering,general_procurement
+T-04,R-04,25,Elior UK PLC,9,Over500_2026_P04_-_published:532,2026-07-15 10:16:37.157,11999.95,Elior UK PLC,Adult Social Care,Supplies & Services,Catering,general_procurement
+T-04,R-04,25,Elior UK PLC,9,Over500_2026_P04_-_published:983,2026-07-15 13:26:21.243,18219.82,Elior UK PLC,Adult Social Care,Supplies & Services,Catering,general_procurement
+T-04,R-04,25,Elior UK PLC,9,Over500_2026_P04_-_published:533,2026-07-28 12:57:29.070,23173.08,Elior UK PLC,Adult Social Care,Supplies & Services,Catering,general_procurement
